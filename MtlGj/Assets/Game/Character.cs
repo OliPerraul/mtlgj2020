@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MtlGJ
+namespace MTLGJ
 {
     public class Character : BaseObject
     {

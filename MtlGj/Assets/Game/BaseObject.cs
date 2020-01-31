@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MtlGJ
+namespace MTLGJ
 {
 
     public class BaseObject : MonoBehaviour
@@ -16,7 +16,7 @@ namespace MtlGJ
         // Start is called before the first frame update
         public virtual void Start()
         {
-
+            
         }
 
         // Update is called once per frame
@@ -24,6 +24,9 @@ namespace MtlGJ
         {
             if(SpriteRenderer != null)
                 SpriteRenderer.sortingOrder = (int)-Transform.position.y;
+
+
+           
         }
     }
 }
