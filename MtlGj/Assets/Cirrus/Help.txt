@@ -1,0 +1,25 @@
+﻿<
+public class Feature : ScriptableObject
+{
+
+}
+
+[System.Serializable]
+public class Addon<T> where T : ScriptableObject
+{
+    [SerializeField]
+    private T something;
+}
+
+
+[Serializable]
+public class FeatureAddon : Addon<Feature> { };
+
+[SerializeField]
+private FeatureAddon _addon;
+
+
+
+
+
+
