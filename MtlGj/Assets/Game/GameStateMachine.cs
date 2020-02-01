@@ -13,7 +13,8 @@ namespace MTLGJ
     {
         Intermission,
         InRound,
-        Start
+        StartRound,
+        StartSession
     }
 
 
@@ -21,7 +22,7 @@ namespace MTLGJ
     {
         public override int ID => -1;//(int)EnemyStateID.Default;
 
-        //public Enemy Enemy => (Enemy)_context[0];
+        public GameStateMachine StateMachine => (GameStateMachine)_context[0];
 
         private List<Point> _path;//= new List<Point>()
 
@@ -51,11 +52,11 @@ namespace MTLGJ
         }
     }
 
-    public class GameStart : GameState
+    public class StartSession : GameState
     {
-        public override int ID => (int)GameStateID.Start;
+        public override int ID => (int)GameStateID.StartSession;
 
-        public GameStart(
+        public StartSession(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -69,6 +70,8 @@ namespace MTLGJ
             base.Enter(args);
 
             Game.Instance.Session = new Session();
+
+            StateMachine.TrySetState(GameStateID.StartRound);
         }
     }
 
@@ -88,6 +91,34 @@ namespace MTLGJ
         public override void Enter(params object[] args)
         {
             base.Enter(args);
+        }
+    }
+
+    public class StartRound : GameState
+    {
+        public override int ID => (int)GameStateID.InRound;
+
+        //private Vector2Int dest;
+        private Cirrus.Timer _timer;
+
+        public StartRound(
+            bool isStart,
+            params object[] context) : base(
+            isStart,
+            context)
+        {
+            _timer = new Cirrus.Timer(1, start:true, repeat:true);
+        }
+
+        private void OnTimeOut()
+        {
+            CountDown.Instance.Number--;
+
+            if (CountDown.Instance.Number < -1)
+            {
+                _timer.Stop();
+                StateMachine.TrySetState(GameStateID.InRound);
+            }
         }
     }
 
@@ -123,11 +154,10 @@ namespace MTLGJ
         {
             base.Awake();
 
-            Add(new GameStart(true));
-            Add(new EnemyMarching(false));
-            Add(new EnemyAttack(false));
-            Add(new EnemyIdle(false));
-
+            Add(new StartSession(true, this));
+            Add(new StartRound(false, this));
+            Add(new InRound(false, this));
+            Add(new Intermission(false, this));
         }
 
         public override void Start()

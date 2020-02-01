@@ -74,13 +74,7 @@ namespace MTLGJ
                 if (tg == null)
                     continue;
 
-                //if (tg == _character)
-                //    continue;
-
-                //if (!IsValidTarget(tg))
-                //    continue;
-
-                lis.Add(tg);
+                 lis.Add(tg);
             }
 
             return lis;

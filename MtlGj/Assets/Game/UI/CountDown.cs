@@ -7,6 +7,8 @@ namespace MTLGJ
 
     public class CountDown : MonoBehaviour
     {
+        public static CountDown Instance;
+
         [SerializeField]
         private UnityEngine.UI.Text _text;
 
@@ -26,8 +28,9 @@ namespace MTLGJ
 
         public void Awake()
         {
-            //_game.OnNewRoundHandler += OnNewRound;
-            //_game.On
+            Instance = this;
+            ////_game.OnNewRoundHandler += OnNewRound;
+            ////_game.On
         }
 
         //private void OnNewRound(Round round)
