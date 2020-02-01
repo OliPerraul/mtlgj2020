@@ -29,6 +29,7 @@ namespace MTLGJ
             
                 if (other.CompareTag("collectible")) {
                 Debug.Log("collected");
+                SoundManagerScript.PlaySound("inventor");
                 if (ressourcesQty <=maxRessources) {
                     ressourcesQty += qtyCollected;
                     if (ressourcesQty > maxRessources) { ressourcesQty = maxRessources; }
