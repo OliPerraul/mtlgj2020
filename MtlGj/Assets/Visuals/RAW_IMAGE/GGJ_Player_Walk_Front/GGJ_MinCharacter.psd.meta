@@ -1,7 +1,67 @@
 fileFormatVersion: 2
 guid: d672d22029054ef4f926da430910299d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4585697371804282794
+    second: GGJ_MinCharacter_0
+  - first:
+      213: -2224764532440448296
+    second: GGJ_MinCharacter_1
+  - first:
+      213: -2431452333900137230
+    second: GGJ_MinCharacter_2
+  - first:
+      213: -3149838383721707156
+    second: GGJ_MinCharacter_3
+  - first:
+      213: 410887397307888088
+    second: GGJ_MinCharacter_4
+  - first:
+      213: 2833097746399673725
+    second: GGJ_MinCharacter_5
+  - first:
+      213: 8723666144624210379
+    second: GGJ_MinCharacter_6
+  - first:
+      213: 1339383881709422185
+    second: GGJ_MinCharacter_7
+  - first:
+      213: -4415035464305504310
+    second: GGJ_MinCharacter_8
+  - first:
+      213: -7163620087685538316
+    second: GGJ_MinCharacter_9
+  - first:
+      213: -8183466100921226844
+    second: GGJ_MinCharacter_10
+  - first:
+      213: -6715246125541598722
+    second: GGJ_MinCharacter_11
+  - first:
+      213: 8806349028678543718
+    second: GGJ_MinCharacter_12
+  - first:
+      213: -3898712900398504086
+    second: GGJ_MinCharacter_13
+  - first:
+      213: -3061510116403189616
+    second: GGJ_MinCharacter_14
+  - first:
+      213: -2978054923664114705
+    second: GGJ_MinCharacter_15
+  - first:
+      213: 118009017194174521
+    second: GGJ_MinCharacter_16
+  - first:
+      213: -1754231685618812257
+    second: GGJ_MinCharacter_17
+  - first:
+      213: -519173014532831429
+    second: GGJ_MinCharacter_18
+  - first:
+      213: 4858539059335221253
+    second: GGJ_MinCharacter_19
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +100,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +130,441 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1168
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650d92259845c50c0800000000000000
+      internalID: -4585697371804282794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1168
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d2cffee17c0021e0800000000000000
+      internalID: -2224764532440448296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1168
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc76951cfeb14ed0800000000000000
+      internalID: -2431452333900137230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1168
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c698066bda68944d0800000000000000
+      internalID: -3149838383721707156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 876
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1b83f29e3c3b500800000000000000
+      internalID: 410887397307888088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 876
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7dbc14d36f215720800000000000000
+      internalID: 2833097746399673725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_6
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 876
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc17d697320b01970800000000000000
+      internalID: 8723666144624210379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_7
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 876
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9668c274b82769210800000000000000
+      internalID: 1339383881709422185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 584
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf815713a4aab2c0800000000000000
+      internalID: -4415035464305504310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_9
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 584
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd96a71c75b59c90800000000000000
+      internalID: -7163620087685538316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_10
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 584
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9a32760fc7e6e80800000000000000
+      internalID: -8183466100921226844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_11
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 584
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef956cb4a37aec2a0800000000000000
+      internalID: -6715246125541598722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 292
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669ad7698cf663a70800000000000000
+      internalID: 8806349028678543718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 292
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67a38af54df4e9c0800000000000000
+      internalID: -3898712900398504086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 292
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098e58b05c45385d0800000000000000
+      internalID: -3061510116403189616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 292
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: febb56943d2dba6d0800000000000000
+      internalID: -2978054923664114705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938d62e639043a100800000000000000
+      internalID: 118009017194174521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_17
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ab4f48397b7a7e0800000000000000
+      internalID: -1754231685618812257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_18
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b374dcbd4e68bc8f0800000000000000
+      internalID: -519173014532831429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MinCharacter_19
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5005907688ffc6340800000000000000
+      internalID: 4858539059335221253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -85,7 +577,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

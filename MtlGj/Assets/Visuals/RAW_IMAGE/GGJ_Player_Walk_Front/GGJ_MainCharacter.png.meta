@@ -1,7 +1,481 @@
 fileFormatVersion: 2
 guid: 8b8f1322d2114af42a0dbc7ee0d97463
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5737228857481479001
+    second: GGJ_MainCharacter_0
+  - first:
+      213: 7863450887508890793
+    second: GGJ_MainCharacter_1
+  - first:
+      213: 8949415165358250921
+    second: GGJ_MainCharacter_2
+  - first:
+      213: 493317238505253415
+    second: GGJ_MainCharacter_3
+  - first:
+      213: 5991971003852540050
+    second: GGJ_MainCharacter_4
+  - first:
+      213: -691589625915806538
+    second: GGJ_MainCharacter_5
+  - first:
+      213: 8439660867777848427
+    second: GGJ_MainCharacter_6
+  - first:
+      213: 2043466644931337212
+    second: GGJ_MainCharacter_7
+  - first:
+      213: -4408820842347861932
+    second: GGJ_MainCharacter_8
+  - first:
+      213: 4251558819744105683
+    second: GGJ_MainCharacter_9
+  - first:
+      213: -6959906452577645011
+    second: GGJ_MainCharacter_10
+  - first:
+      213: -3715992735514539376
+    second: GGJ_MainCharacter_11
+  - first:
+      213: -2271917875586370319
+    second: GGJ_MainCharacter_12
+  - first:
+      213: -6990280426303739396
+    second: GGJ_MainCharacter_13
+  - first:
+      213: 4480623729131606213
+    second: GGJ_MainCharacter_14
+  - first:
+      213: 7706740675793989406
+    second: GGJ_MainCharacter_15
+  - first:
+      213: -7110136011814039067
+    second: GGJ_MainCharacter_16
+  - first:
+      213: 6792060475636690666
+    second: GGJ_MainCharacter_17
+  - first:
+      213: 8429712514830215794
+    second: GGJ_MainCharacter_18
+  - first:
+      213: 1325005282154581117
+    second: GGJ_MainCharacter_19
+  - first:
+      213: 2841664367020986720
+    second: GGJ_MainCharacter_20
+  - first:
+      213: 4060788529333371423
+    second: GGJ_MainCharacter_21
+  - first:
+      213: 2912706891004938367
+    second: GGJ_MainCharacter_22
+  - first:
+      213: 6005592656061460149
+    second: GGJ_MainCharacter_23
+  - first:
+      213: 5906861142674793318
+    second: GGJ_MainCharacter_24
+  - first:
+      213: 8821198289364593223
+    second: GGJ_MainCharacter_25
+  - first:
+      213: 6467603324004798373
+    second: GGJ_MainCharacter_26
+  - first:
+      213: 8634519965700806520
+    second: GGJ_MainCharacter_27
+  - first:
+      213: -6430175359527603884
+    second: GGJ_MainCharacter_28
+  - first:
+      213: -370129867435935132
+    second: GGJ_MainCharacter_29
+  - first:
+      213: 2361007858493951890
+    second: GGJ_MainCharacter_30
+  - first:
+      213: 5131077397389415810
+    second: GGJ_MainCharacter_31
+  - first:
+      213: -4813388878879862550
+    second: GGJ_MainCharacter_32
+  - first:
+      213: -1681911949901733441
+    second: GGJ_MainCharacter_33
+  - first:
+      213: -1567899669908115479
+    second: GGJ_MainCharacter_34
+  - first:
+      213: 3980732788369323833
+    second: GGJ_MainCharacter_35
+  - first:
+      213: -2453110663104657986
+    second: GGJ_MainCharacter_36
+  - first:
+      213: -6066991339884710950
+    second: GGJ_MainCharacter_37
+  - first:
+      213: -7811997964687602257
+    second: GGJ_MainCharacter_38
+  - first:
+      213: -1469891787723762714
+    second: GGJ_MainCharacter_39
+  - first:
+      213: 7270880200700561451
+    second: GGJ_MainCharacter_40
+  - first:
+      213: -6649658382104299151
+    second: GGJ_MainCharacter_41
+  - first:
+      213: -7054696294297790465
+    second: GGJ_MainCharacter_42
+  - first:
+      213: 6740267393552732976
+    second: GGJ_MainCharacter_43
+  - first:
+      213: -2459958893278309720
+    second: GGJ_MainCharacter_44
+  - first:
+      213: -2814653883867203660
+    second: GGJ_MainCharacter_45
+  - first:
+      213: -7285657367552164384
+    second: GGJ_MainCharacter_46
+  - first:
+      213: -6656709397811985126
+    second: GGJ_MainCharacter_47
+  - first:
+      213: -6553537660442945840
+    second: GGJ_MainCharacter_48
+  - first:
+      213: 7588422322879023202
+    second: GGJ_MainCharacter_49
+  - first:
+      213: -2192712194294628843
+    second: GGJ_MainCharacter_50
+  - first:
+      213: 4858533285220552798
+    second: GGJ_MainCharacter_51
+  - first:
+      213: 4562979494747150540
+    second: GGJ_MainCharacter_52
+  - first:
+      213: 8525216220448393117
+    second: GGJ_MainCharacter_53
+  - first:
+      213: 5951593639844984553
+    second: GGJ_MainCharacter_54
+  - first:
+      213: -3963021658252859556
+    second: GGJ_MainCharacter_55
+  - first:
+      213: 5932526174000726488
+    second: GGJ_MainCharacter_56
+  - first:
+      213: 2920172024528078451
+    second: GGJ_MainCharacter_57
+  - first:
+      213: 2071296505627168404
+    second: GGJ_MainCharacter_58
+  - first:
+      213: 3494941943774880200
+    second: GGJ_MainCharacter_59
+  - first:
+      213: 8752921776579214717
+    second: GGJ_MainCharacter_60
+  - first:
+      213: -1715803560012856444
+    second: GGJ_MainCharacter_61
+  - first:
+      213: -1880561152903134621
+    second: GGJ_MainCharacter_62
+  - first:
+      213: -6688292732548145793
+    second: GGJ_MainCharacter_63
+  - first:
+      213: -2364909426107670158
+    second: GGJ_MainCharacter_64
+  - first:
+      213: -34371705009908087
+    second: GGJ_MainCharacter_65
+  - first:
+      213: 1848683575214598768
+    second: GGJ_MainCharacter_66
+  - first:
+      213: -587157224967346405
+    second: GGJ_MainCharacter_67
+  - first:
+      213: -6197280599021830098
+    second: GGJ_MainCharacter_68
+  - first:
+      213: 252883318627551210
+    second: GGJ_MainCharacter_69
+  - first:
+      213: -7881656021140194255
+    second: GGJ_MainCharacter_70
+  - first:
+      213: 6941832975766852128
+    second: GGJ_MainCharacter_71
+  - first:
+      213: -2309936074557032347
+    second: GGJ_MainCharacter_72
+  - first:
+      213: -1429718847070725881
+    second: GGJ_MainCharacter_73
+  - first:
+      213: -5831830618184451860
+    second: GGJ_MainCharacter_74
+  - first:
+      213: -1770256461398549477
+    second: GGJ_MainCharacter_75
+  - first:
+      213: -5013278547313424527
+    second: GGJ_MainCharacter_76
+  - first:
+      213: -633287322307757614
+    second: GGJ_MainCharacter_77
+  - first:
+      213: -7885198486616430559
+    second: GGJ_MainCharacter_78
+  - first:
+      213: 1784520775521152383
+    second: GGJ_MainCharacter_79
+  - first:
+      213: -6099653072492707534
+    second: GGJ_MainCharacter_80
+  - first:
+      213: 7916694664531739488
+    second: GGJ_MainCharacter_81
+  - first:
+      213: -2945483667627112891
+    second: GGJ_MainCharacter_82
+  - first:
+      213: -3400304775527900316
+    second: GGJ_MainCharacter_83
+  - first:
+      213: -898374849444664725
+    second: GGJ_MainCharacter_84
+  - first:
+      213: -1155920807599968240
+    second: GGJ_MainCharacter_85
+  - first:
+      213: 1838516425982461649
+    second: GGJ_MainCharacter_86
+  - first:
+      213: 5740613651511534295
+    second: GGJ_MainCharacter_87
+  - first:
+      213: 9048017963890271546
+    second: GGJ_MainCharacter_88
+  - first:
+      213: -2700306917456557359
+    second: GGJ_MainCharacter_89
+  - first:
+      213: -3212922984942139653
+    second: GGJ_MainCharacter_90
+  - first:
+      213: 2816470290336780749
+    second: GGJ_MainCharacter_91
+  - first:
+      213: -3509196253188635102
+    second: GGJ_MainCharacter_92
+  - first:
+      213: 7191567127374193887
+    second: GGJ_MainCharacter_93
+  - first:
+      213: -7851667995255446123
+    second: GGJ_MainCharacter_94
+  - first:
+      213: 9220791519672972728
+    second: GGJ_MainCharacter_95
+  - first:
+      213: 5394606422583181238
+    second: GGJ_MainCharacter_96
+  - first:
+      213: -751392684695963534
+    second: GGJ_MainCharacter_97
+  - first:
+      213: -1694864971031584909
+    second: GGJ_MainCharacter_98
+  - first:
+      213: 347269251686665451
+    second: GGJ_MainCharacter_99
+  - first:
+      213: -3307342941398249772
+    second: GGJ_MainCharacter_100
+  - first:
+      213: -7510961322409574057
+    second: GGJ_MainCharacter_101
+  - first:
+      213: -248379684844490776
+    second: GGJ_MainCharacter_102
+  - first:
+      213: -8341834800579521728
+    second: GGJ_MainCharacter_103
+  - first:
+      213: 547253083086860343
+    second: GGJ_MainCharacter_104
+  - first:
+      213: -3304384049576911155
+    second: GGJ_MainCharacter_105
+  - first:
+      213: -5456939308699878835
+    second: GGJ_MainCharacter_106
+  - first:
+      213: 6932713838763397085
+    second: GGJ_MainCharacter_107
+  - first:
+      213: 2285631178299564439
+    second: GGJ_MainCharacter_108
+  - first:
+      213: -293115022203642914
+    second: GGJ_MainCharacter_109
+  - first:
+      213: -777253910514995411
+    second: GGJ_MainCharacter_110
+  - first:
+      213: -4547594325799136430
+    second: GGJ_MainCharacter_111
+  - first:
+      213: -2495511038880850731
+    second: GGJ_MainCharacter_112
+  - first:
+      213: -8709481308446611310
+    second: GGJ_MainCharacter_113
+  - first:
+      213: 4497207121967869630
+    second: GGJ_MainCharacter_114
+  - first:
+      213: -5518815623937594783
+    second: GGJ_MainCharacter_115
+  - first:
+      213: 6277486444115161636
+    second: GGJ_MainCharacter_116
+  - first:
+      213: 6253001257131178658
+    second: GGJ_MainCharacter_117
+  - first:
+      213: -8912020399153957468
+    second: GGJ_MainCharacter_118
+  - first:
+      213: -8476514539071437807
+    second: GGJ_MainCharacter_119
+  - first:
+      213: 6678997600968551651
+    second: GGJ_MainCharacter_120
+  - first:
+      213: -7794635079082140971
+    second: GGJ_MainCharacter_121
+  - first:
+      213: 7834907898679589231
+    second: GGJ_MainCharacter_122
+  - first:
+      213: -8488213979691178003
+    second: GGJ_MainCharacter_123
+  - first:
+      213: 5064351447893796195
+    second: GGJ_MainCharacter_124
+  - first:
+      213: -4490218440262083738
+    second: GGJ_MainCharacter_125
+  - first:
+      213: 7471206835143133280
+    second: GGJ_MainCharacter_126
+  - first:
+      213: -7186004740120390013
+    second: GGJ_MainCharacter_127
+  - first:
+      213: -2142777550757463051
+    second: GGJ_MainCharacter_128
+  - first:
+      213: 125737692961416030
+    second: GGJ_MainCharacter_129
+  - first:
+      213: 654379464800654144
+    second: GGJ_MainCharacter_130
+  - first:
+      213: 8415646604349987266
+    second: GGJ_MainCharacter_131
+  - first:
+      213: -772242583590084454
+    second: GGJ_MainCharacter_132
+  - first:
+      213: 3055335857996956557
+    second: GGJ_MainCharacter_133
+  - first:
+      213: -499001281844380446
+    second: GGJ_MainCharacter_134
+  - first:
+      213: -4211312538513401010
+    second: GGJ_MainCharacter_135
+  - first:
+      213: -7539679643260867503
+    second: GGJ_MainCharacter_136
+  - first:
+      213: -1536222177488414418
+    second: GGJ_MainCharacter_137
+  - first:
+      213: 3613641278713188792
+    second: GGJ_MainCharacter_138
+  - first:
+      213: 8568483535160074627
+    second: GGJ_MainCharacter_139
+  - first:
+      213: 4220324227431211677
+    second: GGJ_MainCharacter_140
+  - first:
+      213: -2878975015304537730
+    second: GGJ_MainCharacter_141
+  - first:
+      213: 5779653559793850158
+    second: GGJ_MainCharacter_142
+  - first:
+      213: -2198765833474631711
+    second: GGJ_MainCharacter_143
+  - first:
+      213: 3302846561210925854
+    second: GGJ_MainCharacter_144
+  - first:
+      213: 5312333557628188801
+    second: GGJ_MainCharacter_145
+  - first:
+      213: 2717667574506009364
+    second: GGJ_MainCharacter_146
+  - first:
+      213: 8801000044445920152
+    second: GGJ_MainCharacter_147
+  - first:
+      213: -3230903052193507890
+    second: GGJ_MainCharacter_148
+  - first:
+      213: -5193325867806301099
+    second: GGJ_MainCharacter_149
+  - first:
+      213: 6488542044241846136
+    second: GGJ_MainCharacter_150
+  - first:
+      213: -1895371614933856472
+    second: GGJ_MainCharacter_151
+  - first:
+      213: 9061157497524370901
+    second: GGJ_MainCharacter_152
+  - first:
+      213: -7821140531439282943
+    second: GGJ_MainCharacter_153
+  - first:
+      213: -4034834643385891915
+    second: GGJ_MainCharacter_154
+  - first:
+      213: -8197754884616283346
+    second: GGJ_MainCharacter_155
+  - first:
+      213: -7125537658312495527
+    second: GGJ_MainCharacter_156
+  - first:
+      213: -7559587604334851886
+    second: GGJ_MainCharacter_157
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +514,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +544,441 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1168
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac32b250c44160b0800000000000000
+      internalID: -5737228857481479001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1168
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a492ba7be6902d60800000000000000
+      internalID: 7863450887508890793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1168
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab1ca64da5b23c70800000000000000
+      internalID: 8949415165358250921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1168
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72aaeaa2a6d98d600800000000000000
+      internalID: 493317238505253415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 876
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298421591e1c72350800000000000000
+      internalID: 5991971003852540050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 876
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc61f046eaf666f0800000000000000
+      internalID: -691589625915806538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_6
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 876
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64e9a018d2bf1570800000000000000
+      internalID: 8439660867777848427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_7
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 876
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfbdd79361adb5c10800000000000000
+      internalID: 2043466644931337212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 584
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45864858dc8b0d2c0800000000000000
+      internalID: -4408820842347861932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_9
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 584
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4c6888832900b30800000000000000
+      internalID: 4251558819744105683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_10
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 584
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e0920e4f1796f90800000000000000
+      internalID: -6959906452577645011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_11
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 584
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a49b39b442e6cc0800000000000000
+      internalID: -3715992735514539376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 292
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f470d2bab68870e0800000000000000
+      internalID: -2271917875586370319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 292
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9acc50df88dfe90800000000000000
+      internalID: -6990280426303739396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 292
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c05313da8f5e2e30800000000000000
+      internalID: 4480623729131606213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 292
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f21c400d7d3fa60800000000000000
+      internalID: 7706740675793989406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e19c17e7f8b35d90800000000000000
+      internalID: -7110136011814039067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_17
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeeab47440f324e50800000000000000
+      internalID: 6792060475636690666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_18
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27aae15aeda5cf470800000000000000
+      internalID: 8429712514830215794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_MainCharacter_19
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 180
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c0750b84d536210800000000000000
+      internalID: 1325005282154581117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
