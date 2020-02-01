@@ -51,9 +51,7 @@ public class oceaneCreation : MonoBehaviour
                //  Tile tile = ScriptableObject.CreateInstance<Tile>();
                  tilemap.SetTile(plpl, tile);*/
 
-                 Level.Instance.Tilemap.SetTile(
-                     plpl,
-                     TilemapResources.Instance.GetTile(TileID.Full));
+
         }
    }
 }
