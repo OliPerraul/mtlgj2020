@@ -52,6 +52,31 @@ namespace MTLGJ
 
         public virtual void OnTilemapCellChanged(Vector3Int cellPos)
         {
+            // Only reroute if cel in path was changed
+
+            if (_path == null)
+            {
+                CalculatePath();
+                return;
+            }
+
+            for (int i = 0; i < _path.Count; i++)
+            {
+                var cel = _path[i].Position.FromPathfindToCellPosition();
+
+                if (Level.Instance.Tilemap.GetTile(cel) == null)
+                    continue;
+
+                if (((GGJTile)Level.Instance.Tilemap.GetTile(cel)).ID == TileID.Full)
+                {
+                    CalculatePath();
+                    return;
+                };
+            }
+        }
+
+        public void CalculatePath()
+        {
             var tile = Level.Instance.Tilemap.GetTile(Level.Instance.Ends.Random());
 
             _path = Pathfinding.Pathfinding.FindPath(
@@ -81,60 +106,25 @@ namespace MTLGJ
             }
         }
 
+
         public override void Enter(params object[] args)
         {
             //Level.Instance.Ends.Ge
 
-
-            var tile = Level.Instance.Tilemap.GetTile(Level.Instance.Ends.Random());
-            //Debug.Log("");
-
-            _path = Pathfinding.Pathfinding.FindPath(
-                Level.Instance.PathindingGrid, 
-                Enemy.PathfindPosition.ToPathFindingPoint(),
-                Level.Instance.Ends.Random().FromCellToPathfindingPosition().ToPathFindingPoint(), 
-                Pathfinding.Pathfinding.DistanceType.Manhattan
-                );
-
-            for (int i = 0; i < _path.Count; i++)
-            {
-                //Level.Instance.Tilemap.SetTile(
-                //    _path[i].Position.FromPathfindToCellPosition(),
-                //    TilemapResources.Instance.GetTile(TileID.Full));
-            }
-
-
-            if (_path.Count != 0)
-            {
-                //Level.Instance.Tilemap.SetTile(
-                //     _path[0].Position.FromPathfindToCellPosition(),
-                //     TilemapResources.Instance.GetTile(TileID.Full));
-
-                _nextDestination =
-                    _path[0]
-                        .Position
-                        .FromPathfindToCellPosition()
-                        .FromCellToWorldPosition();
-
-                Enemy.pos = _nextDestination;
-                Level.Instance.Tilemap.SetTile(
-                     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
-                     TilemapResources.Instance.GetTile(TileID.Full));
-                //Enemy.pos = _nextDestination;
-            }
+            CalculatePath();
         }
 
 
         public void FollowPath()
-        {                      
+        {
+            if (_currentPathPositionIndex >= _path.Count - 1)
+                return;
+
             if (Enemy.Transform.position.IsCloseEnough(
                 _nextDestination, 1f))
             {
-
-
                 _currentPathPositionIndex++;
-
-
+            
                 _nextDestination =
                     _path[_currentPathPositionIndex]
                         .Position
