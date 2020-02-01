@@ -20,7 +20,7 @@ public class ShootingTower : MonoBehaviour
     public int waitingTime;
     public float movingDelay;
 
-    public int health
+    public int health;
 
     // Update is called once per frame
     void Update()
@@ -35,7 +35,7 @@ public class ShootingTower : MonoBehaviour
         }
         else{ Shoot(); timer = 0; }
 
-        if
+       
     }
 
     GameObject FindNearestEnemy() 
