@@ -5,14 +5,17 @@ using UnityEngine;
 
 namespace MTLGJ
 {
-    public class Game : MonoBehaviour
-    {
-        public static Game Instance;
 
-        private void Awake()
-        {
-            Instance = this;
-        }
+    public enum TowerID
+    {
+        Shooting1,
+        Shield1
+    }
+
+    public abstract class Tower : BaseObject
+    {
+
+        public abstract TowerID ID { get; }
 
         // Start is called before the first frame update
         void Start()

@@ -3,35 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Wall : MonoBehaviour
+namespace MTLGJ
 {
-  public GameObject myPrefab;
 
-   public int width = 10;
-   public int height = 4;
-   public GameObject avatar;
-
-     IsometricCharacterRenderer isoRenderer;
-
-    Rigidbody2D rbody;
-
-     private void Start()
+    public class Wall : MonoBehaviour
     {
-        rbody = avatar.GetComponent<Rigidbody2D>();
-        isoRenderer = avatar.GetComponentInChildren<IsometricCharacterRenderer>();
-    }
-  
-   
-    void Update()
-   {
-     
-      if (Input.GetButtonDown("Fire1"))
+        public GameObject myPrefab;
+
+        public int width = 10;
+        public int height = 4;
+        public GameObject avatar;
+
+        IsometricCharacterRenderer isoRenderer;
+
+        Rigidbody2D rbody;
+
+        private void Start()
         {
-            Debug.Log(Input.mousePosition);
-           // isoRenderer.GetDirection();
+            rbody = avatar.GetComponent<Rigidbody2D>();
+            isoRenderer = avatar.GetComponentInChildren<IsometricCharacterRenderer>();
+        }
+
+
+        void Update()
+        {
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Debug.Log(Input.mousePosition);
+                // isoRenderer.GetDirection();
                 float positionX = rbody.position.x + 1;
                 float positionY = rbody.position.y + 1;
-               Instantiate(myPrefab, new Vector2(positionX,positionY), Quaternion.identity);
+                Instantiate(myPrefab, new Vector2(positionX, positionY), Quaternion.identity);
+            }
         }
-   }
+    }
 }

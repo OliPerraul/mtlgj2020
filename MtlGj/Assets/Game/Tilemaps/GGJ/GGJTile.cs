@@ -10,6 +10,7 @@ public enum TileID
     End,
     Full,
     Empty,
+    Guide,
 }
 
 

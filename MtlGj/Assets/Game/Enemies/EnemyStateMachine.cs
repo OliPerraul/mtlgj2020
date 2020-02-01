@@ -104,16 +104,8 @@ namespace MTLGJ
             {
 
 
-                //Level.Instance.Tilemap.SetTile(
-                //     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
-                //     TilemapResources.Instance.GetTile(TileID.Full));
-
                 _currentPathPositionIndex++;
 
-
-                //Level.Instance.Tilemap.SetTile(
-                //     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
-                //     TilemapResources.Instance.GetTile(TileID.Full));
 
                 _nextDestination =
                     _path[_currentPathPositionIndex]

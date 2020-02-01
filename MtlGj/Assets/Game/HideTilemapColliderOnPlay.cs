@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class HideTilemapColliderOnPlay : MonoBehaviour
+namespace MTLGJ
 {
 
-    private TilemapRenderer tilemapRenderer;
 
-    void Start()
+    public class HideTilemapColliderOnPlay : MonoBehaviour
     {
-        tilemapRenderer = GetComponent<TilemapRenderer>();
-        tilemapRenderer.enabled = false;
+
+        private TilemapRenderer tilemapRenderer;
+
+        void Start()
+        {
+            tilemapRenderer = GetComponent<TilemapRenderer>();
+            tilemapRenderer.enabled = false;
+        }
     }
 }

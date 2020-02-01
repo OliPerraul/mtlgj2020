@@ -34,7 +34,9 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 1313569305966714582}
   MoveSpeed: 5
   isoRenderer: {fileID: 1313569305966714580}
+  rbody: {fileID: 0}
   Axis: {x: 0, y: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &6337688672265349532
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +135,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5423225938513969260, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
     - {fileID: 2079923369, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
 --- !u!1 &1313569304408886809 stripped

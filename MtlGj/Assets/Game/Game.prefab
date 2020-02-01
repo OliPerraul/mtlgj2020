@@ -58,3 +58,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resources:
   - {fileID: 11400000, guid: 756d359ef008a8342ae816d43743a1e4, type: 2}
+  - {fileID: 11400000, guid: 272d66ea553886b4784c0feb0fc2bff1, type: 2}
