@@ -70,21 +70,29 @@ namespace MTLGJ
 
             for (int i = 0; i < _path.Count; i++)
             {
-                Level.Instance.Tilemap.SetTile(
-                    _path[i].Position.FromPathfindToCellPosition(),
-                    TilemapResources.Instance.GetTile(TileID.Full));
+                //Level.Instance.Tilemap.SetTile(
+                //    _path[i].Position.FromPathfindToCellPosition(),
+                //    TilemapResources.Instance.GetTile(TileID.Full));
             }
 
 
             if (_path.Count != 0)
             {
+                //Level.Instance.Tilemap.SetTile(
+                //     _path[0].Position.FromPathfindToCellPosition(),
+                //     TilemapResources.Instance.GetTile(TileID.Full));
+
                 _nextDestination =
                     _path[0]
                         .Position
                         .FromPathfindToCellPosition()
                         .FromCellToWorldPosition();
+
                 Enemy.pos = _nextDestination;
-                //return;
+                Level.Instance.Tilemap.SetTile(
+                     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
+                     TilemapResources.Instance.GetTile(TileID.Full));
+                //Enemy.pos = _nextDestination;
             }
         }
 
@@ -94,13 +102,29 @@ namespace MTLGJ
             if (Enemy.Transform.position.IsCloseEnough(
                 _nextDestination, 1f))
             {
+
+
+                //Level.Instance.Tilemap.SetTile(
+                //     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
+                //     TilemapResources.Instance.GetTile(TileID.Full));
+
                 _currentPathPositionIndex++;
-            
+
+
+                //Level.Instance.Tilemap.SetTile(
+                //     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
+                //     TilemapResources.Instance.GetTile(TileID.Full));
+
                 _nextDestination =
                     _path[_currentPathPositionIndex]
                         .Position
                         .FromPathfindToCellPosition()
                         .FromCellToWorldPosition();
+
+                Enemy.pos = _nextDestination;
+                Level.Instance.Tilemap.SetTile(
+                     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
+                     TilemapResources.Instance.GetTile(TileID.Full));
             }
 
             var npos = 
@@ -118,7 +142,6 @@ namespace MTLGJ
 
         public override void BeginUpdate()
         {
-            Enemy.pos = _nextDestination;
             FollowPath();
         }
 
