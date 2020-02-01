@@ -37,8 +37,8 @@ namespace MTLGJ
 
             if (GameObject.FindGameObjectsWithTag("Enemy") != null)
             {
-                //Debug.Log("there is a bad guys");
-                //target = closestObject.transform.Find("EnemyTransform");
+                Debug.Log("there is a bad guys");
+                target = closestObject.transform.Find("EnemyTransform");
                 timer += Time.deltaTime;
 
                 if (timer > waitingTime && timer < movingDelay) { } else { Shoot(); timer = 0; }
@@ -47,7 +47,7 @@ namespace MTLGJ
 
 
 
-            //hbar.SetSize(health);
+            hbar.SetSize(health);
 
             if (health <= 0) { gameObject.Destroy(); }
 
@@ -84,11 +84,11 @@ namespace MTLGJ
 
         void Shoot()
         {
-            //Vector2 vector = target.position - firePoint.position;
+            Vector2 vector = target.position - firePoint.position;
 
-            //GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            //Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            //rb.AddForce(vector * bulletForce, ForceMode2D.Impulse);
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(vector * bulletForce, ForceMode2D.Impulse);
         }
     }
 }
