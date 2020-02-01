@@ -12,7 +12,7 @@ namespace MTLGJ
 
         public Vector3Int PathfindPosition =>
             (Level.Instance.Tilemap.origin * -1) +
-            Level.Instance.Tilemap.WorldToCell(Transform.position);
+            Transform.position.FromWorldToCellPosition();
 
         [SerializeField]
         public SpriteRenderer SpriteRenderer;
