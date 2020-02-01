@@ -23,7 +23,11 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //RuletileMap.SetTile(TilemapResources.Instance.GetTile(TileID.))
+            
+        //    //Level.Instance.InvokeRepeating.
+
+        //TilemapResources.Inst
     }
 
     // Update is called once per frame
