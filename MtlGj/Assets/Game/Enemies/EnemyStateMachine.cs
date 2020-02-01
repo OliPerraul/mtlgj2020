@@ -141,11 +141,11 @@ namespace MTLGJ
 
     }
 
-    public class Start : EnemyState
+    public class EnemyStart : EnemyState
     {
         public override int ID => (int)EnemyStateID.Start;
 
-        public Start(
+        public EnemyStart(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -160,11 +160,11 @@ namespace MTLGJ
         }
     }
 
-    public class Attack : EnemyState
+    public class EnemyAttack : EnemyState
     {
         public override int ID => (int) EnemyStateID.Attack;
 
-        public Attack(
+        public EnemyAttack(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -181,11 +181,11 @@ namespace MTLGJ
 
 
 
-    public class Idle : EnemyState
+    public class EnemyIdle : EnemyState
     {
         public override int ID => (int)EnemyStateID.Idle;
 
-        public Idle(
+        public EnemyIdle(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -201,13 +201,13 @@ namespace MTLGJ
     }
 
 
-    public class Marching : EnemyState
+    public class EnemyMarching : EnemyState
     {
         public override int ID => (int)EnemyStateID.Marching;
 
         private Vector2Int dest;
 
-        public Marching(
+        public EnemyMarching(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -238,10 +238,10 @@ namespace MTLGJ
         {
             base.Awake();
             
-            Add(new Start(true, _enemy));
-            Add(new Marching(false, _enemy));
-            Add(new Attack(false, _enemy));
-            Add(new Idle(false, _enemy));
+            Add(new EnemyStart(true, _enemy));
+            Add(new EnemyMarching(false, _enemy));
+            Add(new EnemyAttack(false, _enemy));
+            Add(new EnemyIdle(false, _enemy));
             
         }
 

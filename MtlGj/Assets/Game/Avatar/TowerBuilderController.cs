@@ -93,6 +93,11 @@ namespace MTLGJ
                 //Vector2 spawnPos = playerPos + playerDirection;
                 //Vector3Int plpl = new Vector3Int((int)playerPos.x, (int)playerPos.y, 3);
 
+                var curr = Level.Instance.Tilemap.GetTile(
+                    front.FromWorldToCellPosition());
+
+                if (curr != null && ((GGJTile)curr).ID == TileID.Full)
+                    return;            
 
                 Level.Instance.Tilemap.SetTile(
                     front.FromWorldToCellPosition(),
