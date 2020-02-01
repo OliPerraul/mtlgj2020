@@ -10,10 +10,16 @@ namespace MTLGJ
         [SerializeField]
         public Transform Transform;
 
+        public Vector3Int PathfindPosition =>
+            (Level.Instance.Tilemap.origin * -1) +
+            Transform.position.FromWorldToCellPosition();
+
         [SerializeField]
         public SpriteRenderer SpriteRenderer;
 
-        public Vector3Int CellPos => Level.Instance == null ? new Vector3Int() : Level.Instance.Tilemap.WorldToCell(Transform.position);
+        public Vector3Int CellPos => Level.Instance == null ? 
+            new Vector3Int() : 
+            Level.Instance.Tilemap.WorldToCell(Transform.position);
 
 
         // Start is called before the first frame update

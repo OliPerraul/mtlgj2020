@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1 &1534587801
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,12 +119,17 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &72370240
 MonoBehaviour:
+=======
+--- !u!210 &2468551522707947193
+SortingGroup:
+>>>>>>> dea8e401c630824c340bdb8a80835acb77b0bbe4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8686550222437178842}
   m_Enabled: 1
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf1434bd37ad6714fac14112427cb66c, type: 3}
   m_Name: 
@@ -133,6 +139,11 @@ MonoBehaviour:
   bulletForce: 1
   waitingTime: 0
   movingDelay: 2
+=======
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+>>>>>>> dea8e401c630824c340bdb8a80835acb77b0bbe4
 --- !u!1001 &5174976256728554284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235,6 +246,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: shootingTower
+<<<<<<< HEAD
       objectReference: {fileID: 0}
     - target: {fileID: 7994894285727508457, guid: 08737211fd0677647b8aa59baf0eaf4b,
         type: 3}
@@ -250,6 +262,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.99999994
+=======
+>>>>>>> dea8e401c630824c340bdb8a80835acb77b0bbe4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08737211fd0677647b8aa59baf0eaf4b, type: 3}
@@ -259,6 +273,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5174976256728554284}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!4 &1605042775441061544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5879296046552214916, guid: 08737211fd0677647b8aa59baf0eaf4b,
@@ -271,3 +286,5 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5174976256728554284}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> dea8e401c630824c340bdb8a80835acb77b0bbe4

@@ -9,6 +9,7 @@ public enum TileID
     Start,
     End,
     Full,
+    Empty,
 }
 
 

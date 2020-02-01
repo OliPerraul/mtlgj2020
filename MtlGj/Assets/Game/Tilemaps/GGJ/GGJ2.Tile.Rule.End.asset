@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a947206126fd6248bad262187e39753, type: 3}
   m_Name: GGJ2.Tile.Rule.End
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 243b68d1462e12040b8ec763a86f3474, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5ca6aae9588f6e24bb3e73218af1fbf1, type: 3}
+  m_Color: {r: 0.6415094, g: 0.28141683, b: 0.28141683, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -34,8 +34,16 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
+<<<<<<< HEAD
   m_DefaultSprite: {fileID: 21300000, guid: bc9ad0a8ebf38df41b0fe7690ce33de4, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules: []
   ID: 0
+=======
+  m_DefaultSprite: {fileID: 21300000, guid: 5ca6aae9588f6e24bb3e73218af1fbf1, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules: []
+  ID: 1
+>>>>>>> dea8e401c630824c340bdb8a80835acb77b0bbe4
