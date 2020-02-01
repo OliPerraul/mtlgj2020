@@ -45,8 +45,11 @@ namespace MTLGJ
         private void Start() {
             //rbody = avatar.GetComponent<Rigidbody2D>();
             // scriptPosition = avatar.GetComponent<IsometricPlayerMovementController>();
+
+
+            //TODO
             isoRenderer = avatar.GetComponentInChildren<IsometricCharacterRenderer>();
-            turretMenu.enabled = false;
+            //turretMenu.enabled = false;
         }
 
         private bool settile = false;
@@ -82,10 +85,10 @@ namespace MTLGJ
             settile = true;
 
             if (Input.GetButtonDown("Fire1")) {
-                turretMenu.enabled = !isMenuActive;
-                isMenuActive = !isMenuActive;
+                //turretMenu.enabled = !isMenuActive;
+                //isMenuActive = !isMenuActive;
 
-                //CreateTower(0);
+                CreateTower(0);
 
             }
         }
