@@ -69,7 +69,7 @@ namespace MTLGJ
         {
             base.Enter(args);
 
-            Game.Instance.Session = new Session();
+            Game.Instance.session = new Session();
 
             StateMachine.TrySetState(GameStateID.StartRound);
         }
@@ -151,13 +151,13 @@ namespace MTLGJ
         public void SpawnNext()
         {
             _spwnIdx = 0;
-            var en = Game.Instance.Session.Wave.Groups[_spwnIdx].Enemies[_spwnIdx];
+            var en = Game.Instance.session.Wave.Groups[_spwnIdx].Enemies[_spwnIdx];
 
             en.Create(
                 Level.Instance.Starts.Random().FromCellToWorldPosition(),
                 Level.Instance.transform);
 
-            _timer.Start(Game.Instance.Session.Wave.Groups[_spwnIdx].Frequency);
+            _timer.Start(Game.Instance.session.Wave.Groups[_spwnIdx].Frequency);
 
             _spwnIdx++;
         }
@@ -173,7 +173,7 @@ namespace MTLGJ
         {
             SpawnNext();
 
-            if (_spwnIdx >= Game.Instance.Session.Wave.Groups.Count)
+            if (_spwnIdx >= Game.Instance.session.Wave.Groups.Count)
             {
                 _timer.Stop();
                 StateMachine.TrySetState(GameStateID.Intermission);

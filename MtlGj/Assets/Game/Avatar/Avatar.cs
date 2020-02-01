@@ -10,10 +10,13 @@ namespace MTLGJ
 {
     public class Avatar : Character
     {
-        [SerializeField] int ressourcesQty;
+        [SerializeField] public int ressourcesQty;
         [SerializeField] int maxRessources;
         [SerializeField] int qtyCollected;
-        [SerializeField] int qtySpent;
+        [SerializeField] public int priceShootingTower;
+        [SerializeField] public int priceShieldTower;
+        [SerializeField] public int priceRepairTower;
+
         [SerializeField] Text resourceTxt;
 
         public override void Update() {
@@ -35,6 +38,6 @@ namespace MTLGJ
             }
         }
 
-        public void ressourcesSpent() { ressourcesQty -= qtySpent; }
+        
     }
 }
