@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Wall : MonoBehaviour
-{
-  public GameObject myPrefab;
-
-   public int width = 10;
-   public int height = 4;
+public class oceaneCreation : MonoBehaviour
+{ 
    public GameObject avatar;
 
      IsometricCharacterRenderer isoRenderer;
@@ -31,7 +26,7 @@ public class Wall : MonoBehaviour
            // isoRenderer.GetDirection();
                 float positionX = rbody.position.x + 1;
                 float positionY = rbody.position.y + 1;
-               Instantiate(myPrefab, new Vector2(positionX,positionY), Quaternion.identity);
+               Instantiate(this, new Vector2(positionX,positionY), Quaternion.identity);
         }
    }
 }
