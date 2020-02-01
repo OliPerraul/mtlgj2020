@@ -114,16 +114,12 @@ namespace MTLGJ
 
         public void Mark(Vector3Int cel)
         {
-            if (StateMachine.setCel)
+            if (StateMachine.prevCelSet)
             {
+                StateMachine.prevCelSet = false;
 
-                Level.Instance.Tilemap.SetTile(
-                 StateMachine.celSet,
-                 StateMachine.prevTile);
-                StateMachine.setCel = false;
+                Level.Instance.UpdateCharacterCel(StateMachine.prevCel, true);
             }
-
-
 
             if (Level.Instance.Tilemap.GetTile(cel) == null)
                 return;
@@ -137,16 +133,13 @@ namespace MTLGJ
             if (((GGJTile)Level.Instance.Tilemap.GetTile(cel)).ID == TileID.Character)
                 return;
 
-            StateMachine.setCel = true;
+            StateMachine.prevCelSet = true;
 
             StateMachine.prevTile = Level.Instance.Tilemap.GetTile(
              cel) == null ? null : (GGJTile)Level.Instance.Tilemap.GetTile(
              cel);
-            //TilemapResources.Instance.GetTile(TileID.Building));
 
-            Level.Instance.Tilemap.SetTile(
-                 cel,
-                 TilemapResources.Instance.GetTile(TileID.Character));
+            Level.Instance.UpdateCharacterCel(cel, true);
         }
 
         public void FollowPath()
@@ -165,7 +158,7 @@ namespace MTLGJ
                     _path[_currentPathPositionIndex]
                         .Position
                         .FromPathfindToCellPosition()
-                        .FromCellToWorldPosition();                
+                        .FromCellToWorldPosition();
             }
 
             var npos =
@@ -283,10 +276,9 @@ namespace MTLGJ
         [SerializeField]
         private Enemy _enemy;
 
-        public bool setCel = false;
+        public bool prevCelSet = false;
 
-
-        public Vector3Int celSet = new Vector3Int(-1, -1, -1);
+        public Vector3Int prevCel = new Vector3Int(-1, -1, -1);
 
         public GGJTile prevTile = null;
 

@@ -10,7 +10,6 @@ using Pathfinding = NesScripts.Controls.PathFind;
 namespace MTLGJ
 {
 
-
     public static class LevelUtils
     {
         public static Vector2Int FromCellToPathfindingPosition(this Vector3Int pos)
@@ -43,11 +42,48 @@ namespace MTLGJ
 
         public Cirrus.Events.Event<Vector3Int> OnTilemapCellChangedHandler;
 
-        public void UpdatePathfinding(Vector3Int pos, bool walkable)
+
+        public Dictionary<Vector3Int, int> CharacterCells = new Dictionary<Vector3Int, int>();
+
+        public void UpdateBuildingCell(Vector3Int pos, bool walkable)
         {
             _grid.UpdateGrid(pos.ToVector2Int(), walkable);
             OnTilemapCellChangedHandler?.Invoke(pos);
+        }        
+
+
+        public void UpdateCharacterCel(Vector3Int pos, bool character)
+        {
+            if (character)
+            {
+                //_grid.UpdateGrid(pos.ToVector2Int(), walkable);
+                if (!CharacterCells.TryGetValue(pos, out int value))
+                {
+                    CharacterCells.Add(pos, 1);
+
+                    Tilemap.SetTile(
+                         pos,
+                         TilemapResources.Instance.GetTile(TileID.Character));
+                }
+                else CharacterCells[pos]++;
+
+            }
+            else
+            {
+                if (CharacterCells.TryGetValue(pos, out int value))
+                {
+                    CharacterCells[pos]--;
+                    if (CharacterCells[pos] == 0)
+                    {
+                        Tilemap.SetTile(
+                             pos,
+                             TilemapResources.Instance.GetTile(TileID.Empty));
+                    }
+                }
+
+            }
         }
+
 
 
         [SerializeField]
