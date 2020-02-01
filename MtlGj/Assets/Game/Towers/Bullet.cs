@@ -49,6 +49,16 @@ namespace MTLGJ
             }    
          }
 
+        public void OnTriggerEnter(Collider2D collision)
+        {
+            var en = collision.transform.GetComponent<Enemy>();
+            if (en != null)
+            {
+                en.ApplyDamage(_dmg);
+                gameObject.Destroy();
+            }
+        }
+
         public void OnTimeout()
         {
             gameObject.Destroy();
@@ -68,9 +78,24 @@ namespace MTLGJ
             _force = force;
         }
 
+        private Enemy _tg;
+
+        public void SetTarget(Enemy tg)
+        {
+            _tg = tg;
+        }
+
         public void Update()
         {
-            transform.position += _dir * _force;
+            //transform.position += _dir * _force * Time.deltaTime;
+            transform.Translate(_dir * _force * Time.smoothDeltaTime);
+
+            if (_tg != null)
+            {
+                //transform.position += _dir * _force * Time.deltaTime;
+                transform.Translate((_tg.transform.position - transform.position).normalized * 2f * Time.smoothDeltaTime);
+            }
+
         }
     }
 }

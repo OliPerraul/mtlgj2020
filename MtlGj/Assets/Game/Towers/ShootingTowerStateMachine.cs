@@ -108,6 +108,7 @@ namespace MTLGJ
             b.SetDamage(ShootingTower.BulletDamage);
             b.SetDir((tg.Transform.position - Tower.Transform.position).normalized);
             b.SetForce(ShootingTower.BulletForce);
+            b.SetTarget(tg);
 
             //rb.AddForce(velocity, ForceMode2D.Impulse);
         }

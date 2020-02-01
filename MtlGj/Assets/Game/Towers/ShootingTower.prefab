@@ -118,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 6295043157102337093, guid: 08737211fd0677647b8aa59baf0eaf4b,
         type: 3}
       propertyPath: BulletForce
-      value: 0.0005
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08737211fd0677647b8aa59baf0eaf4b, type: 3}
