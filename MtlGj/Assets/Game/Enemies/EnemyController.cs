@@ -7,7 +7,6 @@ namespace MTLGJ
 
     public class EnemyController : MonoBehaviour
     {
-
         public float movementSpeed = 5000f;
         IsometricCharacterRenderer isoRenderer;
 

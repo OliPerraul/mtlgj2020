@@ -22,7 +22,6 @@ namespace MTLGJ
             isoRenderer = GetComponentInChildren<IsometricCharacterRenderer>();
         }
 
-
         // Update is called once per frame
         void FixedUpdate()
         {

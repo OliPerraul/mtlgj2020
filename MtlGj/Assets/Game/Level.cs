@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.Tilemaps;
+using Pathfinding = NesScripts.Controls.PathFind;
 
 public class Level : MonoBehaviour
 {
@@ -14,9 +15,25 @@ public class Level : MonoBehaviour
 
     public static Level Instance;
 
+    private Pathfinding.Grid _grid;
+
     private void Awake()
     {
-        Instance = this;        
+        Instance = this;
+        var init = new bool[
+            Tilemap.size.x,
+            Tilemap.size.y];
+
+        _grid = new Pathfinding.Grid(init);
+
+        for (int i = 0; i < Tilemap.size.x; i++)
+        {
+            for (int j = 0; j < Tilemap.size.y; j++)
+            {
+                //_grid.UpdateGrid(new Vector2Int())
+            }
+        }
+
     }
 
 
