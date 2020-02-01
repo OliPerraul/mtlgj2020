@@ -17,7 +17,6 @@ namespace MTLGJ
         Idle
     }
 
-
     public abstract class EnemyState : Cirrus.FSM.State
     {
         public override int ID => -1;//(int)EnemyStateID.Default;
@@ -48,33 +47,44 @@ namespace MTLGJ
             isStart,
             context)
         {
+            Level.Instance.OnTilemapCellChangedHandler += OnTilemapCellChanged;
+        }
 
-        }    
-
-
-
-        public override void Enter(params object[] args)
+        public virtual void OnTilemapCellChanged(Vector3Int cellPos)
         {
-            //Level.Instance.Ends.Ge
+            // Only reroute if cel in path was changed
 
-
-            var tile = Level.Instance.Tilemap.GetTile(Level.Instance.Ends.Random());
-            //Debug.Log("");
-
-            _path = Pathfinding.Pathfinding.FindPath(
-                Level.Instance.PathindingGrid, 
-                Enemy.PathfindPosition.ToPathFindingPoint(),
-                Level.Instance.Ends.Random().FromCellToPathfindingPosition().ToPathFindingPoint(), 
-                Pathfinding.Pathfinding.DistanceType.Manhattan
-                );
+            if (_path == null)
+            {
+                CalculatePath();
+                return;
+            }
 
             for (int i = 0; i < _path.Count; i++)
             {
-                //Level.Instance.Tilemap.SetTile(
-                //    _path[i].Position.FromPathfindToCellPosition(),
-                //    TilemapResources.Instance.GetTile(TileID.Full));
-            }
+                var cel = _path[i].Position.FromPathfindToCellPosition();
 
+                if (Level.Instance.Tilemap.GetTile(cel) == null)
+                    continue;
+
+                if (((GGJTile)Level.Instance.Tilemap.GetTile(cel)).ID == TileID.Full)
+                {
+                    CalculatePath();
+                    return;
+                };
+            }
+        }
+
+        public void CalculatePath()
+        {
+            var tile = Level.Instance.Tilemap.GetTile(Level.Instance.Ends.Random());
+
+            _path = Pathfinding.Pathfinding.FindPath(
+                Level.Instance.PathindingGrid,
+                Enemy.PathfindPosition.ToPathFindingPoint(),
+                Level.Instance.Ends.Random().FromCellToPathfindingPosition().ToPathFindingPoint(),
+                Pathfinding.Pathfinding.DistanceType.Manhattan
+                );
 
             if (_path.Count != 0)
             {
@@ -97,16 +107,24 @@ namespace MTLGJ
         }
 
 
+        public override void Enter(params object[] args)
+        {
+            //Level.Instance.Ends.Ge
+
+            CalculatePath();
+        }
+
+
         public void FollowPath()
-        {                      
+        {
+            if (_currentPathPositionIndex >= _path.Count - 1)
+                return;
+
             if (Enemy.Transform.position.IsCloseEnough(
                 _nextDestination, 1f))
             {
-
-
                 _currentPathPositionIndex++;
-
-
+            
                 _nextDestination =
                     _path[_currentPathPositionIndex]
                         .Position
@@ -141,11 +159,11 @@ namespace MTLGJ
 
     }
 
-    public class Start : EnemyState
+    public class EnemyStart : EnemyState
     {
         public override int ID => (int)EnemyStateID.Start;
 
-        public Start(
+        public EnemyStart(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -160,11 +178,11 @@ namespace MTLGJ
         }
     }
 
-    public class Attack : EnemyState
+    public class EnemyAttack : EnemyState
     {
         public override int ID => (int) EnemyStateID.Attack;
 
-        public Attack(
+        public EnemyAttack(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -181,11 +199,11 @@ namespace MTLGJ
 
 
 
-    public class Idle : EnemyState
+    public class EnemyIdle : EnemyState
     {
         public override int ID => (int)EnemyStateID.Idle;
 
-        public Idle(
+        public EnemyIdle(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -201,13 +219,13 @@ namespace MTLGJ
     }
 
 
-    public class Marching : EnemyState
+    public class EnemyMarching : EnemyState
     {
         public override int ID => (int)EnemyStateID.Marching;
 
         private Vector2Int dest;
 
-        public Marching(
+        public EnemyMarching(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -238,10 +256,10 @@ namespace MTLGJ
         {
             base.Awake();
             
-            Add(new Start(true, _enemy));
-            Add(new Marching(false, _enemy));
-            Add(new Attack(false, _enemy));
-            Add(new Idle(false, _enemy));
+            Add(new EnemyStart(true, _enemy));
+            Add(new EnemyMarching(false, _enemy));
+            Add(new EnemyAttack(false, _enemy));
+            Add(new EnemyIdle(false, _enemy));
             
         }
 

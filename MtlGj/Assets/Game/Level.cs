@@ -40,6 +40,8 @@ namespace MTLGJ
         //[SerializeField]
         //public Tilemap RuletileMap;
 
+        public Cirrus.Events.Event<Vector3Int> OnTilemapCellChangedHandler;
+
         [SerializeField]
         public Tilemap Tilemap;
 
