@@ -168,6 +168,11 @@ PrefabInstance:
       propertyPath: qtySpent
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7382590327497878508, guid: 0f1b5510ab1f14245aaade1760d67520,
+        type: 3}
+      propertyPath: resourceTxt
+      value: 
+      objectReference: {fileID: 511622931}
     - target: {fileID: 7977355652372328161, guid: 0f1b5510ab1f14245aaade1760d67520,
         type: 3}
       propertyPath: m_Name
@@ -310,8 +315,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271, y: 213.04}
-  m_SizeDelta: {x: 258, y: 24.8}
+  m_AnchoredPosition: {x: 261.78, y: 213.54}
+  m_SizeDelta: {x: 276.45, y: 23.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &43696421
 MonoBehaviour:
@@ -378,7 +383,7 @@ RectTransform:
   m_Children:
   - {fileID: 686653579}
   m_Father: {fileID: 511363840}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1380,8 +1385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35.03, y: 0.0000076294}
-  m_SizeDelta: {x: 23.28, y: 24.79}
+  m_AnchoredPosition: {x: -38.78, y: 0.0000023246}
+  m_SizeDelta: {x: 22.43, y: 23.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488397010
 MonoBehaviour:
@@ -1455,9 +1460,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1839388178}
   - {fileID: 53405768}
   m_Father: {fileID: 611589269}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1620,7 +1626,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 487306986}
-  - {fileID: 1839388178}
   - {fileID: 511363840}
   m_Father: {fileID: 365956628}
   m_RootOrder: 0
@@ -1755,7 +1760,7 @@ GameObject:
   - component: {fileID: 686653581}
   - component: {fileID: 686653580}
   m_Layer: 5
-  m_Name: background (1)
+  m_Name: filling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1800,10 +1805,10 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -8883303678603537024, guid: 7672022e1c2cd9649bed8a209a6cd046,
     type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1853,8 +1858,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.88, y: 213.04}
-  m_SizeDelta: {x: 93.33, y: 24.79}
+  m_AnchoredPosition: {x: -54.2, y: 213.54}
+  m_SizeDelta: {x: 100, y: 23.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839989471
 MonoBehaviour:
@@ -2981,13 +2986,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 611589269}
-  m_RootOrder: 1
+  m_Father: {fileID: 511363840}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 26.2, y: 29.7}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.020004272, y: 0}
+  m_SizeDelta: {x: -0.039985657, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839388179
 MonoBehaviour:
@@ -3002,7 +3007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3312,8 +3317,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.9, y: 213.04}
-  m_SizeDelta: {x: 120.3, y: 24.8}
+  m_AnchoredPosition: {x: 59.16, y: 213.54}
+  m_SizeDelta: {x: 128.9, y: 23.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091837967
 MonoBehaviour:

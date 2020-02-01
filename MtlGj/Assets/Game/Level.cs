@@ -45,6 +45,17 @@ namespace MTLGJ
 
         public Dictionary<Vector3Int, int> CharacterCells = new Dictionary<Vector3Int, int>();
 
+        public Dictionary<Vector3Int, Tower> Towers = new Dictionary<Vector3Int, Tower>();
+
+        public void AddTower(Tower  tower, Vector3Int pos) { Towers.Add(pos, tower); }
+        public void RemoveTower(Tower tower, Vector3Int pos) { Towers.Remove(pos); }
+
+        public Tower GetTower(Vector3Int pos) 
+        {
+            Tower tower;
+            if (Towers.TryGetValue(pos, out tower)){ return tower; } return null;
+        }
+
         public void SetBuildingCell(Vector3Int pos, bool building)
         {
             Tilemap.SetTile(
