@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d026bff5d20a7ff4c9b28a36fa857534, type: 3}
+  m_Name: GameResources
+  m_EditorClassIdentifier: 
+  SessionSettings:
+    MaxLives: 10
+    Waves:
+    - Difficulty: 0
+      Groups:
+      - Difficulty: 0
+        Frequency: 0
+        Pause: 0
+        Enemies:
+        - {fileID: 5775286107222846060, guid: 64a7a74e28af3594989c3ab58921d766, type: 3}

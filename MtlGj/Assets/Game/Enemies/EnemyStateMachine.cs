@@ -23,6 +23,8 @@ namespace MTLGJ
 
         public Enemy Enemy => (Enemy)_context[0];
 
+        public EnemyStateMachine StateMachine => (EnemyStateMachine)_context[1];
+
         private List<Point> _path;//= new List<Point>()
 
         //[SerializeField]
@@ -67,7 +69,7 @@ namespace MTLGJ
                 if (Level.Instance.Tilemap.GetTile(cel) == null)
                     continue;
 
-                if (((GGJTile)Level.Instance.Tilemap.GetTile(cel)).ID == TileID.Full)
+                if (((GGJTile)Level.Instance.Tilemap.GetTile(cel)).ID == TileID.Building)
                 {
                     CalculatePath();
                     return;
@@ -88,10 +90,6 @@ namespace MTLGJ
 
             if (_path.Count != 0)
             {
-                //Level.Instance.Tilemap.SetTile(
-                //     _path[0].Position.FromPathfindToCellPosition(),
-                //     TilemapResources.Instance.GetTile(TileID.Full));
-
                 _nextDestination =
                     _path[0]
                         .Position
@@ -99,21 +97,57 @@ namespace MTLGJ
                         .FromCellToWorldPosition();
 
                 Enemy.pos = _nextDestination;
-                Level.Instance.Tilemap.SetTile(
-                     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
-                     TilemapResources.Instance.GetTile(TileID.Full));
-                //Enemy.pos = _nextDestination;
+                //Level.Instance.Tilemap.SetTile(
+                //     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
+                //     TilemapResources.Instance.GetTile(TileID.Building));
             }
         }
 
 
         public override void Enter(params object[] args)
         {
-            //Level.Instance.Ends.Ge
-
+            _nextDestination = Enemy.Transform.position;
             CalculatePath();
         }
 
+
+
+        public void Mark(Vector3Int cel)
+        {
+            if (StateMachine.setCel)
+            {
+
+                Level.Instance.Tilemap.SetTile(
+                 StateMachine.celSet,
+                 StateMachine.prevTile);
+                StateMachine.setCel = false;
+            }
+
+
+
+            if (Level.Instance.Tilemap.GetTile(cel) == null)
+                return;
+
+            if (((GGJTile)Level.Instance.Tilemap.GetTile(cel)).ID == TileID.Start)
+                return;
+
+            if (((GGJTile)Level.Instance.Tilemap.GetTile(cel)).ID == TileID.End)
+                return;
+
+            if (((GGJTile)Level.Instance.Tilemap.GetTile(cel)).ID == TileID.Character)
+                return;
+
+            StateMachine.setCel = true;
+
+            StateMachine.prevTile = Level.Instance.Tilemap.GetTile(
+             cel) == null ? null : (GGJTile)Level.Instance.Tilemap.GetTile(
+             cel);
+            //TilemapResources.Instance.GetTile(TileID.Building));
+
+            Level.Instance.Tilemap.SetTile(
+                 cel,
+                 TilemapResources.Instance.GetTile(TileID.Character));
+        }
 
         public void FollowPath()
         {
@@ -121,29 +155,26 @@ namespace MTLGJ
                 return;
 
             if (Enemy.Transform.position.IsCloseEnough(
-                _nextDestination, 1f))
+                _nextDestination, 0.5f))
             {
+                Mark(_path[_currentPathPositionIndex].Position.FromPathfindToCellPosition());
+
                 _currentPathPositionIndex++;
-            
+
                 _nextDestination =
                     _path[_currentPathPositionIndex]
                         .Position
                         .FromPathfindToCellPosition()
-                        .FromCellToWorldPosition();
-
-                Enemy.pos = _nextDestination;
-                Level.Instance.Tilemap.SetTile(
-                     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
-                     TilemapResources.Instance.GetTile(TileID.Full));
+                        .FromCellToWorldPosition();                
             }
 
-            var npos = 
+            var npos =
                 Vector3.MoveTowards(
-                    Enemy.Transform.position,
+                    Enemy.rbody.position,
                     _nextDestination,
                     Enemy.MoveSpeed);
 
-            Enemy.isoRenderer.SetDirection((_nextDestination - Enemy.Transform.position) .normalized );
+            Enemy.isoRenderer.SetDirection((_nextDestination - Enemy.Transform.position).normalized);
             Enemy.rbody.MovePosition(npos);
         }
 
@@ -180,7 +211,7 @@ namespace MTLGJ
 
     public class EnemyAttack : EnemyState
     {
-        public override int ID => (int) EnemyStateID.Attack;
+        public override int ID => (int)EnemyStateID.Attack;
 
         public EnemyAttack(
             bool isStart,
@@ -252,21 +283,28 @@ namespace MTLGJ
         [SerializeField]
         private Enemy _enemy;
 
+        public bool setCel = false;
+
+
+        public Vector3Int celSet = new Vector3Int(-1, -1, -1);
+
+        public GGJTile prevTile = null;
+
         public override void Awake()
         {
             base.Awake();
-            
-            Add(new EnemyStart(true, _enemy));
-            Add(new EnemyMarching(false, _enemy));
-            Add(new EnemyAttack(false, _enemy));
-            Add(new EnemyIdle(false, _enemy));
-            
+
+            Add(new EnemyStart(true, _enemy, this));
+            Add(new EnemyMarching(false, _enemy, this));
+            Add(new EnemyAttack(false, _enemy, this));
+            Add(new EnemyIdle(false, _enemy, this));
+
         }
 
         public override void Start()
         {
             base.Start();
-            
+
         }
     }
 

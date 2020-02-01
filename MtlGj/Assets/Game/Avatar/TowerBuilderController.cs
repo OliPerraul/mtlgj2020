@@ -96,14 +96,27 @@ namespace MTLGJ
                 var curr = Level.Instance.Tilemap.GetTile(
                     front.FromWorldToCellPosition());
 
-                if (curr != null && ((GGJTile)curr).ID == TileID.Full)
-                    return;            
+                if (curr != null && ((GGJTile)curr).ID == TileID.Building)
+                    return;
+
+                if (curr != null && ((GGJTile)curr).ID == TileID.Character)
+                    return;
+
+                if (curr != null && ((GGJTile)curr).ID == TileID.End)
+                    return;
+
+                if (curr != null && ((GGJTile)curr).ID == TileID.Start)
+                    return;
+
+                //if (curr != null && ((GGJTile)curr).ID == TileID.)
+                //    return;
 
                 Level.Instance.Tilemap.SetTile(
                     front.FromWorldToCellPosition(),
-                    TilemapResources.Instance.GetTile(TileID.Full));
+                    TilemapResources.Instance.GetTile(TileID.Building));
+                Level.Instance.UpdatePathfinding(front.FromWorldToCellPosition(), false);
 
-                Level.Instance.OnTilemapCellChangedHandler?.Invoke(front.FromWorldToCellPosition());
+                //Level.Instance.UpdatePathfinding();
 
 
 

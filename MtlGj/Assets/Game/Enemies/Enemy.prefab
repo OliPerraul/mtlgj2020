@@ -32,9 +32,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transform: {fileID: 1313569304561146123}
   SpriteRenderer: {fileID: 1313569305966714582}
-  MoveSpeed: 5
+  MoveSpeed: 0.008
   isoRenderer: {fileID: 1313569305966714580}
-  rbody: {fileID: 0}
+  rbody: {fileID: 1313569304408886810}
   Axis: {x: 0, y: 0}
   pos: {x: 0, y: 0, z: 0}
 --- !u!1 &6337688672265349532
@@ -140,6 +140,12 @@ PrefabInstance:
 --- !u!1 &1313569304408886809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3339481645408498929, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
+    type: 3}
+  m_PrefabInstance: {fileID: 4351185936917510888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1313569304408886810 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3339481645408498930, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
     type: 3}
   m_PrefabInstance: {fileID: 4351185936917510888}
   m_PrefabAsset: {fileID: 0}

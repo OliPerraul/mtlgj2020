@@ -1,4 +1,5 @@
 ﻿using Cirrus.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,13 @@ namespace MTLGJ
 
         public Cirrus.Events.Event<Vector3Int> OnTilemapCellChangedHandler;
 
+        public void UpdatePathfinding(Vector3Int pos, bool walkable)
+        {
+            _grid.UpdateGrid(pos.ToVector2Int(), walkable);
+            OnTilemapCellChangedHandler?.Invoke(pos);
+        }
+
+
         [SerializeField]
         public Tilemap Tilemap;
 
@@ -56,6 +64,9 @@ namespace MTLGJ
 
 
         public List<Vector3Int> Ends = new List<Vector3Int>();
+
+
+        public List<Vector3Int> Starts = new List<Vector3Int>();
 
         private void Awake()
         {
@@ -88,8 +99,17 @@ namespace MTLGJ
                         Ends.Add(celpos);
                     }
 
+                    if (tile.ID == TileID.Start)
+                    {
+                        Starts.Add(celpos);
+                    }
+
                     _grid.UpdateGrid(pfp,
-                        tile.ID == TileID.Empty || tile.ID == TileID.Start || tile.ID == TileID.End
+                        tile.ID == TileID.Empty ||
+                        tile.ID == TileID.Start ||
+                        tile.ID == TileID.End ||
+                        tile.ID == TileID.Character ||
+                        tile.ID == TileID.Guide
                         );
                 }
             }
@@ -114,5 +134,7 @@ namespace MTLGJ
         {
 
         }
+
+
     }
 }

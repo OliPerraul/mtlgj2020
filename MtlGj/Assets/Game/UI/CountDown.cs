@@ -14,7 +14,7 @@ namespace MTLGJ
 
         private int _value = 3;
 
-        private string _message = "Go!";
+        private string Message => "Wave "+ (Game.Instance.Session.WaveIndex +1).ToString();
 
         [SerializeField]
         private Game _game;
@@ -29,6 +29,7 @@ namespace MTLGJ
         public void Awake()
         {
             Instance = this;
+            _text.gameObject.SetActive(false);
             ////_game.OnNewRoundHandler += OnNewRound;
             ////_game.On
         }
@@ -55,7 +56,7 @@ namespace MTLGJ
                 {
                     _text.gameObject.SetActive(true);
                     _value = 0;
-                    _text.text = _message;
+                    _text.text = Message;
                     return;
                 }
                 else if (_value < 0)

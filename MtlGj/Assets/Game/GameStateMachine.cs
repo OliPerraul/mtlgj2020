@@ -96,7 +96,7 @@ namespace MTLGJ
 
     public class StartRound : GameState
     {
-        public override int ID => (int)GameStateID.InRound;
+        public override int ID => (int)GameStateID.StartRound;
 
         //private Vector2Int dest;
         private Cirrus.Timer _timer;
@@ -107,7 +107,14 @@ namespace MTLGJ
             isStart,
             context)
         {
-            _timer = new Cirrus.Timer(1, start:true, repeat:true);
+            _timer = new Cirrus.Timer(1, start:false, repeat:true);
+            _timer.OnTimeLimitHandler += OnTimeOut;
+        }
+
+        public override void Enter(params object[] args)
+        {
+            base.Enter(args);
+            _timer.Start();
         }
 
         private void OnTimeOut()
@@ -128,19 +135,50 @@ namespace MTLGJ
 
         //private Vector2Int dest;
 
+        private Cirrus.Timer _timer = new Cirrus.Timer(start:false, repeat:true);
+
         public InRound(
             bool isStart,
             params object[] context) : base(
             isStart,
             context)
         {
-
+            _timer.OnTimeLimitHandler += OnTimeout;
         }
 
-        //public override void Enter(params object[] args)
-        //{
-        //    base.Enter(args);
-        //}
+        private int _spwnIdx = 0;
+
+        public void SpawnNext()
+        {
+            _spwnIdx = 0;
+            var en = Game.Instance.Session.Wave.Groups[_spwnIdx].Enemies[_spwnIdx];
+
+            en.Create(
+                Level.Instance.Starts.Random().FromCellToWorldPosition(),
+                Level.Instance.transform);
+
+            _timer.Start(Game.Instance.Session.Wave.Groups[_spwnIdx].Frequency);
+
+            _spwnIdx++;
+        }
+
+        public override void Enter(params object[] args)
+        {
+            base.Enter(args);
+
+            SpawnNext();        
+        }
+
+        public void OnTimeout()
+        {
+            SpawnNext();
+
+            if (_spwnIdx >= Game.Instance.Session.Wave.Groups.Count)
+            {
+                _timer.Stop();
+                StateMachine.TrySetState(GameStateID.Intermission);
+            }
+        }
     }
 
 
