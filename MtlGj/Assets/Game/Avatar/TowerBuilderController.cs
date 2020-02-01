@@ -10,8 +10,7 @@ using UnityEngine.UI;
 namespace MTLGJ
 {
 
-    public class TowerBuilderController : MonoBehaviour
-    {
+    public class TowerBuilderController : MonoBehaviour {
         [SerializeField]
         public Avatar avatar;
         //public GameObject myPrefab;
@@ -43,12 +42,11 @@ namespace MTLGJ
         [SerializeField]
         private int selectedTowerIndex = 0;
 
-        private void Start()
-        {
+        private void Start() {
             //rbody = avatar.GetComponent<Rigidbody2D>();
             // scriptPosition = avatar.GetComponent<IsometricPlayerMovementController>();
             isoRenderer = avatar.GetComponentInChildren<IsometricCharacterRenderer>();
-
+            turretMenu.enabled = false;
         }
 
         private bool settile = false;
@@ -57,26 +55,24 @@ namespace MTLGJ
 
         private GGJTile oldTile;
 
-        void Update()
-        {
+        void Update() {
             //if()
             //if(isoRenderer.Di)
             // TODO NOT HARDCOEE
-            var front = 
+            var front =
                 avatar.Transform.position +
                 isoRenderer.Direction * _buildRange;
 
-            if (settile)
-            {
+            if (settile) {
                 Level.Instance.TilemapGuide.SetTile(
                     oldCellPos,
                     oldTile);
-            }        
-       
+            }
+
             var cellPos = front.FromWorldToCellPosition();
-            oldCellPos = cellPos;        
-            oldTile = Level.Instance.TilemapGuide.GetTile(cellPos) == null ? 
-                null : 
+            oldCellPos = cellPos;
+            oldTile = Level.Instance.TilemapGuide.GetTile(cellPos) == null ?
+                null :
                 (GGJTile)Level.Instance.TilemapGuide.GetTile(cellPos);
 
             Level.Instance.TilemapGuide.SetTile(
@@ -85,18 +81,16 @@ namespace MTLGJ
 
             settile = true;
 
-            if (Input.GetButtonDown("Fire1"))
-            {
-                //turretMenu.enabled = !isMenuActive;
+            if (Input.GetButtonDown("Fire1")) {
+                turretMenu.enabled = !isMenuActive;
                 isMenuActive = !isMenuActive;
 
-                CreateTower(0);
-                           
+                //CreateTower(0);
+
             }
         }
 
-        public void CreateTower(int selectedTowerIndex)
-        {
+        public void CreateTower(int selectedTowerIndex) {
 
             var front =
               avatar.Transform.position +
@@ -120,14 +114,12 @@ namespace MTLGJ
             Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
 
             var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
-           
-                tower.gameObject.Create(
-                    front.FromWorldToCellPosition().FromCellToWorldPosition(), 
-                    Level.Instance.transform);
-        }
-        
 
-        //void CreateShooting() { CreateTower(0); }
-        //void CreateShield() { CreateTower(1); }
+            tower.gameObject.Create(
+                front.FromWorldToCellPosition().FromCellToWorldPosition(),
+                Level.Instance.transform);
+        }
+
+      }
     }
 //}
