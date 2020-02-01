@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b79583ab19710408ac32d882b00489, type: 3}
+  m_Name: TilemapResources
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 44ee02737732a534cb6de20cdb06ebd9, type: 2}
+  - {fileID: 11400000, guid: f4cb2a36a243876448a2f9e1aae85fc8, type: 2}
+  - {fileID: 11400000, guid: e2d24aa8271cff245a74aaf0ab521e89, type: 2}
+  - {fileID: 11400000, guid: ad9e6c3fcd62d8448b69ecb47c3c40f2, type: 2}
