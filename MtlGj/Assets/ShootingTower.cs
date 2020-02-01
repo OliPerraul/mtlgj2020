@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShootingTower : MonoBehaviour
 {
     GameObject[] objectArray;
+    float distance;
 
     // Update is called once per frame
     void Update()
@@ -14,12 +15,14 @@ public class ShootingTower : MonoBehaviour
 
     void searchGameObjects(string tag) 
     {
-        //if (objectArray == null)
+        if (objectArray == null)
+            objectArray = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //foreach (GameObject respawn in respawns)  
-        //{
-
-        //}
+        foreach (GameObject enemy in objectArray)  
+        {
+            distance = Vector3.Distance(enemy.transform.position, this.transform.position);
+            Debug.Log("Distance: " + distance);
+        }
 
     }
 }
