@@ -5,8 +5,10 @@ using UnityEngine;
 public class IsometricPlayerMovementController : MonoBehaviour
 {
 
-    public float movementSpeed = 5000f;
+    public float movementSpeed = 1f;
     IsometricCharacterRenderer isoRenderer;
+    float horizontalInput;
+    float verticalInput; 
 
     Rigidbody2D rbody;
 
@@ -21,8 +23,8 @@ public class IsometricPlayerMovementController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 currentPos = rbody.position;
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+         horizontalInput = Input.GetAxis("Horizontal");
+         verticalInput = Input.GetAxis("Vertical");
         Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
         inputVector = Vector2.ClampMagnitude(inputVector, 1);
         Vector2 movement = inputVector * movementSpeed;

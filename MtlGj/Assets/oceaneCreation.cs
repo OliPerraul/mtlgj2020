@@ -5,28 +5,44 @@ using UnityEngine;
 public class oceaneCreation : MonoBehaviour
 { 
    public GameObject avatar;
+   public GameObject myPrefab;
 
      IsometricCharacterRenderer isoRenderer;
 
     Rigidbody2D rbody;
 
+    float horizontalInput;
+    float verticalInput; 
+    bool horizontal = true;
+    bool vertical;
+    float positionX;
+    float positionY;
+
      private void Start()
     {
         rbody = avatar.GetComponent<Rigidbody2D>();
+       // scriptPosition = avatar.GetComponent<IsometricPlayerMovementController>();
         isoRenderer = avatar.GetComponentInChildren<IsometricCharacterRenderer>();
+
     }
   
    
     void Update()
    {
-     
-      if (Input.GetButtonDown("Fire1"))
+     //Input.GetButtonDown("Fire1")
+      if ( Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log(Input.mousePosition);
-           // isoRenderer.GetDirection();
-                float positionX = rbody.position.x + 1;
-                float positionY = rbody.position.y + 1;
-               Instantiate(this, new Vector2(positionX,positionY), Quaternion.identity);
+            
+                Vector2 playerPos = avatar.transform.position;
+                Vector2 playerDirection = avatar.transform.forward *5;
+                Quaternion playerRotation = avatar.transform.rotation;
+                float spawnDistance = 500;
+                
+                Vector2 spawnPos = playerPos + playerDirection;
+                Debug.Log(playerDirection.ToString("N4"));
+               Instantiate(myPrefab, spawnPos, Quaternion.identity);
+
+               // RuletileMap.SetTile(TilemapResources.Instance.Getile(tileID.))
         }
    }
 }

@@ -18,6 +18,9 @@ public class IsometricCharacterRenderer : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public int getLastDirection(){
+        return this.lastDirection;
+    }
 
     public void SetDirection(Vector2 direction){
 

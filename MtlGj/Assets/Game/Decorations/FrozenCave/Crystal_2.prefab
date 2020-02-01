@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3644761498961792093}
   - component: {fileID: 7691336869826321824}
   - component: {fileID: 6991537968114145124}
-  - component: {fileID: -8924589696199400625}
   m_Layer: 0
   m_Name: Crystal_2
   m_TagString: Untagged
@@ -72,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: e40a3a4478df6f540ba39f5a858c60d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,20 +93,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 2130146985
   m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!114 &-8924589696199400625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 676923760959098998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e50aa05b70d1f8449a6b9e3fd1f2eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  avatar: {fileID: 7977355652372328161, guid: 0f1b5510ab1f14245aaade1760d67520, type: 3}
+  m_SortingOrder: 10
 --- !u!1 &4420224417329914215
 GameObject:
   m_ObjectHideFlags: 0
