@@ -15,7 +15,8 @@ namespace MTLGJ
         [SerializeField] int qtySpent;
 
 
-        private void Update() {
+        public override void Update() {
+            base.Update();
             //Debug.Log("ressources quantity: " + ressourcesQty);
         }
 

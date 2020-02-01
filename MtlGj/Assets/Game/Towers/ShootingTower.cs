@@ -37,26 +37,31 @@ namespace MTLGJ
         [SerializeField]
         private float _range;
 
+        [SerializeField]
+        private float _frequency = 0.5f;
 
-        void Awake() { 
+
+        private Cirrus.Timer _timer = new Cirrus.Timer(repeat: true, start: false);
+
+        public void Awake() { 
 
             player = GameObject.FindGameObjectWithTag("Player");
             //avatar = player.GetComponent<Avatar>();
-
-        }
+        }        
 
 
         // Update is called once per frame
-        public void Update()
+        public override void Update()
         {
-            // TODO: DONT DO THIS EVERY FRAME
+            base.Update();
 
+            // TODO: DONT DO THIS EVERY FRAME
 
             var closestEnemy = FindNearestEnemy();
 
             if (closestEnemy != null)
             {
-                target = closestObject.transform.Find("EnemyTransform");
+                //target = closestObject.transform.Find("EnemyTransform");
                 timer += Time.deltaTime;
 
                 if (timer > waitingTime && timer < movingDelay) { } else { Shoot(); timer = 0; }
