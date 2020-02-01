@@ -16,7 +16,7 @@ namespace MTLGJ
 
 
         private void Update() {
-            Debug.Log("ressources quantity: " + ressourcesQty);
+            //Debug.Log("ressources quantity: " + ressourcesQty);
         }
 
         private void OnTriggerEnter2D(Collider2D other) { 
