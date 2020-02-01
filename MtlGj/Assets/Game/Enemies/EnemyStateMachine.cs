@@ -52,7 +52,7 @@ namespace MTLGJ
             isStart,
             context)
         {
-
+            //Level.Instance.RuletileMap.WorldToCell(Enemy.transform.position)
         }
 
         public override void Enter(params object[] args)
