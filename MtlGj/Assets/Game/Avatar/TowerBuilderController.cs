@@ -49,7 +49,7 @@ namespace MTLGJ
 
             //TODO
             isoRenderer = avatar.GetComponentInChildren<IsometricCharacterRenderer>();
-            //turretMenu.enabled = false;
+            turretMenu.enabled = false;
         }
 
         private bool settile = false;
@@ -85,11 +85,8 @@ namespace MTLGJ
             settile = true;
 
             if (Input.GetButtonDown("Fire1")) {
-                //turretMenu.enabled = !isMenuActive;
-                //isMenuActive = !isMenuActive;
-
-                CreateTower(0);
-
+                turretMenu.enabled = !isMenuActive;
+                isMenuActive = !isMenuActive;
             }
         }
 
@@ -121,6 +118,20 @@ namespace MTLGJ
             tower.gameObject.Create(
                 front.FromWorldToCellPosition().FromCellToWorldPosition(),
                 Level.Instance.transform);
+
+            turretMenu.enabled = !isMenuActive;
+            isMenuActive = !isMenuActive;
+        }
+
+        public void UpgradeTower(int type) 
+        {
+            switch (type) 
+            {
+                //case 1: ShootingTower.Upgrade(ShootingTowerUpgrade.Range); break;
+                case 2: break;
+                case 3: break;
+                case 4: break;
+            }
         }
 
       }

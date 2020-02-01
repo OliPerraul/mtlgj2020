@@ -49,7 +49,7 @@ namespace MTLGJ
             }    
          }
 
-        public void OnTriggerEnter(Collider2D collision)
+        public void OnTriggerEnter2D(Collider2D collision)
         {
             var en = collision.transform.GetComponent<Enemy>();
             if (en != null)

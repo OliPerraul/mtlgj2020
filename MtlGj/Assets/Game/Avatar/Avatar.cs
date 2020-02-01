@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MTLGJ
 {
@@ -13,10 +14,11 @@ namespace MTLGJ
         [SerializeField] int maxRessources;
         [SerializeField] int qtyCollected;
         [SerializeField] int qtySpent;
-
+        [SerializeField] Text resourceTxt;
 
         public override void Update() {
             base.Update();
+            resourceTxt.text = ""+ressourcesQty;
             //Debug.Log("ressources quantity: " + ressourcesQty);
         }
 
