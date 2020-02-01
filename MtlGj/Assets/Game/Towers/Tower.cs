@@ -12,6 +12,11 @@ namespace MTLGJ
         Shield1
     }
 
+    public enum TowerUpgrade
+    {
+        Health
+    }
+
     public abstract class Tower : BaseObject
     {
 
@@ -20,17 +25,23 @@ namespace MTLGJ
         [SerializeField]
         private PolygonCollider2D _occlusionCollider;
 
+        [SerializeField]
+        public ColliderListener Colliderlistener;
 
-        //// Start is called before the first frame update
-        //void Start()
-        //{
+        public float Health = 1f;
 
-        //}
+        [SerializeField]
+        public healthbar hbar;
 
-        //// Update is called once per frame
-        //void Update()
-        //{
-
-        //}
+        public void Upgrade(TowerUpgrade upgrade)
+        {
+            //todo
+            switch (upgrade)
+            {
+                case TowerUpgrade.Health:
+                    Health++;
+                    break;
+            }
+        }
     }
 }

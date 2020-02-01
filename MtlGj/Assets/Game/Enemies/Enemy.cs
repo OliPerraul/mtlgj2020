@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +28,15 @@ namespace MTLGJ
             var tile = Level.Instance.Tilemap.GetTile(Transform.position.FromWorldToCellPosition());
             //Debug.Log("");
 
+        }
+
+        public void ApplyDamage(float dmg)
+        {
+            Health -= dmg;
+            if (Health < 0)
+                Health = 0;
+
+            Flash();
         }
 
         // Update is called once per frame

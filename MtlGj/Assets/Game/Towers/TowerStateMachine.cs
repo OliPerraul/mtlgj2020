@@ -6,6 +6,11 @@ using NesScripts.Controls.PathFind;
 using Cirrus.Extensions;
 using System.Collections.Generic;
 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
 namespace MTLGJ
 {
     [System.Serializable]
@@ -54,12 +59,14 @@ namespace MTLGJ
 
     public class TowerStateMachine : Cirrus.FSM.BaseMachine
     {
-        //[SerializeField]
-        //private Avatar _character;
+
+
 
         public override void Awake()
         {
             base.Awake();
+
+            //Add(new TowerIdle(false, _shootingTower, this));
 
             //Add(new StartSession(true, this));
             //Add(new StartRound(false, this));
