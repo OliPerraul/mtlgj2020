@@ -1,94 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &485119916
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 485119917}
-  m_Layer: 0
-  m_Name: Firepoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &485119917
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485119916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1605042775441061544}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!210 &2468551522707947193
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8686550222437178842}
-  m_Enabled: 1
-  m_SortingLayerID: 468281715
-  m_SortingLayer: 2
-  m_SortingOrder: 1
---- !u!114 &72370243
+--- !u!114 &6295043157102337093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8686550222437178842}
+  m_GameObject: {fileID: 4466557979326026573}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf1434bd37ad6714fac14112427cb66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transform: {fileID: 1605042775441061544}
-  SpriteRenderer: {fileID: 5489019569417954275}
+  Transform: {fileID: 5996248579044800575}
+  SpriteRenderer: {fileID: 674519052756741492}
+  _occlusionCollider: {fileID: 7503648642452386757}
   bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 485119917}
-  bulletForce: 1
+  firePoint: {fileID: 0}
+  bulletForce: 0
   waitingTime: 0
-  movingDelay: 2
-  health: 10
+  movingDelay: 0
+  health: 1
   hbar: {fileID: 0}
---- !u!1001 &5174976256728554284
+--- !u!1001 &189574268340508091
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 864092220485138639, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 864092220485138639, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 864092220485138639, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 864092220485138639, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1986135655094617195, guid: 08737211fd0677647b8aa59baf0eaf4b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -144,64 +84,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1986135655094617195, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1986135655094617195, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1986135655094617195, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4566058604428756726, guid: 08737211fd0677647b8aa59baf0eaf4b,
         type: 3}
       propertyPath: m_Name
       value: ShootingTower
       objectReference: {fileID: 0}
-    - target: {fileID: 7994894285727508457, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.6263547
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994894285727508457, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.950825
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994894285727508457, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5598
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994894285727508457, guid: 08737211fd0677647b8aa59baf0eaf4b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.66
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -7604640866168097902, guid: 08737211fd0677647b8aa59baf0eaf4b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08737211fd0677647b8aa59baf0eaf4b, type: 3}
---- !u!1 &8686550222437178842 stripped
+--- !u!1 &4466557979326026573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4566058604428756726, guid: 08737211fd0677647b8aa59baf0eaf4b,
     type: 3}
-  m_PrefabInstance: {fileID: 5174976256728554284}
+  m_PrefabInstance: {fileID: 189574268340508091}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1605042775441061544 stripped
+--- !u!4 &5996248579044800575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5879296046552214916, guid: 08737211fd0677647b8aa59baf0eaf4b,
     type: 3}
-  m_PrefabInstance: {fileID: 5174976256728554284}
+  m_PrefabInstance: {fileID: 189574268340508091}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &5489019569417954275 stripped
+--- !u!212 &674519052756741492 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 864092220485138639, guid: 08737211fd0677647b8aa59baf0eaf4b,
     type: 3}
-  m_PrefabInstance: {fileID: 5174976256728554284}
+  m_PrefabInstance: {fileID: 189574268340508091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &7503648642452386757 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7675207325506528894, guid: 08737211fd0677647b8aa59baf0eaf4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 189574268340508091}
   m_PrefabAsset: {fileID: 0}

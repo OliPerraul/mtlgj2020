@@ -17,6 +17,10 @@ namespace MTLGJ
 
         public abstract TowerID ID { get; }
 
+        [SerializeField]
+        private PolygonCollider2D _occlusionCollider;
+
+
         // Start is called before the first frame update
         void Start()
         {
