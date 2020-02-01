@@ -12,17 +12,10 @@ public enum TileID
 }
 
 
-public class GGJTile : RuleTile
+public class GGJTile : IsometricRuleTile
 {
+
     [SerializeField]
     public TileID ID;
-
-    //[SerializeField]
-    //private Color _color;
-
-    //public void OnValidate()
-    //{
-    //    Color = _color;
-    //}
 
 }
