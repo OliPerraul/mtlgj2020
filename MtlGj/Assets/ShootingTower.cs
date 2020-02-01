@@ -10,17 +10,17 @@ public class ShootingTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        searchGameObjects("tag");
     }
 
     void searchGameObjects(string tag) 
     {
         if (objectArray == null)
-            objectArray = GameObject.FindGameObjectsWithTag("Enemy");
+            objectArray = GameObject.FindGameObjectsWithTag(tag);
 
-        foreach (GameObject enemy in objectArray)  
+        foreach (GameObject tagged in objectArray)  
         {
-            distance = Vector3.Distance(enemy.transform.position, this.transform.position);
+            distance = Vector3.Distance(tagged.transform.position, this.transform.position);
             Debug.Log("Distance: " + distance);
         }
 
