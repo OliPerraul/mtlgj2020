@@ -18,7 +18,7 @@ namespace MTLGJ
 
         public override void Update() {
             base.Update();
-            resourceTxt.text = ""+ressourcesQty;
+            //resourceTxt.text = ""+ressourcesQty;
             //Debug.Log("ressources quantity: " + ressourcesQty);
         }
 

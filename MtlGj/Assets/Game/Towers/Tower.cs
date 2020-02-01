@@ -5,21 +5,8 @@ using UnityEngine;
 
 namespace MTLGJ
 {
-
-    public enum TowerID
-    {
-        Shooting1,
-        Shield1
-    }
-
-    public enum TowerUpgrade
-    {
-        Health
-    }
-
     public abstract class Tower : BaseObject
     {
-
         public abstract TowerID ID { get; }
 
         [SerializeField]

@@ -46,7 +46,7 @@ namespace MTLGJ
 
 
     public class GameResources : Cirrus.Resources.BaseResourceManager<GameResources>
-    {
+    {       
         [SerializeField]
         public SessionSettings SessionSettings;
     }

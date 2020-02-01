@@ -3,26 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DropDownMenu : MonoBehaviour
+namespace MTLGJ
 {
-    List<string> towers = new List<string>() { "Shooting Tower", "Shielding Tower" };
 
-    public Dropdown dropdown;
-    public Text selectedName;
 
-    public void Dropdown_IndexChanged(int index) 
+    public class DropDownMenu : MonoBehaviour
     {
-        selectedName.text = towers[index];
-    }
+        List<string> towers = new List<string>() { "Shooting Tower", "Shielding Tower" };
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PopulateList();
-    }
+        public Dropdown dropdown;
+        public Text selectedName;
 
-    void PopulateList() 
-    {
-        dropdown.AddOptions(towers);
+        public void Dropdown_IndexChanged(int index)
+        {
+            selectedName.text = towers[index];
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            PopulateList();
+        }
+
+        void PopulateList()
+        {
+            dropdown.AddOptions(towers);
+        }
     }
 }
