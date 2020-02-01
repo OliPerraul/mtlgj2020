@@ -40,7 +40,7 @@ namespace MTLGJ
         //[SerializeField]
         //public Tilemap RuletileMap;
 
-        public Cirrus.Events.Event<Vector3Int> OnTilemapCellChangedHandler;
+        public Cirrus.Events.Event<Vector3Int, bool> OnTilemapCellChangedHandler;
 
 
         public Dictionary<Vector3Int, int> CharacterCells = new Dictionary<Vector3Int, int>();
@@ -50,8 +50,9 @@ namespace MTLGJ
             Tilemap.SetTile(
                    pos,
                    TilemapResources.Instance.GetTile(building ? TileID.Building : TileID.Empty));
+
             _grid.UpdateGrid(pos.ToVector2Int(), !building);
-            OnTilemapCellChangedHandler?.Invoke(pos);
+            OnTilemapCellChangedHandler?.Invoke(pos, !building);
         }        
 
 

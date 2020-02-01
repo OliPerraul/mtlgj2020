@@ -52,7 +52,7 @@ namespace MTLGJ
             Level.Instance.OnTilemapCellChangedHandler += OnTilemapCellChanged;
         }
 
-        public virtual void OnTilemapCellChanged(Vector3Int cellPos)
+        public virtual void OnTilemapCellChanged(Vector3Int cellPos, bool walkable)
         {
             // Only reroute if cel in path was changed
 
@@ -134,6 +134,8 @@ namespace MTLGJ
                 return;
 
             StateMachine.prevCelSet = true;
+
+            StateMachine.prevCel = cel;
 
             StateMachine.prevTile = Level.Instance.Tilemap.GetTile(
              cel) == null ? null : (GGJTile)Level.Instance.Tilemap.GetTile(

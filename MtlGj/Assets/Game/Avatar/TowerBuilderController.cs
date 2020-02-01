@@ -20,7 +20,7 @@ namespace MTLGJ
         private float _buildRange = 2f;
 
         bool isMenuActive;
-        public Canvas turretMenu = false;
+        //public Canvas turretMenu = false;
 
         IsometricCharacterRenderer isoRenderer;
 
@@ -87,8 +87,10 @@ namespace MTLGJ
 
             if (Input.GetButtonDown("Fire1"))
             {
-                turretMenu.enabled = !isMenuActive;
+                //turretMenu.enabled = !isMenuActive;
                 isMenuActive = !isMenuActive;
+
+                CreateTower(0);
                            
             }
         }
@@ -114,18 +116,17 @@ namespace MTLGJ
             if (curr != null && ((GGJTile)curr).ID == TileID.Start)
                 return;
 
-            Level.Instance.UpdateBuildingCell(front.FromWorldToCellPosition(), false);
+            Level.Instance.UpdateBuildingCell(front.FromWorldToCellPosition(), true);
 
             var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
-
            
-                tower.gameObject.Create(
-                    front.FromWorldToCellPosition().FromCellToWorldPosition(), 
-                    Level.Instance.transform);
+            tower.gameObject.Create(
+                front.FromWorldToCellPosition().FromCellToWorldPosition(), 
+                Level.Instance.transform);
             }
         }
 
-        void CreateShooting() { CreateTower(0); }
-        void CreateShield() { CreateTower(1); }
+        //void CreateShooting() { CreateTower(0); }
+        //void CreateShield() { CreateTower(1); }
     }
-}
+//}

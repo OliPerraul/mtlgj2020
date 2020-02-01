@@ -35,7 +35,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transform: {fileID: 1313569304561146123}
   SpriteRenderer: {fileID: 1313569305966714582}
-  MoveSpeed: 0.008
+  MoveSpeed: 0.04
   isoRenderer: {fileID: 1313569305966714580}
   rbody: {fileID: 1313569304408886810}
   Axis: {x: 0, y: 0}
