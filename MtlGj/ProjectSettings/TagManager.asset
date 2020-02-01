@@ -47,3 +47,6 @@ TagManager:
   - name: Foreground
     uniqueID: 468281715
     locked: 0
+  - name: Collider
+    uniqueID: 1617270837
+    locked: 0
