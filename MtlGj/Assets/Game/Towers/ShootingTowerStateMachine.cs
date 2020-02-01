@@ -64,7 +64,7 @@ namespace MTLGJ
 
     public class ShootingTowerStateMachine : TowerStateMachine
     {
-        [Serializable]
+        //[Serializable]
         private ShootingTower _shootingTower;
 
         public override void Awake()
