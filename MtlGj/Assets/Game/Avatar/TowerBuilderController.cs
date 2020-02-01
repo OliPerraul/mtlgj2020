@@ -103,6 +103,10 @@ namespace MTLGJ
                     front.FromWorldToCellPosition(),
                     TilemapResources.Instance.GetTile(TileID.Full));
 
+                Level.Instance.OnTilemapCellChangedHandler?.Invoke(front.FromWorldToCellPosition());
+
+
+
                 var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
 
                 tower.gameObject.Create(front.FromWorldToCellPosition().FromCellToWorldPosition(), Level.Instance.transform);

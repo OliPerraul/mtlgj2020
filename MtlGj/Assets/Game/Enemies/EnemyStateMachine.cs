@@ -17,7 +17,6 @@ namespace MTLGJ
         Idle
     }
 
-
     public abstract class EnemyState : Cirrus.FSM.State
     {
         public override int ID => -1;//(int)EnemyStateID.Default;
@@ -48,10 +47,39 @@ namespace MTLGJ
             isStart,
             context)
         {
+            Level.Instance.OnTilemapCellChangedHandler += OnTilemapCellChanged;
+        }
 
-        }    
+        public virtual void OnTilemapCellChanged(Vector3Int cellPos)
+        {
+            var tile = Level.Instance.Tilemap.GetTile(Level.Instance.Ends.Random());
 
+            _path = Pathfinding.Pathfinding.FindPath(
+                Level.Instance.PathindingGrid,
+                Enemy.PathfindPosition.ToPathFindingPoint(),
+                Level.Instance.Ends.Random().FromCellToPathfindingPosition().ToPathFindingPoint(),
+                Pathfinding.Pathfinding.DistanceType.Manhattan
+                );
 
+            if (_path.Count != 0)
+            {
+                //Level.Instance.Tilemap.SetTile(
+                //     _path[0].Position.FromPathfindToCellPosition(),
+                //     TilemapResources.Instance.GetTile(TileID.Full));
+
+                _nextDestination =
+                    _path[0]
+                        .Position
+                        .FromPathfindToCellPosition()
+                        .FromCellToWorldPosition();
+
+                Enemy.pos = _nextDestination;
+                Level.Instance.Tilemap.SetTile(
+                     _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition(),
+                     TilemapResources.Instance.GetTile(TileID.Full));
+                //Enemy.pos = _nextDestination;
+            }
+        }
 
         public override void Enter(params object[] args)
         {

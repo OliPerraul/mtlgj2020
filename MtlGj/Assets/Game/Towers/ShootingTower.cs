@@ -1,6 +1,7 @@
 ﻿using Cirrus.Extensions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace MTLGJ
@@ -29,13 +30,19 @@ namespace MTLGJ
         public float health = 1f;
         [SerializeField] private healthbar hbar;
 
+
+        [SerializeField]
+        private float _range;
+
         // Update is called once per frame
-        void Update()
+        public void Update()
         {
-            closestObject = FindNearestEnemy();
+            // TODO: DONT DO THIS EVERY FRAME
 
 
-            if (GameObject.FindGameObjectsWithTag("Enemy") != null)
+            var closestEnemy = FindNearestEnemy();
+
+            if (closestEnemy != null)
             {
                 Debug.Log("there is a bad guys");
                 target = closestObject.transform.Find("EnemyTransform");
@@ -54,32 +61,62 @@ namespace MTLGJ
 
         }
 
-        GameObject FindNearestEnemy()
+        private List<Enemy> CaptureNearbyTargets()
         {
-            objectArray = GameObject.FindGameObjectsWithTag("Enemy");
+            // TODO: for now we use closest, other options maybe?
+            Collider[] colliders = Physics.OverlapSphere(Transform.position, _range);
+            var lis = new List<Enemy>();
 
-            float minDistance = 0;
-            int count = 0;
-
-            foreach (GameObject enemyItem in objectArray)
+            foreach (Collider collider in colliders)
             {
-                float dist = Vector3.Distance(enemyItem.transform.position, firePoint.position);
-                if (count == 0)
-                {
-                    minDistance = dist;
-                    closestObject = enemyItem;
-                    count++;
-                }
-                else
-                {
-                    if (dist < minDistance)
-                    {
-                        minDistance = dist;
-                        closestObject = enemyItem;
-                    }
-                }
+                var tg = collider.GetComponentInParent<Enemy>();
+
+                if (tg == null)
+                    continue;
+
+                //if (tg == _character)
+                //    continue;
+
+                //if (!IsValidTarget(tg))
+                //    continue;
+
+                lis.Add(tg);
             }
-            return closestObject;
+
+            return lis;
+        }
+
+
+
+        public Enemy FindNearestEnemy()
+        {
+            return CaptureNearbyTargets().
+                OrderBy(x => (x.Transform.position - Transform.position).magnitude).FirstOrDefault();
+
+            //objectArray = GameObject.FindGameObjectsWithTag("Enemy");
+
+            //float minDistance = 0;
+            //int count = 0;
+
+            //foreach (GameObject enemyItem in objectArray)
+            //{
+            //    float dist = Vector3.Distance(enemyItem.transform.position, firePoint.position);
+            //    if (count == 0)
+            //    {
+            //        minDistance = dist;
+            //        closestObject = enemyItem;
+            //        count++;
+            //    }
+            //    else
+            //    {
+            //        if (dist < minDistance)
+            //        {
+            //            minDistance = dist;
+            //            closestObject = enemyItem;
+            //        }
+            //    }
+            //}
+            //return closestObject;
         }
 
         void Shoot()
