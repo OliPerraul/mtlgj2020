@@ -41,7 +41,7 @@ namespace MTLGJ
         void Awake() { 
 
             player = GameObject.FindGameObjectWithTag("Player");
-            avatar = player.GetComponent<Avatar>();
+            //avatar = player.GetComponent<Avatar>();
 
         }
 
@@ -60,10 +60,7 @@ namespace MTLGJ
                 timer += Time.deltaTime;
 
                 if (timer > waitingTime && timer < movingDelay) { } else { Shoot(); timer = 0; }
-            }
-          
-
-
+            }   
 
             hbar.SetSize(health);
 

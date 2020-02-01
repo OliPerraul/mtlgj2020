@@ -49,7 +49,7 @@ namespace MTLGJ
             isStart,
             context)
         {
-            Level.Instance.OnTilemapCellChangedHandler += OnTilemapCellChanged;
+            //Level.Instance.OnTilemapCellChangedHandler += OnTilemapCellChanged;
         }
 
         public virtual void OnTilemapCellChanged(Vector3Int cellPos, bool walkable)
@@ -64,6 +64,11 @@ namespace MTLGJ
 
             for (int i = 0; i < _path.Count; i++)
             {
+                if (_path[i].Position.x < 0)
+                {
+                    continue;
+                }
+
                 var cel = _path[i].Position.FromPathfindToCellPosition();
 
                 if (Level.Instance.Tilemap.GetTile(cel) == null)
@@ -106,10 +111,16 @@ namespace MTLGJ
 
         public override void Enter(params object[] args)
         {
+            Level.Instance.OnTilemapCellChangedHandler += OnTilemapCellChanged;
+
             _nextDestination = Enemy.Transform.position;
             CalculatePath();
         }
 
+        public override void Exit()
+        {
+            Level.Instance.OnTilemapCellChangedHandler -= OnTilemapCellChanged;
+        }
 
 
         public void Mark(Vector3Int cel)
@@ -118,7 +129,7 @@ namespace MTLGJ
             {
                 StateMachine.prevCelSet = false;
 
-                Level.Instance.UpdateCharacterCel(StateMachine.prevCel, false);
+                Level.Instance.SetCharacterCel(StateMachine.prevCel, false);
             }
 
             if (Level.Instance.Tilemap.GetTile(cel) == null)
@@ -141,7 +152,7 @@ namespace MTLGJ
              cel) == null ? null : (GGJTile)Level.Instance.Tilemap.GetTile(
              cel);
 
-            Level.Instance.UpdateCharacterCel(cel, true);
+            Level.Instance.SetCharacterCel(cel, true);
         }
 
         public void FollowPath()
@@ -153,6 +164,8 @@ namespace MTLGJ
                 _nextDestination, 0.5f))
             {
                 Mark(_path[_currentPathPositionIndex].Position.FromPathfindToCellPosition());
+
+                _path[_currentPathPositionIndex] = new Point(-1, -1);
 
                 _currentPathPositionIndex++;
 
@@ -174,7 +187,7 @@ namespace MTLGJ
         }
 
 
-        public override void Exit() { }
+        //public override void Exit() { }
 
         public override void BeginUpdate()
         {

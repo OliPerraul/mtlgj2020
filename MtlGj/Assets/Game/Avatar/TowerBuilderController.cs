@@ -116,7 +116,7 @@ namespace MTLGJ
             if (curr != null && ((GGJTile)curr).ID == TileID.Start)
                 return;
 
-            Level.Instance.UpdateBuildingCell(front.FromWorldToCellPosition(), true);
+            Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
 
             var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
            

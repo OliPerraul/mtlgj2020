@@ -45,18 +45,18 @@ namespace MTLGJ
 
         public Dictionary<Vector3Int, int> CharacterCells = new Dictionary<Vector3Int, int>();
 
-        public void UpdateBuildingCell(Vector3Int pos, bool building)
+        public void SetBuildingCell(Vector3Int pos, bool building)
         {
             Tilemap.SetTile(
                    pos,
                    TilemapResources.Instance.GetTile(building ? TileID.Building : TileID.Empty));
 
-            _grid.UpdateGrid(pos.ToVector2Int(), !building);
+            _grid.UpdateGrid(pos.FromCellToPathfindingPosition(), !building);
+
             OnTilemapCellChangedHandler?.Invoke(pos, !building);
         }        
-
-
-        public void UpdateCharacterCel(Vector3Int pos, bool character)
+        
+        public void SetCharacterCel(Vector3Int pos, bool character)
         {
             if (character)
             {
