@@ -133,7 +133,7 @@ namespace MTLGJ
         }
 
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 
         public void CreateTower(int selectedTowerIndex)
@@ -148,7 +148,7 @@ namespace MTLGJ
 
             //turretMenu.enabled = !isMenuActive;
             //isMenuActive = !isMenuActive;
-=======
+//=======
             if (avatar.ressourcesQty >= avatar.priceShootingTower) {
                 avatar.ressourcesQty -= avatar.priceShootingTower;
 
@@ -173,17 +173,17 @@ namespace MTLGJ
 
                 Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
 
-                var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
+                var tower = TowerResources.Instance.GetTower(BuildUtils.Towers[selectedTowerIndex]);
 
                 tower.gameObject.Create(
                     front.FromWorldToCellPosition().FromCellToWorldPosition(),
                     Level.Instance.transform);
 
-                turretMenu.enabled = !isMenuActive;
-                isMenuActive = !isMenuActive;
+                //turretMenu.enabled = !isMenuActive;
+                //isMenuActive = !isMenuActive;
             }
             else { Debug.Log("not enough resources");}
->>>>>>> f2cce1017b992923e4dd7a0c5688680bcd9e123e
+
         }
 
         public void UpgradeTower(int type)
