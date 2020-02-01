@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace MTLGJ
 {
-
     public class ShootingTower : Tower
     {
         public override TowerID ID => TowerID.Shooting1;

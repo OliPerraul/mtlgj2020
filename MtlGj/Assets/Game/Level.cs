@@ -1,4 +1,5 @@
 ﻿using Cirrus.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,6 @@ using Pathfinding = NesScripts.Controls.PathFind;
 
 namespace MTLGJ
 {
-
 
     public static class LevelUtils
     {
@@ -42,6 +42,50 @@ namespace MTLGJ
 
         public Cirrus.Events.Event<Vector3Int> OnTilemapCellChangedHandler;
 
+
+        public Dictionary<Vector3Int, int> CharacterCells = new Dictionary<Vector3Int, int>();
+
+        public void UpdateBuildingCell(Vector3Int pos, bool walkable)
+        {
+            _grid.UpdateGrid(pos.ToVector2Int(), walkable);
+            OnTilemapCellChangedHandler?.Invoke(pos);
+        }        
+
+
+        public void UpdateCharacterCel(Vector3Int pos, bool character)
+        {
+            if (character)
+            {
+                //_grid.UpdateGrid(pos.ToVector2Int(), walkable);
+                if (!CharacterCells.TryGetValue(pos, out int value))
+                {
+                    CharacterCells.Add(pos, 1);
+
+                    Tilemap.SetTile(
+                         pos,
+                         TilemapResources.Instance.GetTile(TileID.Character));
+                }
+                else CharacterCells[pos]++;
+
+            }
+            else
+            {
+                if (CharacterCells.TryGetValue(pos, out int value))
+                {
+                    CharacterCells[pos]--;
+                    if (CharacterCells[pos] == 0)
+                    {
+                        Tilemap.SetTile(
+                             pos,
+                             TilemapResources.Instance.GetTile(TileID.Empty));
+                    }
+                }
+
+            }
+        }
+
+
+
         [SerializeField]
         public Tilemap Tilemap;
 
@@ -56,6 +100,9 @@ namespace MTLGJ
 
 
         public List<Vector3Int> Ends = new List<Vector3Int>();
+
+
+        public List<Vector3Int> Starts = new List<Vector3Int>();
 
         private void Awake()
         {
@@ -88,8 +135,17 @@ namespace MTLGJ
                         Ends.Add(celpos);
                     }
 
+                    if (tile.ID == TileID.Start)
+                    {
+                        Starts.Add(celpos);
+                    }
+
                     _grid.UpdateGrid(pfp,
-                        tile.ID == TileID.Empty || tile.ID == TileID.Start || tile.ID == TileID.End
+                        tile.ID == TileID.Empty ||
+                        tile.ID == TileID.Start ||
+                        tile.ID == TileID.End ||
+                        tile.ID == TileID.Character ||
+                        tile.ID == TileID.Guide
                         );
                 }
             }
@@ -114,5 +170,7 @@ namespace MTLGJ
         {
 
         }
+
+
     }
 }

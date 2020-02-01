@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1737224595954381280}
   - component: {fileID: 1737224595954381281}
   - component: {fileID: 1737224595954381282}
+  - component: {fileID: 745928655326867776}
+  - component: {fileID: 7554913905431676732}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -28,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6551001726228129058}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59,3 +62,63 @@ MonoBehaviour:
   _resources:
   - {fileID: 11400000, guid: 756d359ef008a8342ae816d43743a1e4, type: 2}
   - {fileID: 11400000, guid: 272d66ea553886b4784c0feb0fc2bff1, type: 2}
+  - {fileID: 11400000, guid: ba3c9df43b94d5743b0159494e4b2ade, type: 2}
+--- !u!114 &745928655326867776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737224595954381283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5574af9e858c6ab4081bf9d6348ef141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7554913905431676732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737224595954381283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe8efdf3749ac840882f65b25a524b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateLabel: {fileID: 7769064540757457492}
+  Context: []
+  _assetStates: []
+  _sceneStates: []
+  StateName: 
+--- !u!1 &7769064540757457492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6551001726228129058}
+  m_Layer: 0
+  m_Name: Game.FSM
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6551001726228129058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7769064540757457492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1737224595954381280}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

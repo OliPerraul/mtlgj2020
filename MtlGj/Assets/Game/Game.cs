@@ -5,15 +5,7 @@ using UnityEngine;
 
 namespace MTLGJ
 {
-
-    [System.Serializable]
-    public class SessionSettings
-    {
-        [SerializeField]
-        public int MaxLives = 10;
-    };
-
-    public class Session
+     public class Session
     {
         [HideInInspector]
         public int Score = 0;
@@ -24,19 +16,19 @@ namespace MTLGJ
         [SerializeField]
         public int Lives = 10;
 
+        public int WaveIndex = 0;
+
+        public Wave Wave => GameResources.Instance.SessionSettings.Waves[WaveIndex];
+
         public Session()
         {
-            Lives = Game.Instance.SessionSettings.MaxLives;
+            Lives = GameResources.Instance.SessionSettings.MaxLives;
         }
     };
-
 
     public class Game : MonoBehaviour
     {
         public static Game Instance;
-
-        [SerializeField]
-        public SessionSettings SessionSettings;
         
         public Session Session;
 

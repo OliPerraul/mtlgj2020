@@ -13,7 +13,8 @@ namespace MTLGJ
     {
         Intermission,
         InRound,
-        Start
+        StartRound,
+        StartSession
     }
 
 
@@ -21,7 +22,7 @@ namespace MTLGJ
     {
         public override int ID => -1;//(int)EnemyStateID.Default;
 
-        //public Enemy Enemy => (Enemy)_context[0];
+        public GameStateMachine StateMachine => (GameStateMachine)_context[0];
 
         private List<Point> _path;//= new List<Point>()
 
@@ -51,11 +52,11 @@ namespace MTLGJ
         }
     }
 
-    public class GameStart : GameState
+    public class StartSession : GameState
     {
-        public override int ID => (int)GameStateID.Start;
+        public override int ID => (int)GameStateID.StartSession;
 
-        public GameStart(
+        public StartSession(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -69,6 +70,8 @@ namespace MTLGJ
             base.Enter(args);
 
             Game.Instance.Session = new Session();
+
+            StateMachine.TrySetState(GameStateID.StartRound);
         }
     }
 
@@ -91,11 +94,48 @@ namespace MTLGJ
         }
     }
 
+    public class StartRound : GameState
+    {
+        public override int ID => (int)GameStateID.StartRound;
+
+        //private Vector2Int dest;
+        private Cirrus.Timer _timer;
+
+        public StartRound(
+            bool isStart,
+            params object[] context) : base(
+            isStart,
+            context)
+        {
+            _timer = new Cirrus.Timer(1, start:false, repeat:true);
+            _timer.OnTimeLimitHandler += OnTimeOut;
+        }
+
+        public override void Enter(params object[] args)
+        {
+            base.Enter(args);
+            _timer.Start();
+        }
+
+        private void OnTimeOut()
+        {
+            CountDown.Instance.Number--;
+
+            if (CountDown.Instance.Number < -1)
+            {
+                _timer.Stop();
+                StateMachine.TrySetState(GameStateID.InRound);
+            }
+        }
+    }
+
     public class InRound : GameState
     {
         public override int ID => (int)GameStateID.InRound;
 
         //private Vector2Int dest;
+
+        private Cirrus.Timer _timer = new Cirrus.Timer(start:false, repeat:true);
 
         public InRound(
             bool isStart,
@@ -103,13 +143,42 @@ namespace MTLGJ
             isStart,
             context)
         {
-
+            _timer.OnTimeLimitHandler += OnTimeout;
         }
 
-        //public override void Enter(params object[] args)
-        //{
-        //    base.Enter(args);
-        //}
+        private int _spwnIdx = 0;
+
+        public void SpawnNext()
+        {
+            _spwnIdx = 0;
+            var en = Game.Instance.Session.Wave.Groups[_spwnIdx].Enemies[_spwnIdx];
+
+            en.Create(
+                Level.Instance.Starts.Random().FromCellToWorldPosition(),
+                Level.Instance.transform);
+
+            _timer.Start(Game.Instance.Session.Wave.Groups[_spwnIdx].Frequency);
+
+            _spwnIdx++;
+        }
+
+        public override void Enter(params object[] args)
+        {
+            base.Enter(args);
+
+            SpawnNext();        
+        }
+
+        public void OnTimeout()
+        {
+            SpawnNext();
+
+            if (_spwnIdx >= Game.Instance.Session.Wave.Groups.Count)
+            {
+                _timer.Stop();
+                StateMachine.TrySetState(GameStateID.Intermission);
+            }
+        }
     }
 
 
@@ -123,11 +192,10 @@ namespace MTLGJ
         {
             base.Awake();
 
-            Add(new GameStart(true));
-            Add(new EnemyMarching(false));
-            Add(new EnemyAttack(false));
-            Add(new EnemyIdle(false));
-
+            Add(new StartSession(true, this));
+            Add(new StartRound(false, this));
+            Add(new InRound(false, this));
+            Add(new Intermission(false, this));
         }
 
         public override void Start()

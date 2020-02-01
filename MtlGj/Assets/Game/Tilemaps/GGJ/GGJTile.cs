@@ -8,7 +8,8 @@ public enum TileID
 {
     Start,
     End,
-    Full,
+    Building,
+    Character,
     Empty,
     Guide,
 }

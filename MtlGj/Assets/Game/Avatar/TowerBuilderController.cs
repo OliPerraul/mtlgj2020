@@ -96,16 +96,19 @@ namespace MTLGJ
                 var curr = Level.Instance.Tilemap.GetTile(
                     front.FromWorldToCellPosition());
 
-                if (curr != null && ((GGJTile)curr).ID == TileID.Full)
-                    return;            
+                if (curr != null && ((GGJTile)curr).ID == TileID.Building)
+                    return;
 
-                Level.Instance.Tilemap.SetTile(
-                    front.FromWorldToCellPosition(),
-                    TilemapResources.Instance.GetTile(TileID.Full));
+                if (curr != null && ((GGJTile)curr).ID == TileID.Character)
+                    return;
 
-                Level.Instance.OnTilemapCellChangedHandler?.Invoke(front.FromWorldToCellPosition());
+                if (curr != null && ((GGJTile)curr).ID == TileID.End)
+                    return;
 
+                if (curr != null && ((GGJTile)curr).ID == TileID.Start)
+                    return;                
 
+                Level.Instance.UpdateBuildingCell(front.FromWorldToCellPosition(), false);   
 
                 var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
 

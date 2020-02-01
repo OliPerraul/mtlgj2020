@@ -17,7 +17,7 @@ namespace MTLGJ
 
         public Rigidbody2D rbody;
 
-        public Vector2 Axis = new Vector2();
+        public Vector2 Axis = new Vector2(0, 0);
 
         private void Awake()
         {
