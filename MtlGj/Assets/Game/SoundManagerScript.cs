@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour {
 
-    public static AudioClip demonDeath;
+    public static AudioClip GameOver;
+
+    public static AudioClip inventor;
 
     static AudioSource audioSrc;
 
     // Use this for initialization
     void Start() {
 
-        demonDeath = Resources.Load<AudioClip>("demonDeath");
+        GameOver = Resources.Load<AudioClip>("GameOver");
+
+        inventor = Resources.Load<AudioClip>("inventor");
 
         audioSrc = GetComponent<AudioSource>();
 
@@ -20,10 +24,13 @@ public class SoundManagerScript : MonoBehaviour {
 
     public static void PlaySound(string clip) {
         switch (clip) {
-            case "demonDeath":
-                audioSrc.PlayOneShot(demonDeath);
+            case "GameOver":
+                audioSrc.PlayOneShot(GameOver);
                 break;
-          
+            case "inventor":
+                audioSrc.PlayOneShot(inventor);
+                break;
+
         }
     }
 

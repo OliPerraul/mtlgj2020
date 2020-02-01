@@ -55,3 +55,6 @@ TagManager:
   - name: Collider
     uniqueID: 1617270837
     locked: 0
+  - name: UI.DONOTTOUCH
+    uniqueID: 239315905
+    locked: 0

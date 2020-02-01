@@ -6,17 +6,6 @@ using UnityEngine;
 
 namespace MTLGJ
 {
-    public enum ShootingTowerUpgrade
-    {
-        Range,
-        BulletForce,
-        BulletDamage,
-        Frequency,
-        
-        //Numbullet
-
-    }
-
     public class ShootingTower : Tower
     {
         // TODO make better upgrades (more specific ..??)

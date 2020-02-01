@@ -40,7 +40,7 @@ public class Session : MonoBehaviour
         if (m_IsPlayerAtExit) {
            Time.timeScale = 0f;
 
-            // exitBackgroundImageCanvasGroup.enabled = true;
+             //exitBackgroundImageCanvasGroup.setActive(true);
 
 
         }
