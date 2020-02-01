@@ -33,6 +33,9 @@ namespace MTLGJ
         {
             //Debug.Log("asd");
 
+            if (collider.GetComponent<ColliderListener>() != null)
+                return;
+
             var tow = collider.GetComponentInParent<Tower>();
 
             if (tow == null)
@@ -46,6 +49,8 @@ namespace MTLGJ
 
         public void OnTriggerExit2D(Collider2D other)
         {
+            if (other.GetComponent<ColliderListener>() != null)
+                return;
 
             _sprite.material = _normalMaterial;
             

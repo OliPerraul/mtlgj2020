@@ -6,8 +6,46 @@ using UnityEngine;
 
 namespace MTLGJ
 {
+    public enum ShootingTowerUpgrade
+    {
+        Range,
+        BulletForce,
+        BulletDamage,
+        Frequency,
+        
+        //Numbullet
+
+    }
+
     public class ShootingTower : Tower
     {
+        // TODO make better upgrades (more specific ..??)
+
+        public void Upgrade(ShootingTowerUpgrade upgrade)
+        {
+            switch (upgrade)
+            {
+                case ShootingTowerUpgrade.Range:
+                    Range++;
+                    break;
+
+                case ShootingTowerUpgrade.BulletForce:
+                    BulletForce++;
+                    break;
+
+                case ShootingTowerUpgrade.Frequency:
+                    Frequency++;
+                    break;
+
+                case ShootingTowerUpgrade.BulletDamage:
+                    BulletDamage++;
+                    break;
+
+            }
+            //todo
+        }
+
+
         public override TowerID ID => TowerID.Shooting1;
 
         GameObject[] objectArray;
@@ -16,38 +54,40 @@ namespace MTLGJ
         public GameObject bulletPrefab;
         public Transform firePoint;
 
-        Transform target;
-        public float bulletForce;
 
-        float distance;
-        List<float> distanceList;
-
-        float timer;
-        public int waitingTime;
         public float movingDelay;
-
-        public float health = 1f;
-        [SerializeField] private healthbar hbar;
-
-        public GameObject player;
-        public Avatar avatar;
-
+   
         public GameObject wreckagePrefab;
 
         [SerializeField]
-        private float _range;
+        private CircleCollider2D _detectionRadius;
+
+        public float Range
+        {
+            get
+            {
+                return _detectionRadius.radius;
+            }
+
+            set => _detectionRadius.radius = value;
+        }
+
+
+        public float BulletForce = 4f;
+
+        public float BulletDamage = 1f;
 
         [SerializeField]
-        private float _frequency = 0.5f;
-
+        public float Frequency = 0.5f;
+    
 
         private Cirrus.Timer _timer = new Cirrus.Timer(repeat: true, start: false);
 
-        public void Awake() { 
+        public void Awake()
+        {
 
-            player = GameObject.FindGameObjectWithTag("Player");
-            //avatar = player.GetComponent<Avatar>();
-        }        
+            //player = GameObject.FindGameObjectWithTag("Player");
+        }
 
 
         // Update is called once per frame
@@ -55,88 +95,14 @@ namespace MTLGJ
         {
             base.Update();
 
-            // TODO: DONT DO THIS EVERY FRAME
+            hbar.SetSize(Health);
 
-            var closestEnemy = FindNearestEnemy();
-
-            if (closestEnemy != null)
+            if (Health <= 0)
             {
-                //target = closestObject.transform.Find("EnemyTransform");
-                timer += Time.deltaTime;
-
-                if (timer > waitingTime && timer < movingDelay) { } else { Shoot(); timer = 0; }
-            }   
-
-            hbar.SetSize(health);
-
-            if (health <= 0) {
                 Instantiate(wreckagePrefab, this.transform.position, this.transform.rotation);
                 Destroy(this.gameObject);
             }
-
-
         }
 
-        private List<Enemy> CaptureNearbyTargets()
-        {
-            // TODO: for now we use closest, other options maybe?
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(Transform.position, _range);
-            var lis = new List<Enemy>();
-
-            foreach (Collider2D collider in colliders)
-            {
-                var tg = collider.GetComponentInParent<Enemy>();
-
-                if (tg == null)
-                    continue;
-
-
-                lis.Add(tg);
-            }
-
-            return lis;
-        }
-
-
-
-        public Enemy FindNearestEnemy()
-        {
-            return CaptureNearbyTargets().
-                OrderBy(x => (x.Transform.position - Transform.position).magnitude).FirstOrDefault();
-
-            //objectArray = GameObject.FindGameObjectsWithTag("Enemy");
-
-            //float minDistance = 0;
-            //int count = 0;
-
-            //foreach (GameObject enemyItem in objectArray)
-            //{
-            //    float dist = Vector3.Distance(enemyItem.transform.position, firePoint.position);
-            //    if (count == 0)
-            //    {
-            //        minDistance = dist;
-            //        closestObject = enemyItem;
-            //        count++;
-            //    }
-            //    else
-            //    {
-            //        if (dist < minDistance)
-            //        {
-            //            minDistance = dist;
-            //            closestObject = enemyItem;
-            //        }
-            //    }
-            //}
-            //return closestObject;
-        }
-
-        void Shoot()
-        {
-            Vector2 vector = target.position - firePoint.position;
-
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(vector * bulletForce, ForceMode2D.Impulse);
-        }
     }
 }

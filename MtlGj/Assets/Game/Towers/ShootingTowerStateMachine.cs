@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Cirrus.Extensions;
+
 namespace MTLGJ
 {
     public class ShootingTowerState : TowerState
@@ -32,7 +37,8 @@ namespace MTLGJ
 
         //private Vector2Int dest;
         private Cirrus.Timer _timer;
-   
+
+        private List<Enemy> _enemies = new List<Enemy>();        
 
         public ShootingTowerActive(
             bool isStart,
@@ -47,31 +53,80 @@ namespace MTLGJ
         public override void Enter(params object[] args)
         {
             base.Enter(args);
-            _timer.Start();
+            _timer.Start(ShootingTower.Frequency);
+
+            _enemies.Clear();
+            ShootingTower.Colliderlistener.OnTriggerEnter2DHandler += OnTriggerEnter;
+            ShootingTower.Colliderlistener.OnTriggerExit2DHandler += OnTriggerExit;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            ShootingTower.Colliderlistener.OnTriggerEnter2DHandler -= OnTriggerEnter;
+            ShootingTower.Colliderlistener.OnTriggerExit2DHandler -= OnTriggerExit;
+
+        }
+
+        public void OnTriggerEnter(Collider2D colldier)
+        {
+            var en = colldier.GetComponentInParent<Enemy>();
+            if(en != null)
+            _enemies.Add(en);
+        }
+
+        public void OnTriggerExit(Collider2D colldier)
+        {
+            var en = colldier.GetComponentInParent<Enemy>();
+            _enemies.Remove(en);
         }
 
         private void OnTimeOut()
         {
-            CountDown.Instance.Number--;
 
-            if (CountDown.Instance.Number < -1)
-            {
-                _timer.Stop();
-                StateMachine.TrySetState(GameStateID.InRound);
-            }
+            Shoot();
+
         }
+
+        void Shoot()
+        {
+            if (_enemies.Count == 0)
+                return;
+
+            var tg = _enemies.OrderBy(x => 
+                (x.Transform.position - Tower.Transform.position).magnitude)
+                .FirstOrDefault();
+
+            Vector2 velocity = (tg.Transform.position - ShootingTower.firePoint.position).normalized * ShootingTower.BulletForce;
+
+
+            // TODO optimiz
+            GameObject bullet = ShootingTower.bulletPrefab.gameObject.Create(ShootingTower.firePoint.position, null);
+            //Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            Bullet b = bullet.GetComponent<Bullet>();
+            b.SetDamage(ShootingTower.BulletDamage);
+            b.SetDir((tg.Transform.position - Tower.Transform.position).normalized);
+            b.SetForce(ShootingTower.BulletForce);
+            b.SetTarget(tg);
+
+            //rb.AddForce(velocity, ForceMode2D.Impulse);
+        }
+
     }
 
     public class ShootingTowerStateMachine : TowerStateMachine
     {
-        //[Serializable]
+        [SerializeField]
         private ShootingTower _shootingTower;
 
         public override void Awake()
         {
             base.Awake();
 
-            Add(new ShootingTowerActive(false, _shootingTower, this));
+            // TODO broken etc
+            Add(new TowerIdle(false, _shootingTower, this));
+            Add(new ShootingTowerActive(true, _shootingTower, this));
         }
 
     }
