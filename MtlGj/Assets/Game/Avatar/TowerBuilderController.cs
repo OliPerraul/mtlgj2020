@@ -19,8 +19,8 @@ namespace MTLGJ
         [SerializeField]
         private float _buildRange = 2f;
 
-        bool isMenuActive;
-        //public Canvas turretMenu = false;
+        bool isMenuActive = false;
+        public Canvas turretMenu;
 
         IsometricCharacterRenderer isoRenderer;
 
@@ -95,7 +95,8 @@ namespace MTLGJ
             }
         }
 
-        void CreateTower(int selectedTowerIndex) {
+        public void CreateTower(int selectedTowerIndex)
+        {
 
             var front =
               avatar.Transform.position +
@@ -120,11 +121,11 @@ namespace MTLGJ
 
             var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
            
-            tower.gameObject.Create(
-                front.FromWorldToCellPosition().FromCellToWorldPosition(), 
-                Level.Instance.transform);
-            }
+                tower.gameObject.Create(
+                    front.FromWorldToCellPosition().FromCellToWorldPosition(), 
+                    Level.Instance.transform);
         }
+        
 
         //void CreateShooting() { CreateTower(0); }
         //void CreateShield() { CreateTower(1); }
