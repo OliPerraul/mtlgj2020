@@ -1020,8 +1020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b0191e1c1a95541a0b4f7c69ab173c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RuletileMap: {fileID: 590746506}
-  CollisionTileMap: {fileID: 1793695157}
+  Tilemap: {fileID: 0}
 --- !u!1 &1298640107
 GameObject:
   m_ObjectHideFlags: 0
@@ -6359,10 +6358,10 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7867197177924163313, guid: 4d3d1fb47d426ed4cafaa4a13e2751b2,
+    - target: {fileID: 7867197177924163315, guid: 4d3d1fb47d426ed4cafaa4a13e2751b2,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
+      propertyPath: m_Name
+      value: Tilemap
       objectReference: {fileID: 0}
     - target: {fileID: 7867197177924163326, guid: 4d3d1fb47d426ed4cafaa4a13e2751b2,
         type: 3}

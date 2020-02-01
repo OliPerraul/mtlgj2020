@@ -6,11 +6,11 @@ using UnityEngine.Tilemaps;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField]
-    public Tilemap RuletileMap;
+    //[SerializeField]
+    //public Tilemap RuletileMap;
 
     [SerializeField]
-    public Tilemap CollisionTileMap;
+    public Tilemap Tilemap;
 
     public static Level Instance;
 
