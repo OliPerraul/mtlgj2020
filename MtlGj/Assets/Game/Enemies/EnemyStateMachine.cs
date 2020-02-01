@@ -2,21 +2,21 @@
 using System.Collections;
 
 
-namespace Cirrus.HKP.Objects.Characters.Avatar
+namespace MTLGJ
 {
     [System.Serializable]
-    public enum EnemyStateID
+    public enum EnemyStateID : int
     {
-        Default = 1 << 1,
-        Invade = 1 << 2,
-        Attack = 1 << 3
-
+        Start,
+        Marching,
+        Attack,
+        Idle
     }
 
 
-    public abstract class EnemyState : FSM.State
+    public abstract class EnemyState : Cirrus.FSM.State
     {
-        public override int ID => (int)EnemyStateID.Default;
+        public override int ID => -1;//(int)EnemyStateID.Default;
 
         public Enemy Enemy => (Enemy)_context[0];
 
@@ -27,8 +27,7 @@ namespace Cirrus.HKP.Objects.Characters.Avatar
             context)
         {
 
-        }
-
+        }    
 
         public override void Enter(params object[] args) { }
 
@@ -43,8 +42,29 @@ namespace Cirrus.HKP.Objects.Characters.Avatar
 
     }
 
+    public class Start : EnemyState
+    {
+        public override int ID => (int)EnemyStateID.Start;
+
+        public Start(
+            bool isStart,
+            params object[] context) : base(
+            isStart,
+            context)
+        {
+
+        }
+
+        public override void Enter(params object[] args)
+        {
+            base.Enter(args);
+        }
+    }
+
     public class Attack : EnemyState
     {
+        public override int ID => (int) EnemyStateID.Attack;
+
         public Attack(
             bool isStart,
             params object[] context) : base(
@@ -58,12 +78,37 @@ namespace Cirrus.HKP.Objects.Characters.Avatar
         {
             base.Enter(args);
         }
-
-
     }
-    public class Invade : EnemyState
+
+
+
+    public class Idle : EnemyState
     {
-        public Invade(
+        public override int ID => (int)EnemyStateID.Idle;
+
+        public Idle(
+            bool isStart,
+            params object[] context) : base(
+            isStart,
+            context)
+        {
+
+        }
+
+        public override void Enter(params object[] args)
+        {
+            base.Enter(args);
+        }
+    }
+
+
+    public class Marching : EnemyState
+    {
+        public override int ID => (int)EnemyStateID.Marching;
+
+        private Vector2Int dest;
+
+        public Marching(
             bool isStart,
             params object[] context) : base(
             isStart,
@@ -82,7 +127,7 @@ namespace Cirrus.HKP.Objects.Characters.Avatar
 
 
 
-    public class EnemyStateMachine : FSM.BaseMachine
+    public class EnemyStateMachine : Cirrus.FSM.BaseMachine
     {
         //[SerializeField]
         //private Avatar _character;
@@ -93,16 +138,12 @@ namespace Cirrus.HKP.Objects.Characters.Avatar
         public override void Awake()
         {
             base.Awake();
-
-            //Add(State)
-
-            Add(new Invade(true, _enemy));
-            Add(new Attack(false, _enemy));
             
-
-            //Add(new Crouched(true, _character));
-
-            //Add(new UsingCamera(false, _character));
+            Add(new Start(true, _enemy));
+            Add(new Marching(false, _enemy));
+            Add(new Attack(false, _enemy));
+            Add(new Idle(false, _enemy));
+            
         }
 
         public override void Start()
