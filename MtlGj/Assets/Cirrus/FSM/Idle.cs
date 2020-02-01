@@ -5,7 +5,7 @@ namespace Cirrus.FSM
 {
     public class Idle : AssetResource
     {
-        override public int Id { get { return (int) DefaultState.Idle; } }
+        override public int ID { get { return (int) DefaultState.Idle; } }
 
         public override FSM.IState PopulateState(object[] context)
         {
