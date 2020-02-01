@@ -1,0 +1,3 @@
+192 x 384 - tower
+192 x 192 - tile
+character - 129 x 210
