@@ -36,7 +36,7 @@ public class Session : MonoBehaviour
         if (m_IsPlayerAtExit) {
             m_Timer += Time.deltaTime;
 
-             exitBackgroundImageCanvasGroup.setActive(true);
+             exitBackgroundImageCanvasGroup.enabled = true;
 
 
         }
