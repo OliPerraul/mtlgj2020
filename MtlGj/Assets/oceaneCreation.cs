@@ -1,20 +1,24 @@
-﻿using System.Collections;
+﻿using Cirrus.Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using UnityEngine.Tilemaps;
+using Pathfinding = NesScripts.Controls.PathFind;
 
 public class oceaneCreation : MonoBehaviour
 { 
    public GameObject avatar;
    public GameObject myPrefab;
 
+
      IsometricCharacterRenderer isoRenderer;
 
     Rigidbody2D rbody;
 
-    float horizontalInput;
-    float verticalInput; 
-    bool horizontal = true;
-    bool vertical;
+     public Tilemap tilemap;
+
+     public Tile start;
     float positionX;
     float positionY;
 
@@ -42,7 +46,14 @@ public class oceaneCreation : MonoBehaviour
                 Debug.Log(playerDirection.ToString("N4"));
                Instantiate(myPrefab, spawnPos, Quaternion.identity);
 
-               // RuletileMap.SetTile(TilemapResources.Instance.Getile(tileID.))
+                Vector3Int plpl = new Vector3Int((int)playerPos.x, (int)playerPos.y,3);
+               /* Tile tile = (Tile)tilemap.GetTile(plpl);
+               //  Tile tile = ScriptableObject.CreateInstance<Tile>();
+                 tilemap.SetTile(plpl, tile);*/
+
+                 Level.Instance.Tilemap.SetTile(
+                     plpl,
+                     TilemapResources.Instance.GetTile(TileID.Full));
         }
    }
 }
