@@ -12,7 +12,7 @@ public enum TileID
 }
 
 
-public class GGJTile : UnityEngine.Tilemaps.Tile
+public class GGJTile : RuleTile
 {
     [SerializeField]
     public TileID ID;

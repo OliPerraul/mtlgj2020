@@ -28,6 +28,9 @@ public class Level : MonoBehaviour
         //    //Level.Instance.InvokeRepeating.
 
         //TilemapResources.Inst
+
+
+        //Level.Instance.RuletileMap.Wo
     }
 
     // Update is called once per frame
