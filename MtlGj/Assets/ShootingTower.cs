@@ -20,20 +20,29 @@ public class ShootingTower : MonoBehaviour
     public int waitingTime;
     public float movingDelay;
 
-    public int health;
+    public float health = 1f;
+    [SerializeField] private healthbar hbar;
 
     // Update is called once per frame
     void Update()
     {
         closestObject = FindNearestEnemy();
-        target = closestObject.transform.Find("Witch");
 
-        timer += Time.deltaTime;
 
-        if (timer > waitingTime && timer < movingDelay) {
-           
+        if (GameObject.FindGameObjectsWithTag("Enemy") != null) {
+            Debug.Log("there is a bad guys");
+            target = closestObject.transform.Find("EnemyTransform");
+            timer += Time.deltaTime;
+
+            if (timer > waitingTime && timer < movingDelay) { } else { Shoot(); timer = 0; }
         }
-        else{ Shoot(); timer = 0; }
+        else { Debug.Log("there is no bad guys"); }
+
+
+
+        hbar.SetSize(health);
+
+        if (health <= 0) { Destroy(this.gameObject); }
 
        
     }
