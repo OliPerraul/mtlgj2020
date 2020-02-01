@@ -1,12 +1,23 @@
-﻿using System.Collections;
+﻿using Cirrus.Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.Tilemaps;
 using Pathfinding = NesScripts.Controls.PathFind;
 
+
+
 public class Level : MonoBehaviour
 {
+
+
+    public Vector2Int ToPathfindingPosition(Vector3Int pos)
+    {
+        return ((Level.Instance.Tilemap.origin * -1) + pos).ToVector2Int();
+    }
+
+
     //[SerializeField]
     //public Tilemap RuletileMap;
 
@@ -30,7 +41,16 @@ public class Level : MonoBehaviour
         {
             for (int j = 0; j < Tilemap.size.y; j++)
             {
-                //_grid.UpdateGrid(new Vector2Int())
+                var tile = (GGJTile)Tilemap.GetTile(new Vector3Int(i, j, 0));
+
+                if (tile == null)
+                    continue;
+
+                var pfp = ToPathfindingPosition(new Vector3Int(i, j, 0));
+
+                _grid.UpdateGrid(pfp,
+                    tile.ID == TileID.Empty || tile.ID == TileID.Start || tile.ID == TileID.End
+                    );
             }
         }
 
