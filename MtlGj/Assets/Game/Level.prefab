@@ -340,5 +340,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b0191e1c1a95541a0b4f7c69ab173c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RuletileMap: {fileID: 0}
-  CollisionTileMap: {fileID: 0}
+  RuletileMap: {fileID: 9160183989103422794}
+  CollisionTileMap: {fileID: 7867197177924163326}
