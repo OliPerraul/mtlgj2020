@@ -64,24 +64,38 @@ namespace MTLGJ
             _path = Pathfinding.Pathfinding.FindPath(
                 Level.Instance.PathindingGrid, 
                 Enemy.PathfindPosition.ToPathFindingPoint(),
-                Level.Instance.Ends.Random().FromCellToPathfindingPosition().ToPathFindingPoint()
+                Level.Instance.Ends.Random().FromCellToPathfindingPosition().ToPathFindingPoint(), 
+                Pathfinding.Pathfinding.DistanceType.Manhattan
                 );
+
+            for (int i = 0; i < _path.Count; i++)
+            {
+                Level.Instance.Tilemap.SetTile(
+                    _path[i].Position.FromPathfindToCellPosition(),
+                    TilemapResources.Instance.GetTile(TileID.Full));
+            }
+
+
+            if (_path.Count != 0)
+            {
+                _nextDestination =
+                    _path[0]
+                        .Position
+                        .FromPathfindToCellPosition()
+                        .FromCellToWorldPosition();
+                Enemy.pos = _nextDestination;
+                //return;
+            }
         }
 
 
         public void FollowPath()
-        {
-            Enemy.Axis = (_nextDestination - Enemy.Transform.position).normalized;                   
-
+        {                      
             if (Enemy.Transform.position.IsCloseEnough(
-                _nextDestination))
+                _nextDestination, 1f))
             {
-                //Enemy.PathfindPosition =
-                //    _path[_currentPathPositionIndex].Position;
-
                 _currentPathPositionIndex++;
-
-
+            
                 _nextDestination =
                     _path[_currentPathPositionIndex]
                         .Position
@@ -89,10 +103,14 @@ namespace MTLGJ
                         .FromCellToWorldPosition();
             }
 
-            //Enemy.Direction =
-            //    _nextDestination.x < Character.Transform.position.x ?
-            //    -1 :
-            //    1;
+            var npos = 
+                Vector3.MoveTowards(
+                    Enemy.Transform.position,
+                    _nextDestination,
+                    Enemy.MoveSpeed);
+
+            Enemy.isoRenderer.SetDirection((_nextDestination - Enemy.Transform.position) .normalized );
+            Enemy.rbody.MovePosition(npos);
         }
 
 
@@ -100,7 +118,8 @@ namespace MTLGJ
 
         public override void BeginUpdate()
         {
-
+            Enemy.pos = _nextDestination;
+            FollowPath();
         }
 
         public override void EndUpdate() { }

@@ -8,14 +8,14 @@ namespace MTLGJ
 {
     public class Enemy : Character
     {
-        public float MoveSpeed = 5f;
+        public float MoveSpeed = 0.002f;
 
         //Path
 
         [SerializeField]
-        private IsometricCharacterRenderer isoRenderer;
+        public IsometricCharacterRenderer isoRenderer;
 
-        Rigidbody2D rbody;
+        public Rigidbody2D rbody;
 
         public Vector2 Axis = new Vector2();
 
@@ -32,15 +32,23 @@ namespace MTLGJ
         // Update is called once per frame
         void FixedUpdate()
         {
-            Vector2 currentPos = rbody.position;
+            //Vector2 currentPos = rbody.position;
 
-            Vector2 inputVector = new Vector2(Axis.x, Axis.y);
-            inputVector = Vector2.ClampMagnitude(inputVector, 1);
-            Vector2 movement = inputVector * MoveSpeed;
-            Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
+            //Vector2 inputVector = new Vector2(Axis.x, Axis.y);
+            //inputVector = Vector2.ClampMagnitude(inputVector, 1);
+            //Vector2 movement = inputVector * MoveSpeed;
+            //Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
         
-            isoRenderer.SetDirection(movement);
-            rbody.MovePosition(newPos);
+            //isoRenderer.SetDirection(movement);
+            //rbody.MovePosition(newPos);
+        }
+
+        public Vector3 pos;
+
+        public void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(pos, 0.05f);
         }
     }
 }

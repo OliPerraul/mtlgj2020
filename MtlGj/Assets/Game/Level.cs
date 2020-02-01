@@ -20,7 +20,8 @@ public static class LevelUtils
 
     public static Vector3 FromCellToWorldPosition(this Vector3Int cellPosition)
     {
-        return Level.Instance.Tilemap.CellToWorld(cellPosition);
+        // TODO harc nono
+        return Level.Instance.Tilemap.CellToWorld(cellPosition) + new Vector3(0.5f, 0.5f, 0) * 3;
     }
 
     public static Vector3Int FromWorldToCellPosition(this Vector3 wposition)
@@ -67,18 +68,15 @@ public class Level : MonoBehaviour
             {
                 // No offset == Pathfind pos
                 var celpos = new Vector2Int(i, j).FromPathfindToCellPosition();
-
                 var tile = (GGJTile)Tilemap.GetTile(celpos);            
-                Tilemap.SetTile(celpos, TilemapResources.Instance.GetTile(TileID.Full));
-
                 if (tile == null)
                     continue;
 
-                var pfp = new Vector3Int(i, j, 0).FromCellToPathfindingPosition();
+                var pfp = celpos.FromCellToPathfindingPosition();
 
                 if (tile.ID == TileID.End)
                 {
-                    Ends.Add(new Vector3Int(i, j, 0));
+                    Ends.Add(celpos);
                 }
 
                 _grid.UpdateGrid(pfp,
