@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Pathfinding = NesScripts.Controls.PathFind;
 
 namespace MTLGJ
 {
     public class Enemy : Character
     {
-        public float movementSpeed = 5000f;
+        public float MoveSpeed = 5f;
+
+        //Path
 
         [SerializeField]
         private IsometricCharacterRenderer isoRenderer;
@@ -20,6 +23,10 @@ namespace MTLGJ
         {
             rbody = GetComponent<Rigidbody2D>();
             isoRenderer = GetComponentInChildren<IsometricCharacterRenderer>();
+
+            var tile = Level.Instance.Tilemap.GetTile(Transform.position.FromWorldToCellPosition());
+            //Debug.Log("");
+
         }
 
         // Update is called once per frame
@@ -29,10 +36,9 @@ namespace MTLGJ
 
             Vector2 inputVector = new Vector2(Axis.x, Axis.y);
             inputVector = Vector2.ClampMagnitude(inputVector, 1);
-            Vector2 movement = inputVector * movementSpeed;
+            Vector2 movement = inputVector * MoveSpeed;
             Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
-
-
+        
             isoRenderer.SetDirection(movement);
             rbody.MovePosition(newPos);
         }

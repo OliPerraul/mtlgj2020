@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using Pathfinding = NesScripts.Controls.PathFind;
+using NesScripts.Controls.PathFind;
+using Cirrus.Extensions;
+using System.Collections.Generic;
 
 namespace MTLGJ
 {
@@ -20,6 +24,24 @@ namespace MTLGJ
 
         public Enemy Enemy => (Enemy)_context[0];
 
+        private List<Point> _path;//= new List<Point>()
+
+        //[SerializeField]
+        //protected List<NesScripts.Controls.PathFind.Point> _path;
+
+        protected Vector2Int _finalDestination;
+
+        protected Vector3 _nextDestination;
+
+        protected int _currentPathPositionIndex = 0;
+
+        //protected Timer _timer;
+
+        //public virtual Character Character => _character;
+
+        //private Character _character;
+
+
         public EnemyState(
             bool isStart,
             params object[] context) : base(
@@ -29,7 +51,50 @@ namespace MTLGJ
 
         }    
 
-        public override void Enter(params object[] args) { }
+
+
+        public override void Enter(params object[] args)
+        {
+            //Level.Instance.Ends.Ge
+
+
+            var tile = Level.Instance.Tilemap.GetTile(Level.Instance.Ends.Random());
+            //Debug.Log("");
+
+            _path = Pathfinding.Pathfinding.FindPath(
+                Level.Instance.PathindingGrid, 
+                Enemy.PathfindPosition.ToPathFindingPoint(),
+                Level.Instance.Ends.Random().FromCellToPathfindingPosition().ToPathFindingPoint()
+                );
+        }
+
+
+        public void FollowPath()
+        {
+            Enemy.Axis = (_nextDestination - Enemy.Transform.position).normalized;                   
+
+            if (Enemy.Transform.position.IsCloseEnough(
+                _nextDestination))
+            {
+                //Enemy.PathfindPosition =
+                //    _path[_currentPathPositionIndex].Position;
+
+                _currentPathPositionIndex++;
+
+
+                _nextDestination =
+                    _path[_currentPathPositionIndex]
+                        .Position
+                        .FromPathfindToCellPosition()
+                        .FromCellToWorldPosition();
+            }
+
+            //Enemy.Direction =
+            //    _nextDestination.x < Character.Transform.position.x ?
+            //    -1 :
+            //    1;
+        }
+
 
         public override void Exit() { }
 
@@ -149,6 +214,7 @@ namespace MTLGJ
         public override void Start()
         {
             base.Start();
+            
         }
     }
 
