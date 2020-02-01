@@ -34,7 +34,7 @@ namespace MTLGJ
 
 
         public TowerID[] _towerInventory = new TowerID[] {
-                    TowerID.Shooting1
+            TowerID.Shooting1
             //TowerID.Shield1,
             //TowerID.Shooting1
         };
@@ -118,8 +118,11 @@ namespace MTLGJ
 
             var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
 
-            tower.gameObject.Create(front.FromWorldToCellPosition().FromCellToWorldPosition(), Level.Instance.transform);
-
+           
+                tower.gameObject.Create(
+                    front.FromWorldToCellPosition().FromCellToWorldPosition(), 
+                    Level.Instance.transform);
+            }
         }
 
         void CreateShooting() { CreateTower(0); }

@@ -118,7 +118,7 @@ namespace MTLGJ
             {
                 StateMachine.prevCelSet = false;
 
-                Level.Instance.UpdateCharacterCel(StateMachine.prevCel, true);
+                Level.Instance.UpdateCharacterCel(StateMachine.prevCel, false);
             }
 
             if (Level.Instance.Tilemap.GetTile(cel) == null)
