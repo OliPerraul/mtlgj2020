@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3339481643503506217}
   - component: {fileID: 3339481643503506218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 3339481644051735614}
   - component: {fileID: 3339481644051735613}
   - component: {fileID: 3339481644051735612}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WitchRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3339481645326394339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Witch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 3339481645408498930}
   - component: {fileID: 2079923368}
   - component: {fileID: 2079923369}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
