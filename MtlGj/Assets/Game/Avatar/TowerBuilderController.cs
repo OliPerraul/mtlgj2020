@@ -31,7 +31,6 @@ namespace MTLGJ
         float positionX;
         float positionY;
 
-
         public TowerID[] _towerInventory = new TowerID[] {
             TowerID.Shooting1
             //TowerID.Shield1,
@@ -92,35 +91,40 @@ namespace MTLGJ
 
         public void CreateTower(int selectedTowerIndex) {
 
-            var front =
-              avatar.Transform.position +
-              isoRenderer.Direction * _buildRange;
+            if (avatar.ressourcesQty >= avatar.priceShootingTower) {
+                avatar.ressourcesQty -= avatar.priceShootingTower;
 
-            var curr = Level.Instance.Tilemap.GetTile(
-                     front.FromWorldToCellPosition());
+                var front =
+                  avatar.Transform.position +
+                  isoRenderer.Direction * _buildRange;
 
-            if (curr != null && ((GGJTile)curr).ID == TileID.Building)
-                return;
+                var curr = Level.Instance.Tilemap.GetTile(
+                         front.FromWorldToCellPosition());
 
-            if (curr != null && ((GGJTile)curr).ID == TileID.Character)
-                return;
+                if (curr != null && ((GGJTile)curr).ID == TileID.Building)
+                    return;
 
-            if (curr != null && ((GGJTile)curr).ID == TileID.End)
-                return;
+                if (curr != null && ((GGJTile)curr).ID == TileID.Character)
+                    return;
 
-            if (curr != null && ((GGJTile)curr).ID == TileID.Start)
-                return;
+                if (curr != null && ((GGJTile)curr).ID == TileID.End)
+                    return;
 
-            Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
+                if (curr != null && ((GGJTile)curr).ID == TileID.Start)
+                    return;
 
-            var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
+                Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
 
-            tower.gameObject.Create(
-                front.FromWorldToCellPosition().FromCellToWorldPosition(),
-                Level.Instance.transform);
+                var tower = TowerResources.Instance.GetTower(_towerInventory[selectedTowerIndex]);
 
-            turretMenu.enabled = !isMenuActive;
-            isMenuActive = !isMenuActive;
+                tower.gameObject.Create(
+                    front.FromWorldToCellPosition().FromCellToWorldPosition(),
+                    Level.Instance.transform);
+
+                turretMenu.enabled = !isMenuActive;
+                isMenuActive = !isMenuActive;
+            }
+            else { Debug.Log("not enough resources");}
         }
 
         public void UpgradeTower(int type) 

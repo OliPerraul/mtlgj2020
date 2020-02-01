@@ -16,7 +16,7 @@ namespace MTLGJ
         [SerializeField]
         public float Lives = 10f;
 
-        public healthbar hbar;
+     
 
         public int WaveIndex = 0;
 
@@ -32,15 +32,19 @@ namespace MTLGJ
     {
         public static Game Instance;
         
-        public Session Session;
+        [SerializeField] public Session session;
+        public healthbar hbar;
+        
 
         private void Awake()
         {
             Instance = this;
         }
 
+
+
         private void Update() {
-            hbar.SetSize(Health);
+            hbar.SetSize(session.Lives);
 
        
     }
