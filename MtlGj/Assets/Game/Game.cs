@@ -14,7 +14,9 @@ namespace MTLGJ
         public int Money = 0;
 
         [SerializeField]
-        public int Lives = 10;
+        public float Lives = 10f;
+
+        public healthbar hbar;
 
         public int WaveIndex = 0;
 
@@ -36,5 +38,11 @@ namespace MTLGJ
         {
             Instance = this;
         }
+
+        private void Update() {
+            hbar.SetSize(Health);
+
+       
     }
+}
 }
