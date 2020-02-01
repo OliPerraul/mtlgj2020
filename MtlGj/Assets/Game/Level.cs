@@ -21,7 +21,7 @@ public static class LevelUtils
     public static Vector3 FromCellToWorldPosition(this Vector3Int cellPosition)
     {
         // TODO harc nono
-        return Level.Instance.Tilemap.CellToWorld(cellPosition) + new Vector3(0.5f, 0.5f, 0) * 3;
+        return Level.Instance.Tilemap.CellToWorld(cellPosition) + new Vector3(1.5f - 0.75f - 0.75f, 1.5f - 0.75f);
     }
 
     public static Vector3Int FromWorldToCellPosition(this Vector3 wposition)
