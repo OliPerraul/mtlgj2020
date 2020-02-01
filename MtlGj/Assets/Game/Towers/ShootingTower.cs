@@ -64,10 +64,10 @@ namespace MTLGJ
         private List<Enemy> CaptureNearbyTargets()
         {
             // TODO: for now we use closest, other options maybe?
-            Collider[] colliders = Physics.OverlapSphere(Transform.position, _range);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(Transform.position, _range);
             var lis = new List<Enemy>();
 
-            foreach (Collider collider in colliders)
+            foreach (Collider2D collider in colliders)
             {
                 var tg = collider.GetComponentInParent<Enemy>();
 
