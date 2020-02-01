@@ -37,10 +37,10 @@ namespace Cirrus.FSM
 
         public virtual void Add(IState state)
         {
-            if (_dictionary.ContainsKey(state.Id))
+            if (_dictionary.ContainsKey(state.ID))
                 return;
 
-            _dictionary.Add(state.Id, state);
+            _dictionary.Add(state.ID, state);
 
             if (_first == null && state.IsStart)
                 _first = state;
@@ -58,7 +58,7 @@ namespace Cirrus.FSM
             {
                 if (res == null) continue;
 
-                if (_dictionary.ContainsKey(res.Id))
+                if (_dictionary.ContainsKey(res.ID))
                     continue;
 
                 Add(CreateState(res));
@@ -68,7 +68,7 @@ namespace Cirrus.FSM
             {
                 if (res == null) continue;
 
-                if (_dictionary.ContainsKey(res.Id))
+                if (_dictionary.ContainsKey(res.ID))
                     continue;
 
                 Add(CreateState(res));
@@ -87,7 +87,7 @@ namespace Cirrus.FSM
                 return;
 
 
-            TryPushState(_first.Id);
+            TryPushState(_first.ID);
         }
 
 
@@ -205,7 +205,7 @@ namespace Cirrus.FSM
                 if (current != null)
                     current.Exit();
 
-                if (current != null && current.Id == res.Id)
+                if (current != null && current.ID == res.ID)
                 {
                     res.Reenter(args);
                 }
@@ -231,7 +231,7 @@ namespace Cirrus.FSM
         {
             if (_stack.Count > 1)
             {
-                if (Top.Id != from)
+                if (Top.ID != from)
                     return false;
 
                 return TryPopState();
@@ -251,7 +251,7 @@ namespace Cirrus.FSM
                 _stack.Pop();
                 _mutex.ReleaseMutex();
 
-                if (prev.Id == Top.Id) Top.Reenter(args);
+                if (prev.ID == Top.ID) Top.Reenter(args);
 
                 else Top.Enter(args);
 
@@ -271,7 +271,7 @@ namespace Cirrus.FSM
 
                 if (
                     current != null && 
-                    current.Id == res.Id)
+                    current.ID == res.ID)
                 {
                     res.Reenter(args);
                 }

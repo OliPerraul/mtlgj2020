@@ -11,7 +11,7 @@ namespace Cirrus.FSM
 
     public interface IResource
     {
-        int Id { get ; }
+        int ID { get ; }
 
         IState PopulateState(object[] context);
 
@@ -27,7 +27,7 @@ namespace Cirrus.FSM
 
         bool IsStart { get; }
 
-        int Id { get; }// { return resource.Id; } }
+        int ID { get; }// { return resource.Id; } }
 
         void Enter(params object[] args);
 
@@ -46,7 +46,7 @@ namespace Cirrus.FSM
 
     public abstract class AssetResource : ScriptableObject, IResource
     {
-        virtual public int Id { get { return -1; } }
+        virtual public int ID { get { return -1; } }
         public abstract IState PopulateState(object[] context);
         
         [SerializeField]
@@ -62,7 +62,7 @@ namespace Cirrus.FSM
         public IResource Resource;
         public object[] Context;
 
-        public int Id { get { return Resource.Id; } }
+        public int ID { get { return Resource.ID; } }
 
         public ResourceState(IResource resource, params object[] context)
         {
@@ -99,7 +99,7 @@ namespace Cirrus.FSM
     [System.Serializable]
     public abstract class State : IState
     {
-        public virtual int Id => -1;
+        public virtual int ID => -1;
 
         public virtual string Name => "[?]";
 
@@ -143,7 +143,7 @@ namespace Cirrus.FSM
 
         public bool IsStart { get { return _isStart; } }
 
-        public virtual int Id { get { return -1; } }
+        public virtual int ID { get { return -1; } }
 
         public abstract IState PopulateState(object[] context);
 

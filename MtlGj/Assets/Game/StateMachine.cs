@@ -1,225 +1,225 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿//using UnityEngine;
+//using System.Collections;
 
 
-namespace Cirrus.HKP.Objects.Characters.Avatar
-{
-    [System.Serializable]
-    public enum StateId
-    {
-        Default = 1 << 1,
-        UsingCamera = 1 << 2,
-        Standing = 1 << 3,
-        Crouching = 1 << 4,
-    }
+//namespace Cirrus.HKP.Objects.Characters.Avatar
+//{
+//    [System.Serializable]
+//    public enum StateId
+//    {
+//        Default = 1 << 1,
+//        UsingCamera = 1 << 2,
+//        Standing = 1 << 3,
+//        Crouching = 1 << 4,
+//    }
 
 
-    public abstract class State : FSM.State
-    {
-        public override int Id => (int)StateId.Default;
+//    public abstract class State : FSM.State
+//    {
+//        public override int Id => (int)StateId.Default;
 
-        public State(
-            bool isStart,
-            object[] context) : base(
-            isStart,
-            context)
-        {
-            _useCameraTimer = new Timer(
-            //Avatar.UseCameraTime,
-            repeat: false,
-            start: false);
-        }
+//        public State(
+//            bool isStart,
+//            object[] context) : base(
+//            isStart,
+//            context)
+//        {
+//            _useCameraTimer = new Timer(
+//            //Avatar.UseCameraTime,
+//            repeat: false,
+//            start: false);
+//        }
 
-        //protected Avatar Avatar => (Avatar)_context[0];
+//        //protected Avatar Avatar => (Avatar)_context[0];
 
-        protected Timer _useCameraTimer;
+//        protected Timer _useCameraTimer;
 
-        public override void Enter(params object[] args) { }
+//        public override void Enter(params object[] args) { }
 
-        public override void Exit() { }
+//        public override void Exit() { }
 
-        public override void BeginUpdate()
-        {
+//        public override void BeginUpdate()
+//        {
 
-        }
+//        }
 
-        public override void EndUpdate() { }
+//        public override void EndUpdate() { }
 
-    }
+//    }
 
-    public abstract class Locomotion : State
-    {
-        public Locomotion(bool isStart, params object[] context) : base(isStart, context) { }
+//    public abstract class Locomotion : State
+//    {
+//        public Locomotion(bool isStart, params object[] context) : base(isStart, context) { }
 
-        public override void BeginUpdate()
-        {
-            base.BeginUpdate();
+//        public override void BeginUpdate()
+//        {
+//            base.BeginUpdate();
 
-            //// Left, not right
-            //if (
-            //    Avatar.InputScheme.IsLeftHeld &&
-            //    !Avatar.InputScheme.IsRightHeld)
-            //{
-            //    Avatar.AccelerationDecelerationTime = Avatar.Direction != -1 ? 0 : Avatar.AccelerationDecelerationTime;
-            //    Avatar.Direction = -1;
-            //    Avatar.Speed = Mathf.Lerp(Avatar.Speed, -Avatar.MaxSpeed, Avatar.AccelerationDecelerationTime / Avatar.AccelerationTimeLimit);
-            //}
-            //// Not left, right
-            //else if (
-            //    !Avatar.InputScheme.IsLeftHeld &&
-            //    Avatar.InputScheme.IsRightHeld)
-            //{
-            //    Avatar.AccelerationDecelerationTime = Avatar.Direction != 1 ? 0 : Avatar.AccelerationDecelerationTime;
-            //    Avatar.Direction = 1;
-            //    Avatar.Speed = Mathf.Lerp(Avatar.Speed, Avatar.MaxSpeed, Avatar.AccelerationDecelerationTime / Avatar.AccelerationTimeLimit);
-            //}
-            //else
-            //{
-            //    Avatar.AccelerationDecelerationTime = Avatar.Direction != 0 ? 0 : Avatar.AccelerationDecelerationTime;
-            //    Avatar.Direction = 0;
-            //    Avatar.Speed = Mathf.Lerp(Avatar.Speed, 0, Avatar.DecelerationTimeLimit / Avatar.DecelerationTimeLimit);
-            //}
+//            //// Left, not right
+//            //if (
+//            //    Avatar.InputScheme.IsLeftHeld &&
+//            //    !Avatar.InputScheme.IsRightHeld)
+//            //{
+//            //    Avatar.AccelerationDecelerationTime = Avatar.Direction != -1 ? 0 : Avatar.AccelerationDecelerationTime;
+//            //    Avatar.Direction = -1;
+//            //    Avatar.Speed = Mathf.Lerp(Avatar.Speed, -Avatar.MaxSpeed, Avatar.AccelerationDecelerationTime / Avatar.AccelerationTimeLimit);
+//            //}
+//            //// Not left, right
+//            //else if (
+//            //    !Avatar.InputScheme.IsLeftHeld &&
+//            //    Avatar.InputScheme.IsRightHeld)
+//            //{
+//            //    Avatar.AccelerationDecelerationTime = Avatar.Direction != 1 ? 0 : Avatar.AccelerationDecelerationTime;
+//            //    Avatar.Direction = 1;
+//            //    Avatar.Speed = Mathf.Lerp(Avatar.Speed, Avatar.MaxSpeed, Avatar.AccelerationDecelerationTime / Avatar.AccelerationTimeLimit);
+//            //}
+//            //else
+//            //{
+//            //    Avatar.AccelerationDecelerationTime = Avatar.Direction != 0 ? 0 : Avatar.AccelerationDecelerationTime;
+//            //    Avatar.Direction = 0;
+//            //    Avatar.Speed = Mathf.Lerp(Avatar.Speed, 0, Avatar.DecelerationTimeLimit / Avatar.DecelerationTimeLimit);
+//            //}
 
-            //Avatar.AccelerationDecelerationTime += Time.deltaTime;
+//            //Avatar.AccelerationDecelerationTime += Time.deltaTime;
 
-            //Avatar.Transform.position += Vector3.right * Avatar.Speed;
-        }
-    }
+//            //Avatar.Transform.position += Vector3.right * Avatar.Speed;
+//        }
+//    }
 
-    public class Crouched : Locomotion
-    {
-        public Crouched(bool isStart, params object[] context) : base(isStart, context) { }
+//    public class Crouched : Locomotion
+//    {
+//        public Crouched(bool isStart, params object[] context) : base(isStart, context) { }
 
-        public override void BeginUpdate()
-        {
-            base.BeginUpdate();
+//        public override void BeginUpdate()
+//        {
+//            base.BeginUpdate();
 
-            //if (Avatar.InputScheme.IsUpHeld)
-            //{
-            //    Avatar.StateMachine.TrySetState(StateId.Standing);
-            //    return;
-            //}
+//            //if (Avatar.InputScheme.IsUpHeld)
+//            //{
+//            //    Avatar.StateMachine.TrySetState(StateId.Standing);
+//            //    return;
+//            //}
 
-        }
-    }
-
-
-
-    public class Standing : Locomotion
-    {
-        public override int Id => (int)StateId.Standing;
-
-        public override string Name => "Avatar.Standing";
-
-        public Standing(
-            bool isStart,
-            params object[] context) : base(isStart, context) { }
+//        }
+//    }
 
 
-        public override void Enter(params object[] args)
-        {
-            base.Enter(args);
 
-            //Cameras.CameraWrapper.Instance.State.Value = Cameras.CameraState.Idle;
+//    public class Standing : Locomotion
+//    {
+//        public override int Id => (int)StateId.Standing;
 
-            //_useCameraTimer.Start();
-        }
+//        public override string Name => "Avatar.Standing";
 
-        public override void Reenter(params object[] args)
-        {
-            base.Reenter(args);
+//        public Standing(
+//            bool isStart,
+//            params object[] context) : base(isStart, context) { }
 
-            //Cameras.CameraWrapper.Instance.State.Value = Cameras.CameraState.Idle;
-        }
 
-        public override void BeginUpdate()
-        {
-            base.BeginUpdate();
+//        public override void Enter(params object[] args)
+//        {
+//            base.Enter(args);
 
-            //if (!_useCameraTimer.IsActive &&
-            //    Avatar.InputScheme.IsCameraPressed)
-            //{
-            //    Avatar.StateMachine.TrySetState(StateId.UsingCamera);
-            //    return;
-            //}
+//            //Cameras.CameraWrapper.Instance.State.Value = Cameras.CameraState.Idle;
 
-            //if (Avatar.InputScheme.IsDownPressed)
-            //{
-            //    Avatar.StateMachine.TrySetState(StateId.Crouching);
-            //    return;
-            //}
-        }
+//            //_useCameraTimer.Start();
+//        }
 
-        public override void EndUpdate()
-        {
-            base.EndUpdate();
+//        public override void Reenter(params object[] args)
+//        {
+//            base.Reenter(args);
 
-            //if (Avatar.Direction == 0)
-            //    Avatar.AnimatorWrapper.Play(AvatarAnimation.Idle_Side);
+//            //Cameras.CameraWrapper.Instance.State.Value = Cameras.CameraState.Idle;
+//        }
 
-            //else Avatar.AnimatorWrapper.Play(AvatarAnimation.Walk_Side);
-        }
-    }
+//        public override void BeginUpdate()
+//        {
+//            base.BeginUpdate();
 
-    public class UsingCamera : State
-    {
-        public override int Id => (int)StateId.UsingCamera;
+//            //if (!_useCameraTimer.IsActive &&
+//            //    Avatar.InputScheme.IsCameraPressed)
+//            //{
+//            //    Avatar.StateMachine.TrySetState(StateId.UsingCamera);
+//            //    return;
+//            //}
 
-        public override string Name => "Avatar.UsingCamera";
+//            //if (Avatar.InputScheme.IsDownPressed)
+//            //{
+//            //    Avatar.StateMachine.TrySetState(StateId.Crouching);
+//            //    return;
+//            //}
+//        }
 
-        public UsingCamera(bool isStart, params object[] context) : base(isStart, context) { }
+//        public override void EndUpdate()
+//        {
+//            base.EndUpdate();
 
-        public override void Enter(params object[] args)
-        {
-            base.Enter(args);
+//            //if (Avatar.Direction == 0)
+//            //    Avatar.AnimatorWrapper.Play(AvatarAnimation.Idle_Side);
 
-            //Cameras.CameraWrapper.Instance.State.Value = Cameras.CameraState.HandHeld;
+//            //else Avatar.AnimatorWrapper.Play(AvatarAnimation.Walk_Side);
+//        }
+//    }
 
-            _useCameraTimer.Start();
-        }
+//    public class UsingCamera : State
+//    {
+//        public override int Id => (int)StateId.UsingCamera;
 
-        public override void Reenter(params object[] args)
-        {
-            base.Reenter(args);
+//        public override string Name => "Avatar.UsingCamera";
 
-            //Avatar.AnimatorWrapper.Play(AvatarAnimation.Idle_Back);
+//        public UsingCamera(bool isStart, params object[] context) : base(isStart, context) { }
 
-            //Cameras.CameraWrapper.Instance.State.Value = Cameras.CameraState.HandHeld;
-        }
+//        public override void Enter(params object[] args)
+//        {
+//            base.Enter(args);
 
-        public override void BeginUpdate()
-        {
-            base.BeginUpdate();
+//            //Cameras.CameraWrapper.Instance.State.Value = Cameras.CameraState.HandHeld;
 
-            //if (!_useCameraTimer.IsActive &&
-            //    Avatar.InputScheme.IsCameraPressed)
-            //{
-            //    Avatar.StateMachine.TrySetState(StateId.Standing);
-            //    return;
-            //}
-        }
-    }
+//            _useCameraTimer.Start();
+//        }
 
-    public class AIStateMachine : FSM.BaseMachine
-    {
-        //[SerializeField]
-        //private Avatar _character;
+//        public override void Reenter(params object[] args)
+//        {
+//            base.Reenter(args);
 
-        public override void Awake()
-        {
-            base.Awake();
+//            //Avatar.AnimatorWrapper.Play(AvatarAnimation.Idle_Back);
 
-            //Add(new Standing(true, _character));
+//            //Cameras.CameraWrapper.Instance.State.Value = Cameras.CameraState.HandHeld;
+//        }
 
-            //Add(new Crouched(true, _character));
+//        public override void BeginUpdate()
+//        {
+//            base.BeginUpdate();
 
-            //Add(new UsingCamera(false, _character));
-        }
+//            //if (!_useCameraTimer.IsActive &&
+//            //    Avatar.InputScheme.IsCameraPressed)
+//            //{
+//            //    Avatar.StateMachine.TrySetState(StateId.Standing);
+//            //    return;
+//            //}
+//        }
+//    }
 
-        public override void Start()
-        {
-            base.Start();
-        }
-    }
+//    public class AIStateMachine : FSM.BaseMachine
+//    {
+//        //[SerializeField]
+//        //private Avatar _character;
 
-}
+//        public override void Awake()
+//        {
+//            base.Awake();
+
+//            //Add(new Standing(true, _character));
+
+//            //Add(new Crouched(true, _character));
+
+//            //Add(new UsingCamera(false, _character));
+//        }
+
+//        public override void Start()
+//        {
+//            base.Start();
+//        }
+//    }
+
+//}
