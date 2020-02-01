@@ -23,8 +23,8 @@ public class Session : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerEnter(TilemapCollider2D other)
+    
+    private void OnTriggerEnter2D(TilemapCollider2D other)
     {
   
 
@@ -40,7 +40,7 @@ public class Session : MonoBehaviour
         if (m_IsPlayerAtExit) {
            Time.timeScale = 0f;
 
-           exitPanel.gameObject.SetActive(true);
+            // exitBackgroundImageCanvasGroup.enabled = true;
 
 
         }

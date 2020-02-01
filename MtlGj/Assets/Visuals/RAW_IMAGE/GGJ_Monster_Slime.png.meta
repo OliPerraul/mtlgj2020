@@ -1,7 +1,169 @@
 fileFormatVersion: 2
 guid: 8a9107e9595c4074c9dd9128eb268b49
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3199361219112083253
+    second: GGJ_Monster_Slime_0
+  - first:
+      213: -6411409370881190449
+    second: GGJ_Monster_Slime_1
+  - first:
+      213: 4224314596050210109
+    second: GGJ_Monster_Slime_2
+  - first:
+      213: -3254318050438022563
+    second: GGJ_Monster_Slime_3
+  - first:
+      213: -8591355139960827763
+    second: GGJ_Monster_Slime_4
+  - first:
+      213: -153332119767060022
+    second: GGJ_Monster_Slime_5
+  - first:
+      213: 2512522368452029172
+    second: GGJ_Monster_Slime_6
+  - first:
+      213: 2524002850623477852
+    second: GGJ_Monster_Slime_7
+  - first:
+      213: -5174042197790422594
+    second: GGJ_Monster_Slime_8
+  - first:
+      213: -1967748848510945099
+    second: GGJ_Monster_Slime_9
+  - first:
+      213: 7212131789616137980
+    second: GGJ_Monster_Slime_10
+  - first:
+      213: 2786381319670889876
+    second: GGJ_Monster_Slime_11
+  - first:
+      213: -3379629838180089997
+    second: GGJ_Monster_Slime_12
+  - first:
+      213: 565859576552338214
+    second: GGJ_Monster_Slime_13
+  - first:
+      213: -4893800235638547744
+    second: GGJ_Monster_Slime_14
+  - first:
+      213: -8083047604984950640
+    second: GGJ_Monster_Slime_15
+  - first:
+      213: 1151624278964904685
+    second: GGJ_Monster_Slime_16
+  - first:
+      213: 2549526922998440033
+    second: GGJ_Monster_Slime_17
+  - first:
+      213: -3026740679547411206
+    second: GGJ_Monster_Slime_18
+  - first:
+      213: -6473761417457897277
+    second: GGJ_Monster_Slime_19
+  - first:
+      213: 475057968111613566
+    second: GGJ_Monster_Slime_20
+  - first:
+      213: -4078586698292642495
+    second: GGJ_Monster_Slime_21
+  - first:
+      213: 5758640644059510760
+    second: GGJ_Monster_Slime_22
+  - first:
+      213: -1516727603560682125
+    second: GGJ_Monster_Slime_23
+  - first:
+      213: -1149469472571392637
+    second: GGJ_Monster_Slime_24
+  - first:
+      213: 7499189667606573264
+    second: GGJ_Monster_Slime_25
+  - first:
+      213: 6903877575305487489
+    second: GGJ_Monster_Slime_0
+  - first:
+      213: -1821624102263777151
+    second: GGJ_Monster_Slime_1
+  - first:
+      213: -4625528506044857917
+    second: GGJ_Monster_Slime_2
+  - first:
+      213: -990333500865260451
+    second: GGJ_Monster_Slime_3
+  - first:
+      213: -8178905797976492298
+    second: GGJ_Monster_Slime_4
+  - first:
+      213: -1872676191080207205
+    second: GGJ_Monster_Slime_5
+  - first:
+      213: -2119597600551029421
+    second: GGJ_Monster_Slime_6
+  - first:
+      213: -1696800739759908285
+    second: GGJ_Monster_Slime_7
+  - first:
+      213: 8825632831886603813
+    second: GGJ_Monster_Slime_8
+  - first:
+      213: -6225985293228734918
+    second: GGJ_Monster_Slime_9
+  - first:
+      213: -8826818409730039887
+    second: GGJ_Monster_Slime_10
+  - first:
+      213: 8802834368776459058
+    second: GGJ_Monster_Slime_11
+  - first:
+      213: -6176703041180613336
+    second: GGJ_Monster_Slime_12
+  - first:
+      213: 2384537592264802538
+    second: GGJ_Monster_Slime_13
+  - first:
+      213: 8204676567968414573
+    second: GGJ_Monster_Slime_14
+  - first:
+      213: -7882603979464561053
+    second: GGJ_Monster_Slime_15
+  - first:
+      213: -731506905117431007
+    second: GGJ_Monster_Slime_16
+  - first:
+      213: -1598986463616833700
+    second: GGJ_Monster_Slime_17
+  - first:
+      213: -1705515310513198562
+    second: GGJ_Monster_Slime_18
+  - first:
+      213: 261427086556623322
+    second: GGJ_Monster_Slime_19
+  - first:
+      213: -2483042184889090606
+    second: GGJ_Monster_Slime_20
+  - first:
+      213: 6798479563188819856
+    second: GGJ_Monster_Slime_21
+  - first:
+      213: -1315117758840652137
+    second: GGJ_Monster_Slime_22
+  - first:
+      213: 375663352129901898
+    second: GGJ_Monster_Slime_23
+  - first:
+      213: 6951123495537376065
+    second: GGJ_Monster_Slime_24
+  - first:
+      213: 756130665607658414
+    second: GGJ_Monster_Slime_25
+  - first:
+      213: -5498175279050777587
+    second: GGJ_Monster_Slime_26
+  - first:
+      213: 3755608484597345460
+    second: GGJ_Monster_Slime_27
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +202,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +232,189 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GGJ_Monster_Slime_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 971
+        width: 267
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1846ed093108fcf50800000000000000
+      internalID: 6903877575305487489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_Slime_1
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 971
+        width: 267
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1881746c78a48b6e0800000000000000
+      internalID: -1821624102263777151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_Slime_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 267
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1c0c2b452decfb0800000000000000
+      internalID: -4625528506044857917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_Slime_3
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 704
+        width: 267
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54d1cf8de0a142f0800000000000000
+      internalID: -990333500865260451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_Slime_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 437
+        width: 267
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f67a3ca280be7e80800000000000000
+      internalID: -8178905797976492298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_Slime_5
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 437
+        width: 267
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c25531deae206e0800000000000000
+      internalID: -1872676191080207205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_Slime_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 267
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355b260663da592e0800000000000000
+      internalID: -2119597600551029421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_Slime_7
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 170
+        width: 267
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a9dfb97b0c378e0800000000000000
+      internalID: -1696800739759908285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

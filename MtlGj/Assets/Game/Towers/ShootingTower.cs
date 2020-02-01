@@ -99,6 +99,7 @@ namespace MTLGJ
 
             if (Health <= 0)
             {
+               
                 Instantiate(wreckagePrefab, this.transform.position, this.transform.rotation);
                 Destroy(this.gameObject);
             }

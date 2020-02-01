@@ -1,45 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2500322811170577802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977355652372328161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e50aa05b70d1f8449a6b9e3fd1f2eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  avatar: {fileID: 7382590327497878508}
-  _buildRange: 1.5
-  turretMenu: {fileID: 7854294824023448190}
-  _towerInventory: 00000000
-  selectedTowerIndex: 0
---- !u!114 &7382590327497878508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977355652372328161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133dcf43b1727be40b40d1ddeb55e875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Transform: {fileID: 7977355652488247795}
-  SpriteRenderer: {fileID: 7977355653364448814}
-  MaxHealth: 5
-  Health: 5
-  _flashTime: 0.2
-  _flashMaterial: {fileID: 0}
-  ressourcesQty: 40
-  maxRessources: 50
-  qtyCollected: 10
-  qtySpent: 10
-  resourceTxt: {fileID: 0}
 --- !u!58 &1840702341
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +74,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7977355652372328161}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d6a5501e7ba8eb84b922e568cae44796, type: 2}
   m_CullingMode: 0
@@ -125,6 +85,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2500322811170577802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977355652372328161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e50aa05b70d1f8449a6b9e3fd1f2eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatar: {fileID: 7382590327497878508}
+  _buildRange: 1.5
+  turretMenu: {fileID: 7854294824023448190}
+  _towerInventory: 00000000
+  selectedTowerIndex: 0
+--- !u!114 &7382590327497878508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977355652372328161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133dcf43b1727be40b40d1ddeb55e875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Transform: {fileID: 7977355652488247795}
+  SpriteRenderer: {fileID: 7977355653364448814}
+  MaxHealth: 5
+  Health: 5
+  _flashTime: 0.2
+  _flashMaterial: {fileID: 0}
+  ressourcesQty: 40
+  maxRessources: 50
+  qtyCollected: 10
+  qtySpent: 10
+  resourceTxt: {fileID: 0}
 --- !u!1001 &1186332520
 PrefabInstance:
   m_ObjectHideFlags: 0
