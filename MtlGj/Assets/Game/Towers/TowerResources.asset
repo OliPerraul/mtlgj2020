@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TowerResources
   m_EditorClassIdentifier: 
   Towers:
-  - {fileID: 6295043157102337093, guid: 78bd6d08b41cd214b99013d6cd7a72ce, type: 3}
+  - {fileID: 6196386482059151870, guid: 78bd6d08b41cd214b99013d6cd7a72ce, type: 3}
