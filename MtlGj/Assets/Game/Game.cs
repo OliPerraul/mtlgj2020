@@ -44,9 +44,9 @@ namespace MTLGJ
 
 
         private void Update() {
-            hbar.SetSize(session.Lives);
+            //hbar.SetSize(session.Lives);
 
        
+        }
     }
-}
 }

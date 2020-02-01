@@ -58,6 +58,8 @@ namespace MTLGJ
 
         private GGJTile oldTile;
 
+        private GameObject _activeMenu;
+
         void Update()
         {
             //if()
@@ -88,6 +90,14 @@ namespace MTLGJ
 
             if (Input.GetButtonDown("Fire1"))
             {
+                if (_activeMenu != null)
+                {
+                    Utils.InMenu = false;
+                    _activeMenu.SetActive(false);
+                    _activeMenu = null;
+                    return;
+                }
+
                 //var front =
                 //  avatar.Transform.position +
                 //  isoRenderer.Direction * _buildRange;
@@ -115,17 +125,19 @@ namespace MTLGJ
                 if (((GGJTile)curr).ID == TileID.Building)
                 {
                     UpgradeMenu.Instance.gameObject.SetActive(true);
+                    _activeMenu = UpgradeMenu.Instance.gameObject;
                     AVATARCANVAS.Instance.transform.position = transform.position - front;
-                    Utils.PLAYER_FREEZ = true;
+                    Utils.InMenu = true;
                     return;
                 }
 
                 if (((GGJTile)curr).ID == TileID.Empty)
                 {
                     BuildMenu.Instance.gameObject.SetActive(true);
+                    _activeMenu = BuildMenu.Instance.gameObject;
                     AVATARCANVAS.Instance.transform.position = transform.position - front;
                    
-                    Utils.PLAYER_FREEZ = true;
+                    Utils.InMenu = true;
                     return;
                 }
 
