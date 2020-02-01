@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 using UnityEditor;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 public class Session : MonoBehaviour
 {
     private int vie = 5;
 
     public GameObject player;
-    public Canvas exitBackgroundImageCanvasGroup;
+    public Canvas exitPanel;
 
     private float fadeDuration = 1f;
 
@@ -23,20 +24,23 @@ public class Session : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(TilemapCollider2D other)
     {
-     /*   if (other.gameObject == player)
+  
+
+        Debug.Log("that OK00");
+       if (other.gameObject == player)
         {
             m_IsPlayerAtExit = true;
-        }*/
+        }
     }
     // Update is called once per frame
     void Update()
     {
         if (m_IsPlayerAtExit) {
-            m_Timer += Time.deltaTime;
+           Time.timeScale = 0f;
 
-             exitBackgroundImageCanvasGroup.setActive(true);
+           exitPanel.gameObject.SetActive(true);
 
 
         }
