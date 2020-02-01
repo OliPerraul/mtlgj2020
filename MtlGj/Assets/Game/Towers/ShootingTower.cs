@@ -30,9 +30,22 @@ namespace MTLGJ
         public float health = 1f;
         [SerializeField] private healthbar hbar;
 
+        public GameObject player;
+        public Avatar avatar;
+
+        public GameObject wreckagePrefab;
 
         [SerializeField]
         private float _range;
+
+
+        void Awake() { 
+
+            player = GameObject.FindGameObjectWithTag("Player");
+            avatar = player.GetComponent<Avatar>();
+
+        }
+
 
         // Update is called once per frame
         public void Update()
@@ -44,19 +57,21 @@ namespace MTLGJ
 
             if (closestEnemy != null)
             {
-                Debug.Log("there is a bad guys");
                 target = closestObject.transform.Find("EnemyTransform");
                 timer += Time.deltaTime;
 
                 if (timer > waitingTime && timer < movingDelay) { } else { Shoot(); timer = 0; }
             }
-            else { Debug.Log("there is no bad guys"); }
+          
 
 
 
             hbar.SetSize(health);
 
-            if (health <= 0) { gameObject.Destroy(); }
+            if (health <= 0) {
+                Instantiate(wreckagePrefab, this.transform.position, this.transform.rotation);
+                Destroy(this.gameObject);
+            }
 
 
         }
@@ -74,11 +89,6 @@ namespace MTLGJ
                 if (tg == null)
                     continue;
 
-                //if (tg == _character)
-                //    continue;
-
-                //if (!IsValidTarget(tg))
-                //    continue;
 
                 lis.Add(tg);
             }
