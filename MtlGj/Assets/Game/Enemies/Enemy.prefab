@@ -52,11 +52,11 @@ MonoBehaviour:
   _healthbartime: 0.5
   MoveSpeed: 0.08
   AttackSpeed: 0.004
-  ChanceAttack: 0.4
+  ChanceAttack: 0.6
   ChanceDecideOnTowerPlaced: 0.2
   ChanceMarch: 0.2
   Damage: 5
-  AttackFrequence: 5
+  AttackFrequence: 0.5
   AttackRange: 2
   isoRenderer: {fileID: 1313569305966714580}
   rbody: {fileID: 1313569304408886810}

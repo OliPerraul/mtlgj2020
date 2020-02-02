@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 using UnityEngine.UI;
@@ -30,7 +31,7 @@ namespace MTLGJ
             set
             {
                 _chance = value;
-                _chanceText.text = _chance.ToString("P0");
+                _chanceText.text = value.ToString("P0", CultureInfo.InvariantCulture);
             }
         }
 

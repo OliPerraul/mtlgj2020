@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bef862ba4d67b4383127e2c0972282, type: 3}
   m_Name: TowerResources
   m_EditorClassIdentifier: 
-  HealthUpgradeChance: 0.4
+  HealthUpgradeChance: 0.05
   HealthUpgradeCost: 10
-  HealthRepairChance: 0.4
+  HealthRepairChance: 0.05
   HealthRepairCost: 5
-  RangeUpgradeChance: 0.5
+  RangeUpgradeChance: 0.05
   RangeUpgradeCost: 10
-  BulletForceUpgradeChance: 0.5
+  BulletForceUpgradeChance: 0.05
   BulletForceUpgradeCost: 10
-  BulletDamageUpgradeChance: 0.4
+  BulletDamageUpgradeChance: 0.05
   BulletDamageUpgradeCost: 10
-  ShootingFrequencyUpgradeChance: 0.4
+  ShootingFrequencyUpgradeChance: 0.05
   ShootingFrequencyUpgradeCost: 10
   ShootingHomingUpradeCost: 40
-  ShootingHomingUpradeChance: 0.4
-  Shooting1BuildChance: 0.4
+  ShootingHomingUpradeChance: 0.05
+  Shooting1BuildChance: 0.05
   Shooting1BuildCost: 10
-  Shield1BuildChance: 0.4
+  Shield1BuildChance: 0.05
   Shield1BuildCost: 10
   Explosion: {fileID: 1786837674288943345, guid: bf44f4bfe4aab1448afaf7ebb0165f6c,
     type: 3}

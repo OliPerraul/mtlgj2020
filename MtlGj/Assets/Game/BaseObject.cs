@@ -160,8 +160,6 @@ namespace MTLGJ
         // Update is called once per frame
         public virtual void Update()
         {
-
-
             if (SpriteRenderer != null)
             {
                 SpriteRenderer.sortingOrder = (int)-Transform.position.y;
@@ -169,10 +167,7 @@ namespace MTLGJ
                 if(_origin != null)
                 SpriteRenderer.sortingOrder = (int)-_origin.position.y;
 
-
-            }
-
-            
+            }         
 
         }
     }

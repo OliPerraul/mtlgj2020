@@ -20,8 +20,19 @@ namespace MTLGJ
         [SerializeField]
         private float _timeout = 5f;
 
+        [SerializeField]
+        private SpriteRenderer _spriteRenderer;
+
+        [SerializeField]
+        private Sprite spr2;
+
         public void Awake()
         {
+            if (Cirrus.Numeric.Chance.CheckIsTrue(.5f))
+            {
+                _spriteRenderer.sprite = spr2;
+            }
+
             _timer.OnTimeLimitHandler += OnTimeout;
         }
 

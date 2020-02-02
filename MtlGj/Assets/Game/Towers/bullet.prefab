@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeout: 5
+  _spriteRenderer: {fileID: 4775002822353905907}
+  spr2: {fileID: -429527255038919077, guid: a80935ef7d2b32f488f024db1a4ce0d6, type: 3}
 --- !u!58 &-2938746822744560263
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +134,8 @@ SpriteRenderer:
   m_SortingLayerID: 1617270837
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 13effef3774f8a84bb9106d5bba8b185, type: 3}
+  m_Sprite: {fileID: -5032767490510040258, guid: a80935ef7d2b32f488f024db1a4ce0d6,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
