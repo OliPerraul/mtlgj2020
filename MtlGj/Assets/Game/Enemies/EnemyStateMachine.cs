@@ -163,6 +163,21 @@ namespace MTLGJ
             if (Enemy.Transform.position.IsCloseEnough(
                 _nextDestination, 0.5f))
             {
+                // DELETE ENEMY HERE
+                var cell = _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition();
+
+                var tile = Level.Instance.Tilemap.GetTile(cell) == null ? null : (GGJTile)Level.Instance.Tilemap.GetTile(cell);
+
+                if (tile != null)
+                {
+                    if (tile.ID == TileID.End)
+                    {
+                        Level.Instance.Remove(Enemy, true);
+                        StateMachine.TrySetState(EnemyStateID.Idle);
+                        return;
+                    }
+                }
+
                 Mark(_path[_currentPathPositionIndex].Position.FromPathfindToCellPosition());
 
                 _path[_currentPathPositionIndex] = new Point(-1, -1);
@@ -277,11 +292,7 @@ namespace MTLGJ
         {
             base.Enter(args);
         }
-
-
     }
-
-
 
     public class EnemyStateMachine : Cirrus.FSM.BaseMachine
     {

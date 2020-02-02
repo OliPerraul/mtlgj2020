@@ -23,7 +23,7 @@ namespace MTLGJ
         {
             Lives.Value = GameResources.Instance.SessionSettings.MaxLives;
             ResourcesAmount.Value = GameResources.Instance.SessionSettings.InitialResourcesAmount;
-            Level.Instance.OnEnemyDiedHandler += OnEneemyDied;
+            Level.Instance.OnEnemyRemovedHandler += OnEneemyDied;
             WaveIndex.OnValueChangedHandler += OnWaveIndexChanged;
         }
 

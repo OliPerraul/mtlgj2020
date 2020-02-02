@@ -24,44 +24,37 @@ namespace MTLGJ
         {
             rbody = GetComponent<Rigidbody2D>();
             isoRenderer = GetComponentInChildren<IsometricCharacterRenderer>();
-
-            var tile = Level.Instance.Tilemap.GetTile(Transform.position.FromWorldToCellPosition());
-            //Debug.Log("");
-
         }
 
         public void ApplyDamage(float dmg)
         {
             Health -= dmg;
             if (Health < 0)
+            {
+                Level.Instance.Remove(this, false);
                 Health = 0;
-
+                return;
+            }
             Flash();
         }
 
         // Update is called once per frame
         void FixedUpdate()
         {
-            //Vector2 currentPos = rbody.position;
 
-            //Vector2 inputVector = new Vector2(Axis.x, Axis.y);
-            //inputVector = Vector2.ClampMagnitude(inputVector, 1);
-            //Vector2 movement = inputVector * MoveSpeed;
-            //Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
+            //var front =
+            // this.Transform.position +
+            //isoRenderer.Direction  ;
+            //int x = (int)front.x;
+            //int y = (int)front.y;
+            //int z = (int)front.z;
+            //front = new Vector3(x, y, z);
 
-            //isoRenderer.SetDirection(movement);
-            //rbody.MovePosition(newPos);
-            var front =
-             this.Transform.position +
-            isoRenderer.Direction  ;
-            int x = (int)front.x;
-            int y = (int)front.y;
-            int z = (int)front.z;
-            front = new Vector3(x, y, z);
+            //var curr = Level.Instance.Tilemap.GetTile(
+            //             front.FromWorldToCellPosition());
 
-            var curr = Level.Instance.Tilemap.GetTile(
-                         front.FromWorldToCellPosition());
-            if (curr != null && ((GGJTile)curr).ID == TileID.End) { Destroy(this.gameObject); }
+            // MOVED TO STATEMACHINE
+            //if (curr != null && ((GGJTile)curr).ID == TileID.End) { Destroy(this.gameObject); }
         }
 
         public Vector3 pos;

@@ -36,7 +36,7 @@ namespace MTLGJ
 
     public class Level : MonoBehaviour
     {
-        public Cirrus.Events.Event<Enemy> OnEnemyDiedHandler;
+        public Cirrus.Events.Event<Enemy> OnEnemyRemovedHandler;
 
         //[SerializeField]
         //public Tilemap RuletileMap;
@@ -165,6 +165,18 @@ namespace MTLGJ
                         );
                 }
             }
+        }
+
+        public void Remove(Enemy enemy, bool invaded)
+        {
+            OnEnemyRemovedHandler?.Invoke(enemy);
+            if (invaded)
+            {
+                Game.Instance.Session.Value.Lives.Value--;
+            }
+
+            enemy.gameObject.Destroy();
+
         }
 
 
