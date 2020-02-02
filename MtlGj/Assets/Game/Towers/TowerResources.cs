@@ -84,7 +84,6 @@ namespace MTLGJ
         public float ShootingHomingUpradeCost = 40f;
         public float ShootingHomingUpradeChance = 0.4f;
 
-
         public float Shooting1BuildChance = 0.4f;
         public float Shooting1BuildCost = 0.4f;
 
