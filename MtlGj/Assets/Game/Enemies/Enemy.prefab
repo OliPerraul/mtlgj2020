@@ -35,7 +35,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transform: {fileID: 1313569304561146123}
   SpriteRenderer: {fileID: 1313569305966714582}
-  MaxHealth: 5
+  MaxHealth: 0
   Health: 5
   _flashTime: 0.005
   _flashMaterial: {fileID: 2100000, guid: 4ca0a635b7d9a9f4184cfd872ae18838, type: 2}
