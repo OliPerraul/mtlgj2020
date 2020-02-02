@@ -36,6 +36,7 @@ namespace MTLGJ
 
     public class Level : MonoBehaviour
     {
+        public Cirrus.Events.Event<Enemy> OnEnemyDiedHandler;
 
         //[SerializeField]
         //public Tilemap RuletileMap;
@@ -112,6 +113,7 @@ namespace MTLGJ
 
         public Pathfinding.Grid PathindingGrid => _grid;
 
+        //public Action<Enemy> OnEnemyDiedHandler { get; internal set; }
 
         public List<Vector3Int> Ends = new List<Vector3Int>();
 

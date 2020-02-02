@@ -69,7 +69,7 @@ namespace MTLGJ
         {
             base.Enter(args);
 
-            Game.Instance.session = new Session();
+            Game.Instance.Session.Value = new Session();
 
             StateMachine.TrySetState(GameStateID.StartRound);
         }
@@ -124,6 +124,8 @@ namespace MTLGJ
             if (CountDown.Instance.Number < -1)
             {
                 _timer.Stop();
+                //Game.Instance.Session.OnValueChangedHandler?.Invoke(Game.Instance.Session.Value);
+                Game.Instance.Session.Value.WaveIndex.Value++;
                 StateMachine.TrySetState(GameStateID.InRound);
             }
         }
@@ -151,15 +153,21 @@ namespace MTLGJ
         public void SpawnNext()
         {
             _spwnIdx = 0;
-            var en = Game.Instance.session.Wave.Groups[_spwnIdx].Enemies[_spwnIdx];
+            var en = Game.Instance.Session.Value.Wave.Groups[_spwnIdx].Enemies[_spwnIdx];
 
             en.Create(
                 Level.Instance.Starts.Random().FromCellToWorldPosition(),
                 Level.Instance.transform);
 
-            _timer.Start(Game.Instance.session.Wave.Groups[_spwnIdx].Frequency);
+            _timer.Start(Game.Instance.Session.Value.Wave.Groups[_spwnIdx].Frequency);
 
             _spwnIdx++;
+
+            if (_spwnIdx >= Game.Instance.Session.Value.Wave.Groups.Count)
+            {
+                _timer.Stop();
+                StateMachine.TrySetState(GameStateID.Intermission);
+            }
         }
 
         public override void Enter(params object[] args)
@@ -172,12 +180,6 @@ namespace MTLGJ
         public void OnTimeout()
         {
             SpawnNext();
-
-            if (_spwnIdx >= Game.Instance.session.Wave.Groups.Count)
-            {
-                _timer.Stop();
-                StateMachine.TrySetState(GameStateID.Intermission);
-            }
         }
     }
 

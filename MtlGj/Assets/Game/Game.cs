@@ -1,54 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
 namespace MTLGJ
 {
-     public class Session
+    public class Session
     {
-        //[HideInInspector]
-        //public int Score = 0;
-
-        //[HideInInspector]
-        //public int Money = 0;
-
         [SerializeField]
-        public float Lives = 10f;
+        public Cirrus.Events.ObservableInt Lives = new Cirrus.Events.ObservableInt();
 
-        public int ResourcesAmount = 100;
-       
+        public Cirrus.Events.ObservableInt ResourcesAmount = new Cirrus.Events.ObservableInt();
 
-        public int WaveIndex = 0;
+        public Cirrus.Events.ObservableInt WaveIndex = new Cirrus.Events.ObservableInt();
 
-        public Wave Wave => GameResources.Instance.SessionSettings.Waves[WaveIndex];
+        public Wave Wave => GameResources.Instance.SessionSettings.Waves[WaveIndex.Value-1];
+
+        public Cirrus.Events.ObservableInt RemainingInWave = new Cirrus.Events.ObservableInt();
 
         public Session()
         {
-            Lives = GameResources.Instance.SessionSettings.MaxLives;
-            ResourcesAmount = GameResources.Instance.SessionSettings.InitialResourcesAmount;
+            Lives.Value = GameResources.Instance.SessionSettings.MaxLives;
+            ResourcesAmount.Value = GameResources.Instance.SessionSettings.InitialResourcesAmount;
+            Level.Instance.OnEnemyDiedHandler += OnEneemyDied;
+            WaveIndex.OnValueChangedHandler += OnWaveIndexChanged;
+        }
+
+        public void OnEneemyDied(Enemy en)
+        {
+            RemainingInWave.Value = RemainingInWave.Value == 0 ? 0 : RemainingInWave.Value - 1;
+        }
+
+        public void OnWaveIndexChanged(int wave)
+        {
+            RemainingInWave.Value =
+                Wave.Groups.Sum(x => x.Enemies.Count);
         }
     };
 
     public class Game : MonoBehaviour
     {
         public static Game Instance;
-        
-        [SerializeField] public Session session;
-        public healthbar hbar;
-        
+
+        [SerializeField]
+        public Cirrus.Events.ObservableValue<Session> Session = new Cirrus.Events.ObservableValue<Session>();
 
         private void Awake()
         {
             Instance = this;
         }
 
-
-
-        private void Update() {
+        private void Update()
+        {
             //hbar.SetSize(session.Lives);
 
-       
+
         }
     }
 }

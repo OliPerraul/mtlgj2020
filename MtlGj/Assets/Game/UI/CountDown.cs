@@ -14,7 +14,7 @@ namespace MTLGJ
 
         private int _value = 3;
 
-        private string Message => "Wave "+ (Game.Instance.session.WaveIndex +1).ToString();
+        private string Message => "Wave "+ (Game.Instance.Session.Value.WaveIndex.Value +1).ToString();
 
         [SerializeField]
         private Game _game;

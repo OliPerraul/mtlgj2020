@@ -213,7 +213,7 @@ namespace MTLGJ
                 return;
 
 
-            if (Game.Instance.session.ResourcesAmount < (int)TowerResources.Instance.Cost(towerid))
+            if (Game.Instance.Session.Value.ResourcesAmount.Value < (int)TowerResources.Instance.Cost(towerid))
                 return;
 
             var tower = TowerResources.Instance.GetTower(towerid);
@@ -221,8 +221,8 @@ namespace MTLGJ
             if (tower == null)
                 return;
 
-            Game.Instance.session.ResourcesAmount -= (int)TowerResources.Instance.Cost(towerid);
-            Game.Instance.session.ResourcesAmount = Game.Instance.session.ResourcesAmount < 0 ? 0 : Game.Instance.session.ResourcesAmount;
+            Game.Instance.Session.Value.ResourcesAmount.Value -= (int)TowerResources.Instance.Cost(towerid);
+            Game.Instance.Session.Value.ResourcesAmount.Value = Game.Instance.Session.Value.ResourcesAmount.Value < 0 ? 0 : Game.Instance.Session.Value.ResourcesAmount.Value;
 
             Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
 
@@ -233,18 +233,3 @@ namespace MTLGJ
     }
 }
 
-//public void UpgradeTower(int type)
-//{
-//    switch (type)
-//    {
-//        //case 1: ShootingTower.Upgrade(ShootingTowerUpgrade.Range); break;
-//        case 2: break;
-//        case 3: break;
-//        case 4: break;
-//    }
-//}
-
-
-
-
-//}

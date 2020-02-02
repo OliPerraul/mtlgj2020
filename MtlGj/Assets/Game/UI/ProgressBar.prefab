@@ -16,6 +16,11 @@ PrefabInstance:
       propertyPath: useGradient
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224366223338133498, guid: 8f52384d62c91dc45976963b8557d732,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 224519010752506910, guid: 8f52384d62c91dc45976963b8557d732,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -120,6 +125,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665287039528854, guid: 8f52384d62c91dc45976963b8557d732,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 224665287039528854, guid: 8f52384d62c91dc45976963b8557d732,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f52384d62c91dc45976963b8557d732, type: 3}
