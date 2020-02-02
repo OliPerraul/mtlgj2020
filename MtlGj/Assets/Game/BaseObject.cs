@@ -89,6 +89,14 @@ namespace MTLGJ
 
         public void OnFlashTimeout()
         {
+            if (gameObject == null)
+                return;
+
+            if (SpriteRenderer.gameObject == null)
+                return;
+
+
+
             SpriteRenderer.material = _prevMaterial;
         }
 

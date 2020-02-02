@@ -42,6 +42,7 @@ namespace MTLGJ
           
         }
 
+
         public virtual void OnTilemapCellChanged(Vector3Int cellPos, bool walkable)
         {
             // Only reroute if cel in path was changed
@@ -98,6 +99,12 @@ namespace MTLGJ
             }
         }
 
+        public override void OnMachineDestroyed()
+        {
+            base.OnMachineDestroyed();
+
+            Level.Instance.OnTilemapCellChangedHandler -= OnTilemapCellChanged;
+        }
 
         public override void Enter(params object[] args)
         {

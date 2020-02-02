@@ -33,9 +33,9 @@ namespace MTLGJ
         //[SerializeField]
         //public List<Group> Groups;
 
-        // TODO If difficuty non neg override wave
-        [SerializeField]
-        public float Difficulty = 1f;
+        //// TODO If difficuty non neg override wave
+        //[SerializeField]
+        //public float Difficulty => Sessio
 
         [SerializeField]
         public float Frequency = 1f;

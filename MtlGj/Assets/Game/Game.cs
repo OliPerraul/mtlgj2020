@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Cirrus.Extensions;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,9 +18,13 @@ namespace MTLGJ
 
         public Cirrus.Events.ObservableInt WaveIndex = new Cirrus.Events.ObservableInt();
 
-        public Wave Wave => GameResources.Instance.SessionSettings.Waves[WaveIndex.Value-1];
+        public Wave Wave => GameResources.Instance.SessionSettings.Waves[
+            (WaveIndex.Value-1).Mod(
+                GameResources.Instance.SessionSettings.Waves.Count)];  
 
         public Cirrus.Events.ObservableInt RemainingInWave = new Cirrus.Events.ObservableInt();
+
+        public float Difficulty => 1f + (((float)WaveIndex.Value) / GameResources.Instance.SessionSettings.Waves.Count);
 
         public Session()
         {

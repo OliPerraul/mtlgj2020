@@ -267,6 +267,11 @@ MonoBehaviour:
   progressBar: {fileID: 3792971310724761973}
   Transform: {fileID: 5879296046552214916}
   SpriteRenderer: {fileID: 864092220485138639}
+  _maxHealth:
+    _min:
+      _float: 0
+    _max:
+      _float: 0
   _flashTime: 0.2
   _flashMaterial: {fileID: 2100000, guid: 4ca0a635b7d9a9f4184cfd872ae18838, type: 2}
   _healthbartime: 0
@@ -631,6 +636,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010649649388066715, guid: 96cf870f31925be4cbfa641e76692718,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.9236
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010649649388066715, guid: 96cf870f31925be4cbfa641e76692718,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9236
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010649649388066715, guid: 96cf870f31925be4cbfa641e76692718,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.9236
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cf870f31925be4cbfa641e76692718, type: 3}

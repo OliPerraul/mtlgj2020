@@ -17,7 +17,6 @@ namespace MTLGJ
         StartSession
     }
 
-
     public abstract class GameState : Cirrus.FSM.State
     {
         public override int ID => -1;//(int)EnemyStateID.Default;
@@ -26,21 +25,11 @@ namespace MTLGJ
 
         private List<Point> _path;//= new List<Point>()
 
-        //[SerializeField]
-        //protected List<NesScripts.Controls.PathFind.Point> _path;
-
         protected Vector2Int _finalDestination;
 
         protected Vector3 _nextDestination;
 
         protected int _currentPathPositionIndex = 0;
-
-        //protected Timer _timer;
-
-        //public virtual Character Character => _character;
-
-        //private Character _character;
-
 
         public GameState(
             bool isStart,
@@ -122,6 +111,7 @@ namespace MTLGJ
         public override void Enter(params object[] args)
         {
             base.Enter(args);
+            CountDown.Instance.Number = 3;
             _timer.Start();
         }
 
@@ -142,8 +132,6 @@ namespace MTLGJ
     public class InRound : GameState
     {
         public override int ID => (int)GameStateID.InRound;
-
-        //private Vector2Int dest;
 
         private Cirrus.Timer _timer = new Cirrus.Timer(start:false, repeat:true);
 
@@ -173,20 +161,23 @@ namespace MTLGJ
                 Level.Instance.Starts.Random().FromCellToWorldPosition(),
                 Level.Instance.transform);
 
-            _timer.Start(Game.Instance.Session.Value.Wave.Frequency);
-
             _idx++;
 
             if (_idx >= Game.Instance.Session.Value.Wave.Enemies.Count)
             {
                 _timer.Stop();
                 StateMachine.TrySetState(GameStateID.Intermission);
+                return;
             }
+
+            _timer.Start(Game.Instance.Session.Value.Wave.Frequency);
         }
 
         public override void Enter(params object[] args)
         {
             base.Enter(args);
+
+            _idx = 0;
 
             SpawnNext();        
         }
@@ -196,8 +187,7 @@ namespace MTLGJ
             SpawnNext();
         }
     }
-
-
+    
 
     public class GameStateMachine : Cirrus.FSM.BaseMachine
     {
