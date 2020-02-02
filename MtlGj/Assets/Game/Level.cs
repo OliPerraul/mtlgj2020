@@ -155,9 +155,15 @@ namespace MTLGJ
             {
                 for (int j = 0; j < Tilemap.size.y; j++)
                 {
+
                     // No offset == Pathfind pos
                     var celpos = new Vector2Int(i, j).FromPathfindToCellPosition();
-                    var tile = Tilemap.GetTile(celpos) == null ? null : (GGJTile) Tilemap.GetTile(celpos);
+                    var tile = Tilemap.GetTile(celpos) == null ?
+                        null :
+                            Tilemap.GetTile(celpos) is GGJTile ?
+                                (GGJTile)Tilemap.GetTile(celpos) :
+                                null;
+
                     if (tile == null)
                         continue;
 
