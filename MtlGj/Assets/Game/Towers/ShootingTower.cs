@@ -8,10 +8,21 @@ namespace MTLGJ
 {
     public class ShootingTower : Tower
     {
+        public override void OpenUpgradMenu()
+        {
+            UpgradeMenu.Instance.OpenShootingTowerUpgrades();
+        }
+
         // TODO make better upgrades (more specific ..??)
 
-        public void Upgrade(ShootingTowerUpgrade upgrade)
+        public override void Upgrade(ShootingTowerUpgrade upgrade)
         {
+            if (upgrade == ShootingTowerUpgrade.Unknown)
+                return;
+
+            if (TakeSufficientFunds(upgrade))
+                return;
+
             switch (upgrade)
             {
                 case ShootingTowerUpgrade.Range:
@@ -31,7 +42,8 @@ namespace MTLGJ
                     break;
 
             }
-            //todo
+
+            Level.Value++;
         }
 
 
