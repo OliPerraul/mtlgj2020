@@ -12,18 +12,6 @@ EditorBuildSettings:
     path: Assets/Canevas_menu.unity
     guid: 31757df245ca58c49b059ffe1c1f0e8d
   - enabled: 1
-    path: Assets/gameOver.unity
-    guid: 4d36dadce18a5d14b893e0f52de6ecc1
-  - enabled: 0
-    path: Assets/EnemiesCollect.unity
-    guid: 36d7e588559d8d6449ab59955dabab92
-  - enabled: 0
-    path: Assets/Isometric.unity
-    guid: 99ce37333dc62f441ab6130d4a6a7356
-  - enabled: 1
-    path: Assets/Enemies.unity
-    guid: 3de6d61a7781c1f489cd7a91c31918ef
-  - enabled: 1
     path: Assets/GOFinal.unity
     guid: 185da86a0c5ed3942adc26476d6c5d3b
   - enabled: 1
