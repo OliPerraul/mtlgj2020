@@ -56,7 +56,7 @@ MonoBehaviour:
   ChanceDecideOnTowerPlaced: 0.2
   ChanceMarch: 0.2
   Damage: 5
-  AttackFrequence: 5
+  AttackFrequence: 0.5
   AttackRange: 2
   isoRenderer: {fileID: 1313569305966714580}
   rbody: {fileID: 1313569304408886810}

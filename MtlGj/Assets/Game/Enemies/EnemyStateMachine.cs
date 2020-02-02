@@ -379,7 +379,7 @@ namespace MTLGJ
                 return true;
             }
 
-            if ( (Enemy.Transform.position - _target.Transform.position).magnitude <= 2)
+            if ( (Enemy.Transform.position - _target.Transform.position).magnitude <= 1)
             {
                 StateMachine.TrySetState(EnemyStateID.InAttack, _target);
                 return true;
