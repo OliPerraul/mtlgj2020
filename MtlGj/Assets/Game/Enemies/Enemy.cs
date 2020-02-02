@@ -54,7 +54,10 @@ namespace MTLGJ
             var front =
              this.Transform.position +
             isoRenderer.Direction  ;
-
+            int x = (int)front.x;
+            int y = (int)front.y;
+            int z = (int)front.z;
+            front = new Vector3(x, y, z);
 
             var curr = Level.Instance.Tilemap.GetTile(
                          front.FromWorldToCellPosition());
