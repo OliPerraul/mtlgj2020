@@ -36,6 +36,7 @@ namespace MTLGJ
 
     public class Level : MonoBehaviour
     {
+        public Cirrus.Events.Event<Enemy> OnEnemyRemovedHandler;
 
         //[SerializeField]
         //public Tilemap RuletileMap;
@@ -47,13 +48,25 @@ namespace MTLGJ
 
         public Dictionary<Vector3Int, Tower> Towers = new Dictionary<Vector3Int, Tower>();
 
-        public void AddTower(Tower  tower, Vector3Int pos) { Towers.Add(pos, tower); }
-        public void RemoveTower(Tower tower, Vector3Int pos) { Towers.Remove(pos); }
-
-        public Tower GetTower(Vector3Int pos) 
+        public void AddTower(Tower tower, Vector3Int pos)
         {
-            Tower tower;
-            if (Towers.TryGetValue(pos, out tower)){ return tower; } return null;
+            if(!Towers.TryGetValue(pos, out Tower tow))
+            Towers.Add(pos, tower);
+        }
+
+        public void RemoveTower(Tower tower, Vector3Int pos)
+        {
+            Towers.Remove(pos);
+        }
+
+        public bool TryGetTower(Vector3Int pos, out Tower tower)
+        {
+            if (Towers.TryGetValue(pos, out tower))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void SetBuildingCell(Vector3Int pos, bool building)
@@ -65,8 +78,10 @@ namespace MTLGJ
             _grid.UpdateGrid(pos.FromCellToPathfindingPosition(), !building);
 
             OnTilemapCellChangedHandler?.Invoke(pos, !building);
-        }        
-        
+        }
+
+
+
         public void SetCharacterCel(Vector3Int pos, bool character)
         {
             if (character)
@@ -74,7 +89,7 @@ namespace MTLGJ
                 //_grid.UpdateGrid(pos.ToVector2Int(), walkable);
                 if (!CharacterCells.TryGetValue(pos, out int value))
                 {
-                    CharacterCells.Add(pos, 1);                
+                    CharacterCells.Add(pos, 1);
                     Tilemap.SetTile(
                          pos,
                          TilemapResources.Instance.GetTile(TileID.Character));
@@ -112,6 +127,7 @@ namespace MTLGJ
 
         public Pathfinding.Grid PathindingGrid => _grid;
 
+        //public Action<Enemy> OnEnemyDiedHandler { get; internal set; }
 
         public List<Vector3Int> Ends = new List<Vector3Int>();
 
@@ -163,6 +179,19 @@ namespace MTLGJ
                         );
                 }
             }
+        }
+
+        public void RemoveEnemy(Enemy enemy, bool invaded)
+        {
+            OnEnemyRemovedHandler?.Invoke(enemy);
+            enemy.OnRemovedHandler?.Invoke();
+            if (invaded)
+            {
+                Game.Instance.Session.Value.Lives.Value--;
+            }
+
+            enemy.gameObject.Destroy();
+
         }
 
 

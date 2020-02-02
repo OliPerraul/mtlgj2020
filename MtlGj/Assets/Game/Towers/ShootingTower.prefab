@@ -110,6 +110,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3902992461142997795, guid: 08737211fd0677647b8aa59baf0eaf4b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902992461142997795, guid: 08737211fd0677647b8aa59baf0eaf4b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4566058604428756726, guid: 08737211fd0677647b8aa59baf0eaf4b,
         type: 3}
       propertyPath: m_Name
@@ -118,7 +128,12 @@ PrefabInstance:
     - target: {fileID: 6295043157102337093, guid: 08737211fd0677647b8aa59baf0eaf4b,
         type: 3}
       propertyPath: BulletForce
-      value: 10
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714687759278947864, guid: 08737211fd0677647b8aa59baf0eaf4b,
+        type: 3}
+      propertyPath: m_Text
+      value: Lv 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08737211fd0677647b8aa59baf0eaf4b, type: 3}

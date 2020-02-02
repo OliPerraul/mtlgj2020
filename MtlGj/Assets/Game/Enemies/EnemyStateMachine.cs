@@ -19,16 +19,13 @@ namespace MTLGJ
 
     public abstract class EnemyState : Cirrus.FSM.State
     {
-        public override int ID => -1;//(int)EnemyStateID.Default;
+        public override int ID => -1;
 
         public Enemy Enemy => (Enemy)_context[0];
 
         public EnemyStateMachine StateMachine => (EnemyStateMachine)_context[1];
 
-        private List<Point> _path;//= new List<Point>()
-
-        //[SerializeField]
-        //protected List<NesScripts.Controls.PathFind.Point> _path;
+        private List<Point> _path;
 
         protected Vector2Int _finalDestination;
 
@@ -36,20 +33,13 @@ namespace MTLGJ
 
         protected int _currentPathPositionIndex = 0;
 
-        //protected Timer _timer;
-
-        //public virtual Character Character => _character;
-
-        //private Character _character;
-
-
         public EnemyState(
             bool isStart,
             params object[] context) : base(
             isStart,
             context)
         {
-            //Level.Instance.OnTilemapCellChangedHandler += OnTilemapCellChanged;
+          
         }
 
         public virtual void OnTilemapCellChanged(Vector3Int cellPos, bool walkable)
@@ -108,6 +98,12 @@ namespace MTLGJ
             }
         }
 
+        public override void OnMachineDestroyed()
+        {
+            base.OnMachineDestroyed();
+
+            Level.Instance.OnTilemapCellChangedHandler -= OnTilemapCellChanged;
+        }
 
         public override void Enter(params object[] args)
         {
@@ -163,6 +159,21 @@ namespace MTLGJ
             if (Enemy.Transform.position.IsCloseEnough(
                 _nextDestination, 0.5f))
             {
+                // DELETE ENEMY HERE
+                var cell = _path[_currentPathPositionIndex].Position.FromPathfindToCellPosition();
+
+                var tile = Level.Instance.Tilemap.GetTile(cell) == null ? null : (GGJTile)Level.Instance.Tilemap.GetTile(cell);
+
+                if (tile != null)
+                {
+                    if (tile.ID == TileID.End)
+                    {
+                        Level.Instance.RemoveEnemy(Enemy, true);
+                        StateMachine.TrySetState(EnemyStateID.Idle);
+                        return;
+                    }
+                }
+
                 Mark(_path[_currentPathPositionIndex].Position.FromPathfindToCellPosition());
 
                 _path[_currentPathPositionIndex] = new Point(-1, -1);
@@ -227,15 +238,27 @@ namespace MTLGJ
             isStart,
             context)
         {
-
+            
         }
 
         public override void Enter(params object[] args)
         {
             base.Enter(args);
+
+            var ress = Physics2D.OverlapCircleAll(Enemy.Transform.position, Enemy.AttackRange);
+            if (ress.Length == 0)
+            {
+                StateMachine.TrySetState(EnemyStateID.Idle);
+                return;
+            }
+
+            foreach (var res in ress)
+            {
+                res.GetComponentInParent<Enemy>();
+            }
+            
         }
     }
-
 
 
     public class EnemyIdle : EnemyState
@@ -277,17 +300,10 @@ namespace MTLGJ
         {
             base.Enter(args);
         }
-
-
     }
-
-
 
     public class EnemyStateMachine : Cirrus.FSM.BaseMachine
     {
-        //[SerializeField]
-        //private Avatar _character;
-
         [SerializeField]
         private Enemy _enemy;
 
@@ -297,9 +313,22 @@ namespace MTLGJ
 
         public GGJTile prevTile = null;
 
+        public void OnEnemyRemoved()
+        {
+            if (prevCelSet)
+            {
+                prevCelSet = false;
+
+                Level.Instance.SetCharacterCel(prevCel, false);
+            }
+        }
+
         public override void Awake()
         {
+            
             base.Awake();
+
+            _enemy.OnRemovedHandler += OnEnemyRemoved;
 
             Add(new EnemyStart(true, _enemy, this));
             Add(new EnemyMarching(false, _enemy, this));

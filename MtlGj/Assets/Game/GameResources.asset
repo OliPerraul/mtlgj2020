@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SessionSettings:
     MaxLives: 10
+    MaxResourcesAmount: 9999
+    InitialResourcesAmount: 100
+    TimeIntermission: 10
     Waves:
-    - Difficulty: 0
-      Groups:
-      - Difficulty: 0
-        Frequency: 0
-        Pause: 0
-        Enemies:
-        - {fileID: 5775286107222846060, guid: 64a7a74e28af3594989c3ab58921d766, type: 3}
+    - Frequency: 1
+      Enemies:
+      - {fileID: 5775286107222846060, guid: 64a7a74e28af3594989c3ab58921d766, type: 3}
+      - {fileID: 5775286107222846060, guid: 64a7a74e28af3594989c3ab58921d766, type: 3}
+      - {fileID: 5775286107222846060, guid: 64a7a74e28af3594989c3ab58921d766, type: 3}
+      - {fileID: 5775286107222846060, guid: 64a7a74e28af3594989c3ab58921d766, type: 3}
+      - {fileID: 5775286107222846060, guid: 64a7a74e28af3594989c3ab58921d766, type: 3}
+    - Frequency: 1
+      Enemies:
+      - {fileID: 5775286107222846060, guid: 64a7a74e28af3594989c3ab58921d766, type: 3}

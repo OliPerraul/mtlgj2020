@@ -12,9 +12,7 @@ namespace MTLGJ
         BulletForce,
         BulletDamage,
         Frequency,
-
-        //Numbullet
-
+        Homing
     }
 
     public enum TowerID
@@ -38,7 +36,8 @@ namespace MTLGJ
         public static TowerUpgrade[] TowerUpgrades
             = new TowerUpgrade[]
         {
-            TowerUpgrade.Health
+            TowerUpgrade.Health,
+            TowerUpgrade.MaxHealth
         };
 
         public static ShootingTowerUpgrade[] ShootTowerUpgrades
@@ -48,6 +47,7 @@ namespace MTLGJ
                 ShootingTowerUpgrade.BulletForce,
                 ShootingTowerUpgrade.Frequency,
                 ShootingTowerUpgrade.Range,
+                ShootingTowerUpgrade.Homing,
             };
     }
 
@@ -55,7 +55,8 @@ namespace MTLGJ
     public enum TowerUpgrade
     {
         Unknown,
-        Health
+        Health,
+        MaxHealth,
     }
 
     public class TowerResources : Cirrus.Resources.BaseResourceManager<TowerResources>
@@ -63,6 +64,9 @@ namespace MTLGJ
         //public 
         public float HealthUpgradeChance = 0.4f;
         public float HealthUpgradeCost = 0.4f;
+
+        public float HealthRepairChance = 0.4f;
+        public float HealthRepairCost = 5f;
 
         public float RangeUpgradeChance = 0.5f;
         public float RangeUpgradeCost = 0.5f;
@@ -77,11 +81,21 @@ namespace MTLGJ
         public float ShootingFrequencyUpgradeChance = 0.4f;
         public float ShootingFrequencyUpgradeCost = 0.4f;
 
+        public float ShootingHomingUpradeCost = 40f;
+        public float ShootingHomingUpradeChance = 0.4f;
+
+
         public float Shooting1BuildChance = 0.4f;
         public float Shooting1BuildCost = 0.4f;
 
         public float Shield1BuildChance = 0.4f;
         public float Shield1BuildCost = 0.4f;
+
+        [SerializeField]
+        public Explosion Explosion;
+
+        [SerializeField]
+        public Explosion SmallExplosion;
 
         public float Chance(TowerID id)
         {
@@ -127,6 +141,10 @@ namespace MTLGJ
                 default:
                 case ShootingTowerUpgrade.Range:
                     return RangeUpgradeChance;
+
+                //default:
+                case ShootingTowerUpgrade.Homing:
+                    return ShootingHomingUpradeChance;
             }
         }
 
@@ -146,10 +164,12 @@ namespace MTLGJ
                 default:
                 case ShootingTowerUpgrade.Range:
                     return RangeUpgradeCost;
+
+                //default:
+                case ShootingTowerUpgrade.Homing:
+                    return ShootingHomingUpradeCost;
             }
         }
-
-
 
         public float Chance(TowerUpgrade id)
         {
@@ -157,14 +177,10 @@ namespace MTLGJ
             {
                 default:
                 case TowerUpgrade.Health:
+                    return HealthRepairChance;
+
+                case TowerUpgrade.MaxHealth:
                     return HealthUpgradeChance;
-
-                    //case ShootingTowerUpgrade.:
-                    //    return Shield1BuildChance;
-
-                    //case ShootingTowerUpgrade.BulletForce:
-                    //    return Shield1BuildChance;
-
             }
         }
 
@@ -175,21 +191,13 @@ namespace MTLGJ
             {
                 default:
                 case TowerUpgrade.Health:
+                    return HealthRepairCost;
+
+                case TowerUpgrade.MaxHealth:
                     return HealthUpgradeCost;
-
-                    //case ShootingTowerUpgrade.:
-                    //    return Shield1BuildCost;
-
-                    //case ShootingTowerUpgrade.BulletForce:
-                    //    return Shield1BuildCost;
-
             }
         }
 
-
-
-        //public class Resources : BaseResources<Resources>
-        ////{
         [SerializeField]
         private Tower[] Towers;
 

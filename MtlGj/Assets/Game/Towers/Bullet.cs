@@ -15,6 +15,8 @@ namespace MTLGJ
 
         private Timer _timer = new Timer(start: false);
 
+        private float _homing = 1f;
+
         [SerializeField]
         private float _timeout = 5f;
 
@@ -39,6 +41,8 @@ namespace MTLGJ
             _dmg = dmg;
         }
 
+        private bool _finished = false;
+
         public void OnCollisionEnter2D(Collision2D collision)
         {
             var en = collision.transform.GetComponent<Enemy>();
@@ -54,7 +58,9 @@ namespace MTLGJ
             var en = collision.transform.GetComponent<Enemy>();
             if (en != null)
             {
+                _finished = false;
                 en.ApplyDamage(_dmg);
+                
                 gameObject.Destroy();
             }
         }
@@ -80,21 +86,44 @@ namespace MTLGJ
 
         private Enemy _tg;
 
+        private float _initDist = 1;
+
         public void SetTarget(Enemy tg)
         {
             _tg = tg;
+
+            _initDist = (_tg.transform.position - transform.position).magnitude;
+        }
+
+        public void SetHoming(float homing)
+        {
+            _homing = homing;
         }
 
         public void Update()
         {
-            //transform.position += _dir * _force * Time.deltaTime;
-            transform.Translate(_dir * _force * Time.smoothDeltaTime);
+            if (_finished)
+                return;
 
-            if (_tg != null)
-            {
-                //transform.position += _dir * _force * Time.deltaTime;
-                transform.Translate((_tg.transform.position - transform.position).normalized * 2f * Time.smoothDeltaTime);
-            }
+            if (gameObject == null)
+                return;
+
+            if (_tg == null)
+                return;
+
+            if (_tg.gameObject == null)
+                return;
+        
+            var dir = (_tg.transform.position - transform.position);
+
+            float w1 = _initDist == 0 ?  
+                0 : (dir.magnitude / _initDist) / _homing;
+
+            float w2 = 
+                Mathf.Abs(1 - w1);
+        
+            transform.Translate(_dir * _force * w1 * Time.smoothDeltaTime);
+            transform.Translate(dir.normalized *  _force  * w2 * Time.smoothDeltaTime);
 
         }
     }
