@@ -24,16 +24,6 @@ public class Session : MonoBehaviour
         
     }
     
-    private void OnTriggerEnter2D(TilemapCollider2D other)
-    {
-  
-
-        Debug.Log("that OK00");
-       if (other.gameObject == player)
-        {
-            m_IsPlayerAtExit = true;
-        }
-    }
     // Update is called once per frame
     void Update()
     {
