@@ -52,7 +52,6 @@ namespace MTLGJ
         private void OnLevelUpTimeout()
         {
             _levelUpText.gameObject.SetActive(false);
-
         }
 
         public void OnLevelUp(int lv)
@@ -118,9 +117,34 @@ namespace MTLGJ
         public void Explode()
         {
             CameraShake.Instance.Shake();
-            TowerResources.Instance.Explosion.gameObject.Create(Transform.position, MTLGJ.Level.Instance.transform);
+            var expl = TowerResources.Instance.Explosion.gameObject.Create(Transform.position, MTLGJ.Level.Instance.transform);
+            expl.transform.position.SetZ(0);
+            MTLGJ.Level.Instance.RemoveTower(this, transform.position.FromWorldToCellPosition());
+            MTLGJ.Level.Instance.SetBuildingCell(transform.position.FromWorldToCellPosition(), false);
             gameObject.Destroy();
-        }    
+
+        }
+
+        public void SmallExplode()
+        {
+            CameraShake.Instance.Shake();
+            var expl = TowerResources.Instance.SmallExplosion.gameObject.Create(Transform.position, MTLGJ.Level.Instance.transform);
+            expl.transform.position.SetZ(0);
+            MTLGJ.Level.Instance.RemoveTower(this, transform.position.FromWorldToCellPosition());
+            MTLGJ.Level.Instance.SetBuildingCell(transform.position.FromWorldToCellPosition(), false);
+            gameObject.Destroy();
+
+        }
+
+        public override void ApplyDamage(float dmg)
+        {
+            base.ApplyDamage(dmg);
+
+            if (Health.Value == 0)
+            {
+                SmallExplode();
+            }
+        }
 
 
         public virtual void Upgrade(ShootingTowerUpgrade upgrade)

@@ -69,6 +69,16 @@ namespace MTLGJ
 
         }
 
+        public override void OnMachineDestroyed()
+        {
+            base.OnMachineDestroyed();
+
+            ShootingTower.Colliderlistener.OnTriggerEnter2DHandler -= OnTriggerEnter;
+            ShootingTower.Colliderlistener.OnTriggerExit2DHandler -= OnTriggerExit;
+            _timer.OnTimeLimitHandler -= OnTimeOut;
+        }
+
+
         public void OnTriggerEnter(Collider2D colldier)
         {
             var en = colldier.GetComponentInParent<Enemy>();
@@ -91,6 +101,8 @@ namespace MTLGJ
 
         void Shoot()
         {
+            
+
             if (_enemies.Count == 0)
                 return;
 

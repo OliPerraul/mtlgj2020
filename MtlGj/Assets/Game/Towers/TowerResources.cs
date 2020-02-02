@@ -92,7 +92,10 @@ namespace MTLGJ
         public float Shield1BuildCost = 0.4f;
 
         [SerializeField]
-        public Explosion Explosion; 
+        public Explosion Explosion;
+
+        [SerializeField]
+        public Explosion SmallExplosion;
 
         public float Chance(TowerID id)
         {
