@@ -68,6 +68,8 @@ namespace MTLGJ
             }
 
             MenuEntryTemplate.gameObject.SetActive(false);
+
+            DoOpen();
         }
 
         public void OpenShieldTowerUpgrades()
@@ -94,8 +96,22 @@ namespace MTLGJ
             }
 
             MenuEntryTemplate.gameObject.SetActive(false);
+
+            DoOpen();
         }
 
+
+        public void DoOpen()
+        {
+            foreach (var entr in Entries)
+            {
+                entr.Selected = false;
+            }
+
+            if (Entries.Count == 0) return;
+
+            Entries[0].Selected = true;
+        }
 
 
 

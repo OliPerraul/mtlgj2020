@@ -81,6 +81,10 @@ namespace MTLGJ
         public float ShootingFrequencyUpgradeChance = 0.4f;
         public float ShootingFrequencyUpgradeCost = 0.4f;
 
+        public float ShootingHomingUpradeCost = 40f;
+        public float ShootingHomingUpradeChance = 0.4f;
+
+
         public float Shooting1BuildChance = 0.4f;
         public float Shooting1BuildCost = 0.4f;
 
@@ -131,6 +135,10 @@ namespace MTLGJ
                 default:
                 case ShootingTowerUpgrade.Range:
                     return RangeUpgradeChance;
+
+                //default:
+                case ShootingTowerUpgrade.Homing:
+                    return ShootingHomingUpradeChance;
             }
         }
 
@@ -150,6 +158,10 @@ namespace MTLGJ
                 default:
                 case ShootingTowerUpgrade.Range:
                     return RangeUpgradeCost;
+
+                //default:
+                case ShootingTowerUpgrade.Homing:
+                    return ShootingHomingUpradeCost;
             }
         }
 
@@ -165,13 +177,6 @@ namespace MTLGJ
 
                 case TowerUpgrade.MaxHealth:
                     return HealthUpgradeChance;
-
-                    //case ShootingTowerUpgrade.:
-                    //    return Shield1BuildChance;
-
-                    //case ShootingTowerUpgrade.BulletForce:
-                    //    return Shield1BuildChance;
-
             }
         }
 
@@ -182,43 +187,13 @@ namespace MTLGJ
             {
                 default:
                 case TowerUpgrade.Health:
-                    return HealthRepairCost;// Chance;
+                    return HealthRepairCost;
 
                 case TowerUpgrade.MaxHealth:
                     return HealthUpgradeCost;
-
-                    //case ShootingTowerUpgrade.:
-                    //    return Shield1BuildChance;
-
-                    //case ShootingTowerUpgrade.BulletForce:
-                    //    return Shield1BuildChance;
-
             }
         }
 
-
-
-        //public float Cost(TowerUpgrade id)
-        //{
-        //    switch (id)
-        //    {
-        //        default:
-        //        case TowerUpgrade.Health:
-        //            return HealthUpgradeCost;
-
-        //            //case ShootingTowerUpgrade.:
-        //            //    return Shield1BuildCost;
-
-        //            //case ShootingTowerUpgrade.BulletForce:
-        //            //    return Shield1BuildCost;
-
-        //    }
-        //}
-
-
-
-        //public class Resources : BaseResources<Resources>
-        ////{
         [SerializeField]
         private Tower[] Towers;
 
