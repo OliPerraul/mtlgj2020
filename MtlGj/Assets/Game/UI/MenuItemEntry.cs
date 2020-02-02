@@ -11,9 +11,9 @@ namespace MTLGJ
     {
         public TowerID TowerID;
 
-        public TowerUpgrade Upgrade;
+        public TowerUpgrade Upgrade = TowerUpgrade.Unknown;
 
-        public ShootingTowerUpgrade ShootingUpgrade;
+        public ShootingTowerUpgrade ShootingUpgrade = ShootingTowerUpgrade.Unknown;
 
         public string Name
         {

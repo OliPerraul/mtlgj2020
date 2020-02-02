@@ -7,6 +7,7 @@ namespace MTLGJ
 {
     public enum ShootingTowerUpgrade
     {
+        Unknown,
         Range,
         BulletForce,
         BulletDamage,
@@ -53,6 +54,7 @@ namespace MTLGJ
 
     public enum TowerUpgrade
     {
+        Unknown,
         Health
     }
 
