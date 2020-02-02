@@ -55,6 +55,7 @@ namespace MTLGJ
              this.Transform.position +
             isoRenderer.Direction  ;
 
+
             var curr = Level.Instance.Tilemap.GetTile(
                          front.FromWorldToCellPosition());
             if (curr != null && ((GGJTile)curr).ID == TileID.End) { Destroy(this.gameObject); }
