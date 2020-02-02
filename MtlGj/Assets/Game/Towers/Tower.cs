@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cirrus.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -116,8 +117,9 @@ namespace MTLGJ
 
         public void Explode()
         {
-            
-
+            CameraShake.Instance.Shake();
+            TowerResources.Instance.Explosion.gameObject.Create(Transform.position, MTLGJ.Level.Instance.transform);
+            gameObject.Destroy();
         }    
 
 

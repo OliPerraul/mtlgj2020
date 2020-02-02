@@ -23,6 +23,14 @@ namespace MTLGJ
             if (!TakeSufficientFunds(upgrade))
                 return;
 
+            if (Cirrus.Numeric.Chance.CheckIsTrue(
+                TowerResources.Instance.Chance(upgrade)
+                ))
+            {
+                Explode();
+                return;
+            }
+
             switch (upgrade)
             {
                 case ShootingTowerUpgrade.Range:

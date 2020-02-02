@@ -52,6 +52,9 @@ TagManager:
   - name: Foreground.Characters
     uniqueID: 655426705
     locked: 0
+  - name: Foreground.Particles
+    uniqueID: 2280216285
+    locked: 0
   - name: Collider
     uniqueID: 1617270837
     locked: 0

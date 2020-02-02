@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthUpgradeChance: 0.4
   HealthUpgradeCost: 10
+  HealthRepairChance: 0.4
+  HealthRepairCost: 5
   RangeUpgradeChance: 0.5
   RangeUpgradeCost: 10
   BulletForceUpgradeChance: 0.5
@@ -22,9 +24,13 @@ MonoBehaviour:
   BulletDamageUpgradeCost: 10
   ShootingFrequencyUpgradeChance: 0.4
   ShootingFrequencyUpgradeCost: 10
+  ShootingHomingUpradeCost: 40
+  ShootingHomingUpradeChance: 0.4
   Shooting1BuildChance: 0.4
   Shooting1BuildCost: 10
   Shield1BuildChance: 0.4
   Shield1BuildCost: 10
+  Explosion: {fileID: 1786837674288943345, guid: bf44f4bfe4aab1448afaf7ebb0165f6c,
+    type: 3}
   Towers:
   - {fileID: 6196386482059151870, guid: 78bd6d08b41cd214b99013d6cd7a72ce, type: 3}
