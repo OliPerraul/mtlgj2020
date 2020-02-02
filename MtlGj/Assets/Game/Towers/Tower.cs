@@ -32,7 +32,13 @@ namespace MTLGJ
 
         [SerializeField]
         public ColliderListener Colliderlistener;
-    
+
+        [SerializeField]
+        private Sprite _spriteUpgrade;    
+
+        //[SerializeField]
+        //private Sprite _spriteNormal;
+
         public override void Awake()
         {
             base.Awake();
@@ -56,6 +62,12 @@ namespace MTLGJ
 
         public void OnLevelUp(int lv)
         {
+            if (lv >= 5)
+            {
+                if(SpriteRenderer != null)
+                SpriteRenderer.sprite = _spriteUpgrade;
+            }
+
             _levelUpText.gameObject.SetActive(false);
             //_levelUpText.text = "Level up!";
             _levelText.text = "lv " + lv;
