@@ -173,7 +173,7 @@ namespace MTLGJ
                 {
                     UpgradeMenu.Instance.gameObject.SetActive(true);
                     _activeMenu = UpgradeMenu.Instance.gameObject;
-                    AVATARCANVAS.Instance.transform.position = transform.position - front;
+                    //AVATARCANVAS.Instance.transform.position = transform.position - front;
                     Utils.InMenu = true;
                     return;
                 }
@@ -182,7 +182,7 @@ namespace MTLGJ
                 {
                     BuildMenu.Instance.gameObject.SetActive(true);
                     _activeMenu = BuildMenu.Instance.gameObject;
-                    AVATARCANVAS.Instance.transform.position = transform.position - front;
+                    //AVATARCANVAS.Instance.transform.position = transform.position - front;
 
                     Utils.InMenu = true;
                     return;
