@@ -40,6 +40,8 @@ namespace MTLGJ
             UpgradeMenu.Instance.OnItemSelectedHandler += OnUpgradeSelected;
         }
 
+        private GameObject _activeMenu;
+
         public void OnBuildSelected(MenuItemEntry menuItem)
         {
             CreateTower(menuItem.TowerID);
@@ -59,10 +61,10 @@ namespace MTLGJ
             {
                 Upgrade(menuItem.Upgrade);
             }
-            else if(menuItem.ShootingUpgrade != ShootingTowerUpgrade.Unknown)
+            else if (menuItem.ShootingUpgrade != ShootingTowerUpgrade.Unknown)
             {
                 Upgrade(menuItem.ShootingUpgrade);
-            }       
+            }
 
             if (_activeMenu != null)
             {
@@ -227,15 +229,16 @@ namespace MTLGJ
 
             Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
 
-                //turretMenu.enabled = !isMenuActive;
-               // isMenuActive = !isMenuActive;
-            }
-            else { Debug.Log("not enough resources");}
-
-            tower.gameObject.Create(
-                front.FromWorldToCellPosition().FromCellToWorldPosition(),
-                Level.Instance.transform);
+            //turretMenu.enabled = !isMenuActive;
+            // isMenuActive = !isMenuActive;
         }
+        //else { Debug.Log("not enough resources");}
+
+        //tower.gameObject.Create(
+        //    front.FromWorldToCellPosition().FromCellToWorldPosition(),
+        //    Level.Instance.transform);
+    }
+}
 
         //public void UpgradeTower(int type)
         //{
@@ -248,6 +251,7 @@ namespace MTLGJ
         //    }
         //}
 
-    }
-}
+
+
+
 //}
