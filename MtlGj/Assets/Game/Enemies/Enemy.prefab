@@ -33,12 +33,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16cf30aa35a9b54cad93dfd253f2372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressBar: {fileID: 3206298710906000549}
   Transform: {fileID: 1313569304561146123}
   SpriteRenderer: {fileID: 1313569305966714582}
-  MaxHealth: 5
-  Health: 5
   _flashTime: 0.005
   _flashMaterial: {fileID: 2100000, guid: 4ca0a635b7d9a9f4184cfd872ae18838, type: 2}
+  _healthbartime: 0.5
   MoveSpeed: 0.08
   isoRenderer: {fileID: 1313569305966714580}
   rbody: {fileID: 1313569304408886810}
@@ -81,6 +81,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1774957987942415108, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3339481644051735613, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
         type: 3}
       propertyPath: m_Controller
@@ -198,5 +203,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0631f36ac84554335b5b1f70f25312fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3206298710906000549 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1161237380607045197, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
+    type: 3}
+  m_PrefabInstance: {fileID: 4351185936917510888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdabb6774b00054d818f93e87ba72cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

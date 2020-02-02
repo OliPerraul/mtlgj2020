@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+//using System.Threading;
 using UnityEngine;
 
 namespace MTLGJ
@@ -7,6 +8,9 @@ namespace MTLGJ
 
     public class BaseObject : MonoBehaviour
     {
+        [SerializeField]
+        public PlayfulSystems.ProgressBar.ProgressBarPro progressBar;
+
         [SerializeField]
         public Transform Transform;
 
@@ -21,6 +25,78 @@ namespace MTLGJ
             new Vector3Int() : 
             Level.Instance.Tilemap.WorldToCell(Transform.position);
 
+        public Cirrus.Events.ObservableValue<float> MaxHealth = new Cirrus.Events.ObservableValue<float>();
+        public Cirrus.Events.ObservableValue<float> Health = new Cirrus.Events.ObservableValue<float>();
+
+        [SerializeField]
+        private float _flashTime = 0.2f;
+
+        [SerializeField]
+        private Material _flashMaterial;
+
+
+        private Cirrus.Timer _flashTimer;
+        private Material _prevMaterial;
+
+        public virtual void Awake()
+        {
+            //_flashTimer = new Cirrus.Timer();
+            _healthBarTimer = new Cirrus.Timer(start:false);
+            _flashTimer = new Cirrus.Timer(start: false);
+            _healthBarTimer.OnTimeLimitHandler += OnHealthTimeout;
+            _flashTimer.OnTimeLimitHandler += OnFlashTimeout;
+
+            MaxHealth.OnValueChangedHandler += OnHealthChanged;
+            Health.OnValueChangedHandler += OnHealthChanged;
+            Health = MaxHealth;           
+        }
+
+
+        private Cirrus.Timer _healthBarTimer;
+        public float _healthbartime = 0.5f;
+
+        public void Flash()
+        {
+            _prevMaterial = SpriteRenderer.material;
+            SpriteRenderer.material = _flashMaterial;
+            _flashTimer.Start(_flashTime);
+
+        }
+
+        // Upg health bar when damaged
+        public void OnHealthChanged(float va)
+        {
+            if (progressBar == null)
+                return;
+
+            progressBar.gameObject.SetActive(true);
+            _healthBarTimer.Start(_healthbartime);
+            progressBar.SetValue(Health.Value / MaxHealth.Value);
+        }
+
+        public void OnHealthTimeout()
+        {
+            if(progressBar != null)
+            progressBar.gameObject.SetActive(false);
+        }
+
+        public void OnFlashTimeout()
+        {
+            SpriteRenderer.material = _prevMaterial;
+        }
+
+        public virtual void ApplyDamage(float dmg)
+        {
+            Health.Value -= dmg;
+            if (Health.Value < 0)
+            {
+                Health.Value = 0;
+                return;
+            }
+
+            Flash();
+        }
+
 
         // Start is called before the first frame update
         public virtual void Start()
@@ -33,8 +109,6 @@ namespace MTLGJ
         {
            // if(SpriteRenderer != null)
                // SpriteRenderer.sortingOrder = (int)-Transform.position.y;
-
-
            
         }
     }
