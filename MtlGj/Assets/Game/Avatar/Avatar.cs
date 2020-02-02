@@ -25,8 +25,8 @@ namespace MTLGJ
             //Debug.Log("ressources quantity: " + ressourcesQty);
         }
 
-        private void OnTriggerEnter2D(Collider2D other) { 
-            
+        private void OnTriggerEnter2D(Collider2D other)
+        {            
                 if (other.CompareTag("collectible")) {
                 Debug.Log("collected");
                 SoundManagerScript.PlaySound("inventor");

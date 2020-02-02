@@ -26,8 +26,8 @@ namespace MTLGJ
         void FixedUpdate()
         {
             Vector2 currentPos = rbody.position;
-            horizontalInput = Utils.PLAYER_FREEZ ? 0 : Input.GetAxis("Horizontal");
-            verticalInput = Utils.PLAYER_FREEZ ? 0 : Input.GetAxis("Vertical");
+            horizontalInput = Utils.InMenu ? 0 : Input.GetAxis("Horizontal");
+            verticalInput = Utils.InMenu ? 0 : Input.GetAxis("Vertical");
             Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
             inputVector = Vector2.ClampMagnitude(inputVector, 1);
             Vector2 movement = inputVector * movementSpeed;
