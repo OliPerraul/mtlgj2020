@@ -5,7 +5,7 @@ namespace MTLGJ
     //TODO remove this nonsense
     public static class Utils
     {
-        public static bool PLAYER_FREEZ = false;
+        public static bool InMenu = false;
     }
 
     public static class ColorExtension2

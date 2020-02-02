@@ -31,16 +31,63 @@ namespace MTLGJ
         float positionX;
         float positionY;
 
-
-        //public TowerID[] _towerInventory = new TowerID[] {
-        //    TowerID.Shooting1
-        //    //TowerID.Shield1,
-        //    //TowerID.Shooting1
-        //};
-
-
         [SerializeField]
         private int selectedTowerIndex = 0;
+
+        public void Awake()
+        {
+            BuildMenu.Instance.OnItemSelectedHandler += OnBuildSelected;
+            UpgradeMenu.Instance.OnItemSelectedHandler += OnUpgradeSelected;
+        }
+
+        public void OnBuildSelected(MenuItemEntry menuItem)
+        {
+            CreateTower(menuItem.TowerID);
+
+            if (_activeMenu != null)
+            {
+                Utils.InMenu = false;
+                _activeMenu.SetActive(false);
+                _activeMenu = null;
+                return;
+            }
+        }
+
+        public void OnUpgradeSelected(MenuItemEntry menuItem)
+        {
+            if (menuItem.Upgrade != TowerUpgrade.Unknown)
+            {
+                Upgrade(menuItem.Upgrade);
+            }
+            else if(menuItem.ShootingUpgrade != ShootingTowerUpgrade.Unknown)
+            {
+                Upgrade(menuItem.ShootingUpgrade);
+            }       
+
+            if (_activeMenu != null)
+            {
+                Utils.InMenu = false;
+                _activeMenu.SetActive(false);
+                _activeMenu = null;
+                return;
+            }
+        }
+
+        public void Upgrade(TowerUpgrade upgr)
+        {
+
+        }
+
+        public void Upgrade(ShootingTowerUpgrade upgr)
+        {
+
+        }
+
+        //public void Upgrade(TowerUpgrade upgr)
+        //{
+
+        //}
+
 
         private void Start()
         {
@@ -57,6 +104,8 @@ namespace MTLGJ
         private Vector3Int oldCellPos = new Vector3Int(-1, -1, -1);
 
         private GGJTile oldTile;
+
+        private GameObject _activeMenu;
 
         void Update()
         {
@@ -88,6 +137,14 @@ namespace MTLGJ
 
             if (Input.GetButtonDown("Fire1"))
             {
+                if (_activeMenu != null)
+                {
+                    Utils.InMenu = false;
+                    _activeMenu.SetActive(false);
+                    _activeMenu = null;
+                    return;
+                }
+
                 //var front =
                 //  avatar.Transform.position +
                 //  isoRenderer.Direction * _buildRange;
@@ -115,87 +172,76 @@ namespace MTLGJ
                 if (((GGJTile)curr).ID == TileID.Building)
                 {
                     UpgradeMenu.Instance.gameObject.SetActive(true);
+                    _activeMenu = UpgradeMenu.Instance.gameObject;
                     AVATARCANVAS.Instance.transform.position = transform.position - front;
-                    Utils.PLAYER_FREEZ = true;
+                    Utils.InMenu = true;
                     return;
                 }
 
                 if (((GGJTile)curr).ID == TileID.Empty)
                 {
                     BuildMenu.Instance.gameObject.SetActive(true);
+                    _activeMenu = BuildMenu.Instance.gameObject;
                     AVATARCANVAS.Instance.transform.position = transform.position - front;
-                   
-                    Utils.PLAYER_FREEZ = true;
+
+                    Utils.InMenu = true;
                     return;
                 }
 
             }
         }
 
-
-//<<<<<<< HEAD
-
-
-        public void CreateTower(int selectedTowerIndex)
+        public void CreateTower(TowerID towerid)
         {
-            //Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
+            var front =
+              avatar.Transform.position +
+              isoRenderer.Direction * _buildRange;
 
-            //var tower = TowerResources.Instance.GetTower(BuildUtils.Towers[selectedTowerIndex]);
+            var curr = Level.Instance.Tilemap.GetTile(
+                     front.FromWorldToCellPosition());
 
-            //tower.gameObject.Create(
-            //    front.FromWorldToCellPosition().FromCellToWorldPosition(),
-            //    Level.Instance.transform);
+            if (curr != null && ((GGJTile)curr).ID == TileID.Building)
+                return;
 
-            //turretMenu.enabled = !isMenuActive;
-            //isMenuActive = !isMenuActive;
-//=======
-            if (avatar.ressourcesQty >= avatar.priceShootingTower) {
-                avatar.ressourcesQty -= avatar.priceShootingTower;
+            if (curr != null && ((GGJTile)curr).ID == TileID.Character)
+                return;
 
-                var front =
-                  avatar.Transform.position +
-                  isoRenderer.Direction * _buildRange;
+            if (curr != null && ((GGJTile)curr).ID == TileID.End)
+                return;
 
-                var curr = Level.Instance.Tilemap.GetTile(
-                         front.FromWorldToCellPosition());
+            if (curr != null && ((GGJTile)curr).ID == TileID.Start)
+                return;
 
-                if (curr != null && ((GGJTile)curr).ID == TileID.Building)
-                    return;
 
-                if (curr != null && ((GGJTile)curr).ID == TileID.Character)
-                    return;
+            if (avatar.ressourcesQty < avatar.priceShootingTower)
+                return;
 
-                if (curr != null && ((GGJTile)curr).ID == TileID.End)
-                    return;
+            var tower = TowerResources.Instance.GetTower(towerid);
 
-                if (curr != null && ((GGJTile)curr).ID == TileID.Start)
-                    return;
+            if (tower == null)
+                return;
 
-                Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
+            avatar.ressourcesQty -= (int)TowerResources.Instance.Cost(towerid);
+            avatar.ressourcesQty = avatar.ressourcesQty < 0 ? 0 : avatar.ressourcesQty;
 
-                var tower = TowerResources.Instance.GetTower(BuildUtils.Towers[selectedTowerIndex]);
+            Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
 
-                tower.gameObject.Create(
-                    front.FromWorldToCellPosition().FromCellToWorldPosition(),
-                    Level.Instance.transform);
 
-                //turretMenu.enabled = !isMenuActive;
-                //isMenuActive = !isMenuActive;
-            }
-            else { Debug.Log("not enough resources");}
-
+            tower.gameObject.Create(
+                front.FromWorldToCellPosition().FromCellToWorldPosition(),
+                Level.Instance.transform);
         }
 
-        public void UpgradeTower(int type)
-        {
-            switch (type)
-            {
-                //case 1: ShootingTower.Upgrade(ShootingTowerUpgrade.Range); break;
-                case 2: break;
-                case 3: break;
-                case 4: break;
-            }
-        }
+        //public void UpgradeTower(int type)
+        //{
+        //    switch (type)
+        //    {
+        //        //case 1: ShootingTower.Upgrade(ShootingTowerUpgrade.Range); break;
+        //        case 2: break;
+        //        case 3: break;
+        //        case 4: break;
+        //    }
+        //}
 
     }
 }

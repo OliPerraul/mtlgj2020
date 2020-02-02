@@ -37,11 +37,13 @@ namespace MTLGJ
             }
 
             MenuEntryTemplate.gameObject.SetActive(false);
+            //Instance.gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         public void Start()
         {
-            gameObject.SetActive(false);
+            Instance.gameObject.SetActive(false);
         }
     }
 }
