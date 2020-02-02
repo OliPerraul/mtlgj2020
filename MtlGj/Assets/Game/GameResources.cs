@@ -41,6 +41,12 @@ namespace MTLGJ
         public int MaxLives = 10;
 
         [SerializeField]
+        public int MaxResourcesAmount = 9999;
+
+        [SerializeField]
+        public int InitialResourcesAmount = 100;
+
+        [SerializeField]
         public List<Wave> Waves;
     };
 

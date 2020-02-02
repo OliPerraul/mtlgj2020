@@ -326,8 +326,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 163.2, y: 103.7}
+  m_SizeDelta: {x: 249.1, y: 41.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &729951423
 MonoBehaviour:
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1557ccf8a6a2a5345821630dfa460eb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -478,7 +478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.33999634, y: 28.9}
+  m_AnchoredPosition: {x: 0.33996582, y: 47.5}
   m_SizeDelta: {x: -642.2, y: -332.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018575939
@@ -608,7 +608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.90000695, y: -34.285713}
+  m_AnchoredPosition: {x: -0.90000695, y: -21.6}
   m_SizeDelta: {x: 160.28, y: 32.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087436476
@@ -736,7 +736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -114.5}
+  m_AnchoredPosition: {x: 0, y: -106.6}
   m_SizeDelta: {x: -489.5, y: -311.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1142188463
@@ -985,7 +985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.002494812}
+  m_AnchoredPosition: {x: 0, y: 0.0025024414}
   m_SizeDelta: {x: 0, y: -0.0050125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1314801545
@@ -1055,7 +1055,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5757ad09cf6a76945bfb153ceb1ac47c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7a584e42c5d64ca4497bd2a4d3a9d5c5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

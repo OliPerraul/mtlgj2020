@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace MTLGJ
 {
-
-
     public class healthbar : MonoBehaviour
     {
         private Transform bar;

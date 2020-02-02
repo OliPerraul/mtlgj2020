@@ -40,6 +40,8 @@ namespace MTLGJ
             UpgradeMenu.Instance.OnItemSelectedHandler += OnUpgradeSelected;
         }
 
+        private GameObject _activeMenu;
+
         public void OnBuildSelected(MenuItemEntry menuItem)
         {
             CreateTower(menuItem.TowerID);
@@ -59,10 +61,10 @@ namespace MTLGJ
             {
                 Upgrade(menuItem.Upgrade);
             }
-            else if(menuItem.ShootingUpgrade != ShootingTowerUpgrade.Unknown)
+            else if (menuItem.ShootingUpgrade != ShootingTowerUpgrade.Unknown)
             {
                 Upgrade(menuItem.ShootingUpgrade);
-            }       
+            }
 
             if (_activeMenu != null)
             {
@@ -174,7 +176,6 @@ namespace MTLGJ
                 {
                     UpgradeMenu.Instance.gameObject.SetActive(true);
                     _activeMenu = UpgradeMenu.Instance.gameObject;
-                    AVATARCANVAS.Instance.transform.position = transform.position - front;
                     Utils.InMenu = true;
                     return;
                 }
@@ -183,8 +184,6 @@ namespace MTLGJ
                 {
                     BuildMenu.Instance.gameObject.SetActive(true);
                     _activeMenu = BuildMenu.Instance.gameObject;
-                    AVATARCANVAS.Instance.transform.position = transform.position - front;
-
                     Utils.InMenu = true;
                     return;
                 }
@@ -214,7 +213,7 @@ namespace MTLGJ
                 return;
 
 
-            if (avatar.ressourcesQty < avatar.priceShootingTower)
+            if (Game.Instance.session.ResourcesAmount < (int)TowerResources.Instance.Cost(towerid))
                 return;
 
             var tower = TowerResources.Instance.GetTower(towerid);
@@ -222,32 +221,30 @@ namespace MTLGJ
             if (tower == null)
                 return;
 
-            avatar.ressourcesQty -= (int)TowerResources.Instance.Cost(towerid);
-            avatar.ressourcesQty = avatar.ressourcesQty < 0 ? 0 : avatar.ressourcesQty;
+            Game.Instance.session.ResourcesAmount -= (int)TowerResources.Instance.Cost(towerid);
+            Game.Instance.session.ResourcesAmount = Game.Instance.session.ResourcesAmount < 0 ? 0 : Game.Instance.session.ResourcesAmount;
 
             Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
-
-                //turretMenu.enabled = !isMenuActive;
-               // isMenuActive = !isMenuActive;
-            }
-            else { Debug.Log("not enough resources");}
 
             tower.gameObject.Create(
                 front.FromWorldToCellPosition().FromCellToWorldPosition(),
                 Level.Instance.transform);
         }
-
-        //public void UpgradeTower(int type)
-        //{
-        //    switch (type)
-        //    {
-        //        //case 1: ShootingTower.Upgrade(ShootingTowerUpgrade.Range); break;
-        //        case 2: break;
-        //        case 3: break;
-        //        case 4: break;
-        //    }
-        //}
-
     }
 }
+
+//public void UpgradeTower(int type)
+//{
+//    switch (type)
+//    {
+//        //case 1: ShootingTower.Upgrade(ShootingTowerUpgrade.Range); break;
+//        case 2: break;
+//        case 3: break;
+//        case 4: break;
+//    }
+//}
+
+
+
+
 //}

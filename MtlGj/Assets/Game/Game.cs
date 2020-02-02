@@ -7,16 +7,17 @@ namespace MTLGJ
 {
      public class Session
     {
-        [HideInInspector]
-        public int Score = 0;
+        //[HideInInspector]
+        //public int Score = 0;
 
-        [HideInInspector]
-        public int Money = 0;
+        //[HideInInspector]
+        //public int Money = 0;
 
         [SerializeField]
         public float Lives = 10f;
 
-     
+        public int ResourcesAmount = 100;
+       
 
         public int WaveIndex = 0;
 
@@ -25,6 +26,7 @@ namespace MTLGJ
         public Session()
         {
             Lives = GameResources.Instance.SessionSettings.MaxLives;
+            ResourcesAmount = GameResources.Instance.SessionSettings.InitialResourcesAmount;
         }
     };
 
