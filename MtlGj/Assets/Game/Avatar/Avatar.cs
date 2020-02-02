@@ -10,12 +10,9 @@ namespace MTLGJ
 {
     public class Avatar : Character
     {
-        [SerializeField] public int ressourcesQty;
-        [SerializeField] int maxRessources;
-        [SerializeField] int qtyCollected;
-        [SerializeField] public int priceShootingTower;
-        [SerializeField] public int priceShieldTower;
-        [SerializeField] public int priceRepairTower;
+        //[SerializeField] public int ressourcesQty;
+        //[SerializeField] int maxRessources;
+        //[SerializeField] int qtyCollected;
 
         [SerializeField] Text resourceTxt;
 
@@ -27,16 +24,19 @@ namespace MTLGJ
 
         private void OnTriggerEnter2D(Collider2D other)
         {            
-                if (other.CompareTag("collectible")) {
-                Debug.Log("collected");
-                SoundManagerScript.PlaySound("inventor");
-                if (ressourcesQty <=maxRessources) {
-                    ressourcesQty += qtyCollected;
-                    if (ressourcesQty > maxRessources) { ressourcesQty = maxRessources; }
+            //    //if (other.CompareTag("collectible")) {
+            //    //Debug.Log("collected");
+            //    //SoundManagerScript.PlaySound("inventor");
 
-                    Destroy(other.gameObject);
-                }
-            }
+            //    Game.Instance.session.ResourcesAmount +
+
+            //    if ( <=maxRessources) {
+            //        ressourcesQty += qtyCollected;
+            //        if (ressourcesQty > maxRessources) { ressourcesQty = maxRessources; }
+
+            //        Destroy(other.gameObject);
+            //    }
+            //}
         }
 
         
