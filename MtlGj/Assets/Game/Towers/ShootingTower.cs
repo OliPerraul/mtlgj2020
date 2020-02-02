@@ -53,7 +53,6 @@ namespace MTLGJ
                     Homing+= 0.1f;
                     break;
 
-
             }
 
             Level.Value++;

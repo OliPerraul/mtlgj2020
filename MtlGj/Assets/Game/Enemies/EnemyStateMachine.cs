@@ -42,7 +42,6 @@ namespace MTLGJ
           
         }
 
-
         public virtual void OnTilemapCellChanged(Vector3Int cellPos, bool walkable)
         {
             // Only reroute if cel in path was changed
@@ -239,15 +238,27 @@ namespace MTLGJ
             isStart,
             context)
         {
-
+            
         }
 
         public override void Enter(params object[] args)
         {
             base.Enter(args);
+
+            var ress = Physics2D.OverlapCircleAll(Enemy.Transform.position, Enemy.AttackRange);
+            if (ress.Length == 0)
+            {
+                StateMachine.TrySetState(EnemyStateID.Idle);
+                return;
+            }
+
+            foreach (var res in ress)
+            {
+                res.GetComponentInParent<Enemy>();
+            }
+            
         }
     }
-
 
 
     public class EnemyIdle : EnemyState
@@ -293,14 +304,8 @@ namespace MTLGJ
 
     public class EnemyStateMachine : Cirrus.FSM.BaseMachine
     {
-        //[SerializeField]
-        //private Avatar _character;
-
         [SerializeField]
         private Enemy _enemy;
-
-        
-
 
         public bool prevCelSet = false;
 

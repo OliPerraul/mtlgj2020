@@ -13,7 +13,8 @@ namespace MTLGJ
 
         public float MoveSpeed = 0.002f;
 
-        //Path
+        [SerializeField]
+        public float AttackRange = 2f;
 
         [SerializeField]
         public IsometricCharacterRenderer isoRenderer;
