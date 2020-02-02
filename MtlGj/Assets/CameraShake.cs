@@ -14,6 +14,6 @@ public class CameraShake : MonoBehaviour
 
     public void Shake()
     {
-        iTween.ShakePosition(gameObject, iTween.Hash("y", 0.7f, "time", 1.5f, "delay", 2.0f));
+        iTween.ShakePosition(gameObject, iTween.Hash("y", 0.7f, "time", 1.5f, "delay", 0.0f));
     }
 }

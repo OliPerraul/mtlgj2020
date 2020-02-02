@@ -122,7 +122,6 @@ namespace MTLGJ
             MTLGJ.Level.Instance.RemoveTower(this, transform.position.FromWorldToCellPosition());
             MTLGJ.Level.Instance.SetBuildingCell(transform.position.FromWorldToCellPosition(), false);
             gameObject.Destroy();
-
         }
 
         public void SmallExplode()
@@ -133,7 +132,6 @@ namespace MTLGJ
             MTLGJ.Level.Instance.RemoveTower(this, transform.position.FromWorldToCellPosition());
             MTLGJ.Level.Instance.SetBuildingCell(transform.position.FromWorldToCellPosition(), false);
             gameObject.Destroy();
-
         }
 
         public override void ApplyDamage(float dmg)
@@ -145,7 +143,6 @@ namespace MTLGJ
                 SmallExplode();
             }
         }
-
 
         public virtual void Upgrade(ShootingTowerUpgrade upgrade)
         {
