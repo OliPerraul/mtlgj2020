@@ -219,10 +219,6 @@ namespace MTLGJ
                     //return true;
                 }
             }
-
-
-            //Enemy.isoRenderer.SetDirection((_nextDestination - Enemy.Transform.position).normalized);
-            //Enemy.rbody.MovePosition(npos);
         }
 
         public override void BeginFixedUpdate()

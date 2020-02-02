@@ -52,6 +52,9 @@ namespace MTLGJ
     public class SessionSettings
     {
         [SerializeField]
+        public int ResourcIncr = 5;
+
+        [SerializeField]
         public int MaxLives = 10;
 
         [SerializeField]
