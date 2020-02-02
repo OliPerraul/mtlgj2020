@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walk SW
+  m_Name: VroomWalkSE 1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -4408820842347861932, guid: 8b8f1322d2114af42a0dbc7ee0d97463,
+      value: {fileID: 191516365549618548, guid: cadc78d8d1f160247aa73c0b6c729496,
         type: 3}
     - time: 0.083333336
-      value: {fileID: 4251558819744105683, guid: 8b8f1322d2114af42a0dbc7ee0d97463,
-        type: 3}
-    - time: 0.16666667
-      value: {fileID: -6959906452577645011, guid: 8b8f1322d2114af42a0dbc7ee0d97463,
-        type: 3}
-    - time: 0.25
-      value: {fileID: -3715992735514539376, guid: 8b8f1322d2114af42a0dbc7ee0d97463,
+      value: {fileID: -5263939461846453705, guid: cadc78d8d1f160247aa73c0b6c729496,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -50,16 +44,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -4408820842347861932, guid: 8b8f1322d2114af42a0dbc7ee0d97463, type: 3}
-    - {fileID: 4251558819744105683, guid: 8b8f1322d2114af42a0dbc7ee0d97463, type: 3}
-    - {fileID: -6959906452577645011, guid: 8b8f1322d2114af42a0dbc7ee0d97463, type: 3}
-    - {fileID: -3715992735514539376, guid: 8b8f1322d2114af42a0dbc7ee0d97463, type: 3}
+    - {fileID: 191516365549618548, guid: cadc78d8d1f160247aa73c0b6c729496, type: 3}
+    - {fileID: -5263939461846453705, guid: cadc78d8d1f160247aa73c0b6c729496, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle NW
+  m_Name: idle NW
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 7863450887508890793, guid: 8b8f1322d2114af42a0dbc7ee0d97463,
+      value: {fileID: 5991971003852540050, guid: 8b8f1322d2114af42a0dbc7ee0d97463,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -41,7 +41,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 7863450887508890793, guid: 8b8f1322d2114af42a0dbc7ee0d97463, type: 3}
+    - {fileID: 5991971003852540050, guid: 8b8f1322d2114af42a0dbc7ee0d97463, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

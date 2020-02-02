@@ -1,7 +1,301 @@
 fileFormatVersion: 2
-guid: 8b82a4aacc61b104882ccfaffd8a3fb3
+guid: cadc78d8d1f160247aa73c0b6c729496
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6671605101172172574
+    second: GGJ_Monster_VroomVroom_0
+  - first:
+      213: -242953811952778653
+    second: GGJ_Monster_VroomVroom_1
+  - first:
+      213: 7562971066071906923
+    second: GGJ_Monster_VroomVroom_2
+  - first:
+      213: 985511077917387132
+    second: GGJ_Monster_VroomVroom_3
+  - first:
+      213: 191516365549618548
+    second: GGJ_Monster_VroomVroom_4
+  - first:
+      213: -5263939461846453705
+    second: GGJ_Monster_VroomVroom_5
+  - first:
+      213: -6877638754540945840
+    second: GGJ_Monster_VroomVroom_6
+  - first:
+      213: -6683371389736397479
+    second: GGJ_Monster_VroomVroom_7
+  - first:
+      213: -4515816082770761202
+    second: GGJ_Monster_VroomVroom_8
+  - first:
+      213: 7638200086216749663
+    second: GGJ_Monster_VroomVroom_9
+  - first:
+      213: -1803325958336936291
+    second: GGJ_Monster_VroomVroom_10
+  - first:
+      213: 4543149227838313792
+    second: GGJ_Monster_VroomVroom_11
+  - first:
+      213: -9021031874243087384
+    second: GGJ_Monster_VroomVroom_12
+  - first:
+      213: 1459917976492083523
+    second: GGJ_Monster_VroomVroom_13
+  - first:
+      213: -2306923567153432664
+    second: GGJ_Monster_VroomVroom_14
+  - first:
+      213: 6260381133175772573
+    second: GGJ_Monster_VroomVroom_15
+  - first:
+      213: -45943233544974065
+    second: GGJ_Monster_VroomVroom_16
+  - first:
+      213: 9024630400319174117
+    second: GGJ_Monster_VroomVroom_17
+  - first:
+      213: 2627696393217159647
+    second: GGJ_Monster_VroomVroom_18
+  - first:
+      213: 5004804047966654416
+    second: GGJ_Monster_VroomVroom_19
+  - first:
+      213: -8149350565457932318
+    second: GGJ_Monster_VroomVroom_20
+  - first:
+      213: 1881655348440476423
+    second: GGJ_Monster_VroomVroom_21
+  - first:
+      213: -5492160611541409700
+    second: GGJ_Monster_VroomVroom_22
+  - first:
+      213: 844952887077857899
+    second: GGJ_Monster_VroomVroom_23
+  - first:
+      213: 7561976667895637391
+    second: GGJ_Monster_VroomVroom_24
+  - first:
+      213: -5660197312436953199
+    second: GGJ_Monster_VroomVroom_25
+  - first:
+      213: -9067462649492308480
+    second: GGJ_Monster_VroomVroom_26
+  - first:
+      213: -3690325957058037662
+    second: GGJ_Monster_VroomVroom_27
+  - first:
+      213: -2909243734558049084
+    second: GGJ_Monster_VroomVroom_28
+  - first:
+      213: -6665815552240311800
+    second: GGJ_Monster_VroomVroom_29
+  - first:
+      213: -5498981717318794832
+    second: GGJ_Monster_VroomVroom_30
+  - first:
+      213: -7697392088368778997
+    second: GGJ_Monster_VroomVroom_31
+  - first:
+      213: -807194724034976273
+    second: GGJ_Monster_VroomVroom_32
+  - first:
+      213: -155047529534914349
+    second: GGJ_Monster_VroomVroom_33
+  - first:
+      213: 6817712482915892770
+    second: GGJ_Monster_VroomVroom_34
+  - first:
+      213: 6327218707657008100
+    second: GGJ_Monster_VroomVroom_35
+  - first:
+      213: -7533672129766099239
+    second: GGJ_Monster_VroomVroom_36
+  - first:
+      213: 8099583461328034254
+    second: GGJ_Monster_VroomVroom_37
+  - first:
+      213: -2936947374430041328
+    second: GGJ_Monster_VroomVroom_38
+  - first:
+      213: -5350034628413750588
+    second: GGJ_Monster_VroomVroom_39
+  - first:
+      213: -2469519756350506482
+    second: GGJ_Monster_VroomVroom_40
+  - first:
+      213: -11302223047089517
+    second: GGJ_Monster_VroomVroom_41
+  - first:
+      213: -408743003362568319
+    second: GGJ_Monster_VroomVroom_42
+  - first:
+      213: 6455190053276216910
+    second: GGJ_Monster_VroomVroom_43
+  - first:
+      213: -4850882433065104188
+    second: GGJ_Monster_VroomVroom_44
+  - first:
+      213: -3622081771852459855
+    second: GGJ_Monster_VroomVroom_45
+  - first:
+      213: 1031674925437138281
+    second: GGJ_Monster_VroomVroom_46
+  - first:
+      213: 2018625387821489519
+    second: GGJ_Monster_VroomVroom_47
+  - first:
+      213: 9032019812742672515
+    second: GGJ_Monster_VroomVroom_48
+  - first:
+      213: 8658645760023669491
+    second: GGJ_Monster_VroomVroom_49
+  - first:
+      213: -2994811076222597332
+    second: GGJ_Monster_VroomVroom_50
+  - first:
+      213: -4192690239134486227
+    second: GGJ_Monster_VroomVroom_51
+  - first:
+      213: -4769046095360920463
+    second: GGJ_Monster_VroomVroom_52
+  - first:
+      213: -9168871302198100486
+    second: GGJ_Monster_VroomVroom_53
+  - first:
+      213: -2648232489426262740
+    second: GGJ_Monster_VroomVroom_54
+  - first:
+      213: -6454877637730089687
+    second: GGJ_Monster_VroomVroom_55
+  - first:
+      213: 2355690480779959446
+    second: GGJ_Monster_VroomVroom_56
+  - first:
+      213: 8048131676536902328
+    second: GGJ_Monster_VroomVroom_57
+  - first:
+      213: 6665030428815093105
+    second: GGJ_Monster_VroomVroom_58
+  - first:
+      213: 4120387624791621919
+    second: GGJ_Monster_VroomVroom_59
+  - first:
+      213: -3901773947746380267
+    second: GGJ_Monster_VroomVroom_60
+  - first:
+      213: 5198485813999751283
+    second: GGJ_Monster_VroomVroom_61
+  - first:
+      213: 7381999813221612713
+    second: GGJ_Monster_VroomVroom_62
+  - first:
+      213: 8192700730314611389
+    second: GGJ_Monster_VroomVroom_63
+  - first:
+      213: 7441303486077247737
+    second: GGJ_Monster_VroomVroom_64
+  - first:
+      213: 5999201024703978140
+    second: GGJ_Monster_VroomVroom_65
+  - first:
+      213: -3598149682214633862
+    second: GGJ_Monster_VroomVroom_66
+  - first:
+      213: 1617414084403357781
+    second: GGJ_Monster_VroomVroom_67
+  - first:
+      213: 8856523365918483459
+    second: GGJ_Monster_VroomVroom_68
+  - first:
+      213: 4765254002183348689
+    second: GGJ_Monster_VroomVroom_69
+  - first:
+      213: 6942317739622100853
+    second: GGJ_Monster_VroomVroom_70
+  - first:
+      213: -8274827810711547119
+    second: GGJ_Monster_VroomVroom_71
+  - first:
+      213: -9168721340834219610
+    second: GGJ_Monster_VroomVroom_72
+  - first:
+      213: 431932637493233994
+    second: GGJ_Monster_VroomVroom_73
+  - first:
+      213: -2817528144254433793
+    second: GGJ_Monster_VroomVroom_74
+  - first:
+      213: -5828251998935792839
+    second: GGJ_Monster_VroomVroom_75
+  - first:
+      213: -5953967926541982769
+    second: GGJ_Monster_VroomVroom_76
+  - first:
+      213: -8265844399767163382
+    second: GGJ_Monster_VroomVroom_77
+  - first:
+      213: 8925826602852309834
+    second: GGJ_Monster_VroomVroom_78
+  - first:
+      213: -973681323761593409
+    second: GGJ_Monster_VroomVroom_79
+  - first:
+      213: 3824174341462128547
+    second: GGJ_Monster_VroomVroom_80
+  - first:
+      213: 146117468616941700
+    second: GGJ_Monster_VroomVroom_81
+  - first:
+      213: -113572239171691318
+    second: GGJ_Monster_VroomVroom_82
+  - first:
+      213: -186848310935307947
+    second: GGJ_Monster_VroomVroom_83
+  - first:
+      213: -8850125850818052218
+    second: GGJ_Monster_VroomVroom_84
+  - first:
+      213: 2882456142889674989
+    second: GGJ_Monster_VroomVroom_85
+  - first:
+      213: -1587839150608541913
+    second: GGJ_Monster_VroomVroom_86
+  - first:
+      213: -444997098167180085
+    second: GGJ_Monster_VroomVroom_87
+  - first:
+      213: -6252666533474711984
+    second: GGJ_Monster_VroomVroom_88
+  - first:
+      213: -3194543753504781451
+    second: GGJ_Monster_VroomVroom_89
+  - first:
+      213: -8084546809552433388
+    second: GGJ_Monster_VroomVroom_90
+  - first:
+      213: 2496689163945626821
+    second: GGJ_Monster_VroomVroom_91
+  - first:
+      213: -7180093301311061938
+    second: GGJ_Monster_VroomVroom_92
+  - first:
+      213: -5082603583175249806
+    second: GGJ_Monster_VroomVroom_93
+  - first:
+      213: -3884074304881685370
+    second: GGJ_Monster_VroomVroom_94
+  - first:
+      213: 4079598454409582476
+    second: GGJ_Monster_VroomVroom_95
+  - first:
+      213: -3308857112660690260
+    second: GGJ_Monster_VroomVroom_96
+  - first:
+      213: 5812169649980765319
+    second: GGJ_Monster_VroomVroom_97
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +334,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +364,315 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1040
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e8d2f61282b963a0800000000000000
+      internalID: -6671605101172172574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1040
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3624ab59bcad0acf0800000000000000
+      internalID: -242953811952778653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 831
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6af5cf3d1215f860800000000000000
+      internalID: 7562971066071906923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_3
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 831
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c796a799a1d3dad00800000000000000
+      internalID: 985511077917387132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 622
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4754249ae1768a200800000000000000
+      internalID: 191516365549618548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 622
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7323b71f2fab2f6b0800000000000000
+      internalID: -5263939461846453705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 413
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e7026fdf7bd80a0800000000000000
+      internalID: -6877638754540945840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_7
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 413
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 955d0cc8125ef33a0800000000000000
+      internalID: -6683371389736397479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ae373d2399451c0800000000000000
+      internalID: -4515816082770761202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 204
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52be4e6286500a60800000000000000
+      internalID: 7638200086216749663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 204
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d960617689c49f6e0800000000000000
+      internalID: -1803325958336936291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_11
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 204
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04594eee6228c0f30800000000000000
+      internalID: 4543149227838313792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_12
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 204
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e3b34c4e4bdec280800000000000000
+      internalID: -9021031874243087384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_Monster_VroomVroom_13
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 204
+        width: 200
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34984062aaba24410800000000000000
+      internalID: 1459917976492083523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

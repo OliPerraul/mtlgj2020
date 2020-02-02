@@ -183,6 +183,11 @@ namespace MTLGJ
 
         public void RemoveEnemy(Enemy enemy, bool invaded)
         {
+            if (!invaded)
+            {
+                Game.Instance.Session.Value.ResourcesAmount.Value += 5;
+            }
+
             OnEnemyRemovedHandler?.Invoke(enemy);
             enemy.OnRemovedHandler?.Invoke();
             if (invaded)

@@ -23,6 +23,8 @@ namespace MTLGJ
 
         public Vector2 Axis = new Vector2(0, 0);
 
+        public GameObject wreckage;
+
         public override void Awake()
         {
             base.Awake();
@@ -36,6 +38,7 @@ namespace MTLGJ
             base.ApplyDamage(dmg);
             if (Health.Value == 0)
             {
+                Instantiate(wreckage, this.transform.position, this.transform.rotation);
                 Level.Instance.RemoveEnemy(this, false);
             }
         }

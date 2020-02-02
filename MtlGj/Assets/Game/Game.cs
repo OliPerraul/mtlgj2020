@@ -41,7 +41,6 @@ namespace MTLGJ
         {
             if (lives == 0)
             {
-                Time.timeScale = 0f;
                 SceneManager.LoadScene("gameOver");
 
                 // TODO end the game
