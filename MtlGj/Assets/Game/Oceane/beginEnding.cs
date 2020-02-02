@@ -15,6 +15,7 @@ public class beginEnding : MonoBehaviour
     public void SwitchScene(string Scene)
     {
         SoundManagerScript.PlaySound("magical_1");
+        Time.timeScale = 1.0f;
         this.Scene = Scene;
         change = true;
 
