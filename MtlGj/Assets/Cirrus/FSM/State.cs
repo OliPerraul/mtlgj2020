@@ -39,6 +39,10 @@ namespace Cirrus.FSM
 
         void EndUpdate();
 
+        void BeginFixedUpdate();
+
+        void EndFixedUpdate();
+
         void UpdateDrawGizmos();
 
         void OnMachineDestroyed();                
@@ -125,6 +129,10 @@ namespace Cirrus.FSM
         public virtual void BeginUpdate() { }
 
         public virtual void EndUpdate() { }
+
+        public virtual void BeginFixedUpdate() { }
+
+        public virtual void EndFixedUpdate() { }
 
         public virtual void UpdateDrawGizmos() { }
 

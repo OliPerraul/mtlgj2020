@@ -19,10 +19,10 @@ namespace MTLGJ
         Marching,
         Attack,
         InAttack,
-        Withdraw,
         Idle
     }
 
+    [System.Serializable]
     public abstract class EnemyState : Cirrus.FSM.State
     {
         public override int ID => -1;
@@ -31,12 +31,16 @@ namespace MTLGJ
 
         public EnemyStateMachine StateMachine => (EnemyStateMachine)_context[1];
 
+        [SerializeField]
         protected List<Point> _path;
 
+        [SerializeField]
         protected Vector2Int _finalDestination;
 
+        [SerializeField]
         protected Vector3 _nextDestination;
 
+        [SerializeField]
         protected int _currentPathPositionIndex = 0;
 
         public EnemyState(
@@ -203,6 +207,15 @@ namespace MTLGJ
                         .FromCellToWorldPosition();
             }
 
+
+            //Enemy.isoRenderer.SetDirection((_nextDestination - Enemy.Transform.position).normalized);
+            //Enemy.rbody.MovePosition(npos);
+        }
+
+        public override void BeginFixedUpdate()
+        {
+            base.BeginFixedUpdate();
+
             var npos =
                 Vector3.MoveTowards(
                     Enemy.rbody.position,
@@ -212,6 +225,7 @@ namespace MTLGJ
             Enemy.isoRenderer.SetDirection((_nextDestination - Enemy.Transform.position).normalized);
             Enemy.rbody.MovePosition(npos);
         }
+
 
         public override void BeginUpdate()
         {
@@ -229,6 +243,8 @@ namespace MTLGJ
     public class EnemyStart : EnemyState
     {
         public override int ID => (int)EnemyStateID.Start;
+
+        public override string Name => "Start";
 
         public EnemyStart(
             bool isStart,
@@ -305,8 +321,6 @@ namespace MTLGJ
             if (Enemy.SpriteRenderer.gameObject == null)
                 return;
             
-
-
             iTween.PunchPosition(
                 Enemy.SpriteRenderer.gameObject,
                 Enemy.Transform.position + (_tower.Transform.position - Enemy.Transform.position).normalized * Enemy.AttackRange,
@@ -453,6 +467,8 @@ namespace MTLGJ
     {
         public override int ID => (int)EnemyStateID.Idle;
 
+        public override string Name => "Idle";
+
         public EnemyIdle(
             bool isStart,
             params object[] context) : base(
@@ -468,14 +484,12 @@ namespace MTLGJ
         }
     }
 
-
+    [System.Serializable]
     public class EnemyMarching : EnemyState
     {
         public override int ID => (int)EnemyStateID.Marching;
 
-        private Vector2Int dest;
-
-        //private List<Point> _path = new List<Point>();
+        public override string Name => "Marching";
 
         public override bool OnMaybeArrivedToDestination()
         {
@@ -496,6 +510,11 @@ namespace MTLGJ
 
             return false;
 
+        }
+
+        public override void BeginUpdate()
+        {
+            base.BeginUpdate();
         }
 
         public EnemyMarching(
@@ -554,6 +573,12 @@ namespace MTLGJ
             }
         }
 
+        [SerializeField]
+        private EnemyMarching _marchingState;
+
+        
+        
+
         public override void Awake()
         {
 
@@ -562,8 +587,10 @@ namespace MTLGJ
             _enemy.OnRemovedHandler += OnEnemyRemoved;
             _enemy.OnCollisionEnter2DHandler += x => ((EnemyState)Top).OnCollisionEnter2D(x);
 
+            _marchingState = new EnemyMarching(false, _enemy, this);
+
             Add(new EnemyStart(true, _enemy, this));
-            Add(new EnemyMarching(false, _enemy, this));
+            Add(_marchingState);
             Add(new EnemyAttack(false, _enemy, this));
             Add(new EnemyInAttack(false, _enemy, this));
             Add(new EnemyIdle(false, _enemy, this));
@@ -574,6 +601,11 @@ namespace MTLGJ
         {
             base.Start();
 
+        }
+
+        public override void Update()
+        {
+            base.Update();
         }
     }
 

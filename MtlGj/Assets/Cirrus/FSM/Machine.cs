@@ -155,8 +155,8 @@ namespace Cirrus.FSM
 
             if (Top != null)
             {
-                Top.BeginUpdate();
-                Top.EndUpdate();
+                Top.BeginFixedUpdate();
+                Top.EndFixedUpdate();
             }
         }
 
