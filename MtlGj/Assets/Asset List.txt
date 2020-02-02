@@ -22,7 +22,14 @@ magic tower_fire
 electric tower_fire
 tower_destruction
 tower_smoke
+tower_engineer
 
+Character Sprites:
+char - 8 way
+character_pickup_anim
+character_build_ anim
+enemy_walk
+enemy_die
 
 
 UI Elements:
