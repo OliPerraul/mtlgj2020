@@ -216,6 +216,7 @@ namespace MTLGJ
                 {
                     Level.Instance.RemoveEnemy(Enemy, true);
                     StateMachine.TrySetState(EnemyStateID.Idle);
+                    SoundManagerScript.PlaySound("GameOver");
                     //return true;
                 }
             }

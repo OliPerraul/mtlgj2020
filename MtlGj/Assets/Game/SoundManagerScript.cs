@@ -46,7 +46,7 @@ public class SoundManagerScript : MonoBehaviour {
                 audioSrc.PlayOneShot(magical);
                 break;
             case "Hammer":
-                //audioSrc.PlayOneShot(craft);
+                audioSrc.PlayOneShot(craft);
                 break;
             case "update":
                 audioSrc.PlayOneShot(update);
