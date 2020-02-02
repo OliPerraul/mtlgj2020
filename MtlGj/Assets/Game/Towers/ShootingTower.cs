@@ -41,6 +41,11 @@ namespace MTLGJ
                     BulletDamage++;
                     break;
 
+                case ShootingTowerUpgrade.Homing:
+                    Homing+= 0.1f;
+                    break;
+
+
             }
 
             Level.Value++;
@@ -72,11 +77,12 @@ namespace MTLGJ
 
             set => _detectionRadius.radius = value;
         }
-
-
+        
         public float BulletForce = 4f;
 
         public float BulletDamage = 1f;
+
+        public float Homing = 1f;
 
         [SerializeField]
         public float Frequency = 0.5f;

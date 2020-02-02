@@ -12,6 +12,7 @@ namespace MTLGJ
         BulletForce,
         BulletDamage,
         Frequency,
+        Homing
     }
 
     public enum TowerID
@@ -46,6 +47,7 @@ namespace MTLGJ
                 ShootingTowerUpgrade.BulletForce,
                 ShootingTowerUpgrade.Frequency,
                 ShootingTowerUpgrade.Range,
+                ShootingTowerUpgrade.Homing,
             };
     }
 

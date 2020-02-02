@@ -109,8 +109,7 @@ namespace MTLGJ
             b.SetDir((tg.Transform.position - Tower.Transform.position).normalized);
             b.SetForce(ShootingTower.BulletForce);
             b.SetTarget(tg);
-
-            //rb.AddForce(velocity, ForceMode2D.Impulse);
+            b.SetHoming(ShootingTower.Homing);
         }
 
     }

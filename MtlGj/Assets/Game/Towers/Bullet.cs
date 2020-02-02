@@ -15,6 +15,8 @@ namespace MTLGJ
 
         private Timer _timer = new Timer(start: false);
 
+        private float _homing = 1f;
+
         [SerializeField]
         private float _timeout = 5f;
 
@@ -91,7 +93,11 @@ namespace MTLGJ
             _tg = tg;
 
             _initDist = (_tg.transform.position - transform.position).magnitude;
+        }
 
+        public void SetHoming(float homing)
+        {
+            _homing = homing;
         }
 
         public void Update()
@@ -107,12 +113,14 @@ namespace MTLGJ
 
             if (_tg.gameObject == null)
                 return;
-
-
+        
             var dir = (_tg.transform.position - transform.position);
 
-            float w1 = _initDist == 0 ? 0 : dir.magnitude / _initDist;
-            float w2 = 1 - w1;
+            float w1 = _initDist == 0 ?  
+                0 : (dir.magnitude / _initDist) / _homing;
+
+            float w2 = 
+                Mathf.Abs(1 - w1);
         
             transform.Translate(_dir * _force * w1 * Time.smoothDeltaTime);
             transform.Translate(dir.normalized *  _force  * w2 * Time.smoothDeltaTime);
