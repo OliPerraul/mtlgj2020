@@ -25,7 +25,11 @@ namespace MTLGJ
             new Vector3Int() : 
             Level.Instance.Tilemap.WorldToCell(Transform.position);
 
+        [SerializeField]
+        private Cirrus.Numeric.Range _maxHealth;        
+
         public Cirrus.Events.ObservableValue<float> MaxHealth = new Cirrus.Events.ObservableValue<float>();
+        
         public Cirrus.Events.ObservableValue<float> Health = new Cirrus.Events.ObservableValue<float>();
 
         [SerializeField]
@@ -48,7 +52,10 @@ namespace MTLGJ
 
             MaxHealth.OnValueChangedHandler += OnHealthChanged;
             Health.OnValueChangedHandler += OnHealthChanged;
-            Health = MaxHealth;           
+            //Health = MaxHealth;
+
+            MaxHealth.Value = _maxHealth.Value;
+            Health.Value = MaxHealth.Value;
         }
 
 
@@ -101,7 +108,8 @@ namespace MTLGJ
         // Start is called before the first frame update
         public virtual void Start()
         {
-            
+            if(progressBar != null)
+            progressBar.gameObject.SetActive(false);
         }
 
         // Update is called once per frame

@@ -42,6 +42,13 @@ namespace MTLGJ
             _levelUpTimer.OnTimeLimitHandler += OnLevelUpTimeout;
         }
 
+        public override void Start()
+        {
+            base.Start();
+
+            OnLevelUp(1);
+        }
+
         private void OnLevelUpTimeout()
         {
             _levelUpText.gameObject.SetActive(false);

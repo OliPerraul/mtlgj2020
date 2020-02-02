@@ -8,6 +8,7 @@ namespace MTLGJ
 {
     public class Session
     {
+        public GameObject canvas; 
         [SerializeField]
         public Cirrus.Events.ObservableInt Lives = new Cirrus.Events.ObservableInt();
 
@@ -33,6 +34,8 @@ namespace MTLGJ
         {
             if (lives == 0)
             {
+                Time.timeScale = 0f;
+                GameObject.Find("CanvasStop").SetActive(true);
                 // TODO end the game
             }
         }
@@ -45,7 +48,7 @@ namespace MTLGJ
         public void OnWaveIndexChanged(int wave)
         {
             RemainingInWave.Value =
-                Wave.Groups.Sum(x => x.Enemies.Count);
+                Wave.Enemies.Count;
         }
     };
 
