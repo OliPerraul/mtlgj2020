@@ -19,16 +19,13 @@ namespace MTLGJ
 
     public abstract class EnemyState : Cirrus.FSM.State
     {
-        public override int ID => -1;//(int)EnemyStateID.Default;
+        public override int ID => -1;
 
         public Enemy Enemy => (Enemy)_context[0];
 
         public EnemyStateMachine StateMachine => (EnemyStateMachine)_context[1];
 
-        private List<Point> _path;//= new List<Point>()
-
-        //[SerializeField]
-        //protected List<NesScripts.Controls.PathFind.Point> _path;
+        private List<Point> _path;
 
         protected Vector2Int _finalDestination;
 
@@ -36,20 +33,13 @@ namespace MTLGJ
 
         protected int _currentPathPositionIndex = 0;
 
-        //protected Timer _timer;
-
-        //public virtual Character Character => _character;
-
-        //private Character _character;
-
-
         public EnemyState(
             bool isStart,
             params object[] context) : base(
             isStart,
             context)
         {
-            //Level.Instance.OnTilemapCellChangedHandler += OnTilemapCellChanged;
+          
         }
 
         public virtual void OnTilemapCellChanged(Vector3Int cellPos, bool walkable)
@@ -172,7 +162,7 @@ namespace MTLGJ
                 {
                     if (tile.ID == TileID.End)
                     {
-                        Level.Instance.Remove(Enemy, true);
+                        Level.Instance.RemoveEnemy(Enemy, true);
                         StateMachine.TrySetState(EnemyStateID.Idle);
                         return;
                     }
@@ -302,15 +292,31 @@ namespace MTLGJ
         [SerializeField]
         private Enemy _enemy;
 
+        
+
+
         public bool prevCelSet = false;
 
         public Vector3Int prevCel = new Vector3Int(-1, -1, -1);
 
         public GGJTile prevTile = null;
 
+        public void OnEnemyRemoved()
+        {
+            if (prevCelSet)
+            {
+                prevCelSet = false;
+
+                Level.Instance.SetCharacterCel(prevCel, false);
+            }
+        }
+
         public override void Awake()
         {
+            
             base.Awake();
+
+            _enemy.OnRemovedHandler += OnEnemyRemoved;
 
             Add(new EnemyStart(true, _enemy, this));
             Add(new EnemyMarching(false, _enemy, this));

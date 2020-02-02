@@ -97,7 +97,10 @@ namespace Cirrus.Events
     }
 
     [System.Serializable]
-    public class ObservableInt : ObservableValue<int> { }
+    public class ObservableInt : ObservableValue<int> {
+        public ObservableInt() : base() { }
+        public ObservableInt(int v) :base(v){ }
+    }
 
     [System.Serializable]
     public class ObservableBool : ObservableValue<bool> { }

@@ -22,9 +22,19 @@ namespace MTLGJ
         public Session()
         {
             Lives.Value = GameResources.Instance.SessionSettings.MaxLives;
+            Lives.OnValueChangedHandler += OnLivedChanged;
             ResourcesAmount.Value = GameResources.Instance.SessionSettings.InitialResourcesAmount;
             Level.Instance.OnEnemyRemovedHandler += OnEneemyDied;
             WaveIndex.OnValueChangedHandler += OnWaveIndexChanged;
+        }
+
+        // TODO OCEANE
+        public void OnLivedChanged(int lives)
+        {
+            if (lives == 0)
+            {
+                // TODO end the game
+            }
         }
 
         public void OnEneemyDied(Enemy en)

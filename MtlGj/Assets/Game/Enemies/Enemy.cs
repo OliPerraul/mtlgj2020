@@ -9,6 +9,8 @@ namespace MTLGJ
 {
     public class Enemy : Character
     {
+        public Cirrus.Events.Event OnRemovedHandler;
+
         public float MoveSpeed = 0.002f;
 
         //Path
@@ -31,7 +33,7 @@ namespace MTLGJ
             Health -= dmg;
             if (Health < 0)
             {
-                Level.Instance.Remove(this, false);
+                Level.Instance.RemoveEnemy(this, false);
                 Health = 0;
                 return;
             }
