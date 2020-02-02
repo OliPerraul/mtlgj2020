@@ -435,6 +435,16 @@ namespace MTLGJ
         {
             base.Enter(args);
 
+            if (Enemy.gameObject == null)
+                return;
+
+
+            if (_target == null)
+                return;
+
+            if (_target.gameObject == null)
+                return;
+
             _target = Level.Instance.TowersEnum.OrderBy(x => (x.Transform.position - Enemy.Transform.position).magnitude).FirstOrDefault();
 
             if (_target == null)
