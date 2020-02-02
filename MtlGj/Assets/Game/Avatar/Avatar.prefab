@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133dcf43b1727be40b40d1ddeb55e875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _origin: {fileID: 708581463829572731}
   progressBar: {fileID: 5832426847788676189}
   Transform: {fileID: 7977355652488247795}
   SpriteRenderer: {fileID: 7977355653364448814}
@@ -239,6 +240,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5275994973226219115, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5423225938513969260, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
@@ -272,3 +278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdabb6774b00054d818f93e87ba72cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &708581463829572731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5275994973226219115, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
+    type: 3}
+  m_PrefabInstance: {fileID: 4678530208458463760}
+  m_PrefabAsset: {fileID: 0}

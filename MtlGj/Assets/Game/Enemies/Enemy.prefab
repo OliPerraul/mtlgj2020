@@ -38,6 +38,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16cf30aa35a9b54cad93dfd253f2372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _origin: {fileID: 8456244938252848259}
   progressBar: {fileID: 3206298710906000549}
   Transform: {fileID: 1313569304561146123}
   SpriteRenderer: {fileID: 1313569305966714582}
@@ -101,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 1338952857050094619, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1338952857050094619, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
         type: 3}
@@ -135,15 +136,25 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 60f0795878c9ade42a4c5052f270cf2e, type: 2}
     - target: {fileID: 3339481644051735614, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3199361219112083253, guid: 8a9107e9595c4074c9dd9128eb268b49,
-        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3339481644051735614, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
         type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
+      propertyPath: m_Size.x
+      value: 0.671875
       objectReference: {fileID: 0}
+    - target: {fileID: 3339481644051735614, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339481644051735614, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3199361219112083253, guid: eaf538c024e62fb449b81fce4dcb0bc3,
+        type: 3}
     - target: {fileID: 3339481645326394338, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
         type: 3}
       propertyPath: m_Name
@@ -270,3 +281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdabb6774b00054d818f93e87ba72cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &8456244938252848259 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5275994973226219115, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
+    type: 3}
+  m_PrefabInstance: {fileID: 4351185936917510888}
+  m_PrefabAsset: {fileID: 0}

@@ -11,6 +11,9 @@ namespace MTLGJ
 
     public class BaseObject : MonoBehaviour
     {
+        [SerializeField]
+        private Transform _origin;
+
 
         public Node Node => Level.Instance.PathindingGrid.GetNode(PathfindPosition.ToVector2Int());
 
@@ -157,8 +160,19 @@ namespace MTLGJ
         // Update is called once per frame
         public virtual void Update()
         {
+
+
             if (SpriteRenderer != null)
+            {
                 SpriteRenderer.sortingOrder = (int)-Transform.position.y;
+
+                if(_origin != null)
+                SpriteRenderer.sortingOrder = (int)-_origin.position.y;
+
+
+            }
+
+            
 
         }
     }
