@@ -8,6 +8,8 @@ namespace MTLGJ
 {
     public class ShopMenu<T> : MonoBehaviour where T : MonoBehaviour
     {
+        public Cirrus.Events.Event<MenuItemEntry> OnItemSelectedHandler;
+
         public List<MenuItemEntry> Entries = new List<MenuItemEntry>();
 
         public MenuItemEntry MenuEntryTemplate;
@@ -42,20 +44,29 @@ namespace MTLGJ
                 Entries[_idx].Selected = false;
             }
 
-            _idx += dir;
+            _idx -= dir;
             _idx = _idx.Mod(Entries.Count);        
 
             if (Entries[_idx])
             {
                 Entries[_idx].Selected = true;
             }
-        }    
+        }
 
 
         public void Update()
         {
             if (!Utils.InMenu)
                 return;
+
+            if (Entries.Count == 0)
+                return;
+
+            if (Input.GetButtonDown("Fire2"))
+            {               
+                OnItemSelectedHandler?.Invoke(Entries[_idx]);
+                return;
+            } 
 
             float verticalInput = Input.GetAxis("Vertical");
 
