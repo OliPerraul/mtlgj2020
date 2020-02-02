@@ -48,6 +48,9 @@ namespace MTLGJ
 
         public Dictionary<Vector3Int, Tower> Towers = new Dictionary<Vector3Int, Tower>();
 
+        public IEnumerable<Tower> TowersEnum => Towers.Values;
+
+
         public void AddTower(Tower tower, Vector3Int pos)
         {
             if(!Towers.TryGetValue(pos, out Tower tow))
@@ -183,11 +186,6 @@ namespace MTLGJ
 
         public void RemoveEnemy(Enemy enemy, bool invaded)
         {
-            if (!invaded)
-            {
-                Game.Instance.Session.Value.ResourcesAmount.Value += 5;
-            }
-
             OnEnemyRemovedHandler?.Invoke(enemy);
             enemy.OnRemovedHandler?.Invoke();
             if (invaded)

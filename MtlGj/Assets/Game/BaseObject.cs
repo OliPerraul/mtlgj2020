@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using Cirrus;
+using Cirrus.Extensions;
+using NesScripts.Controls.PathFind;
+using System.Collections;
 using System.Collections.Generic;
 //using System.Threading;
 using UnityEngine;
@@ -8,6 +11,9 @@ namespace MTLGJ
 
     public class BaseObject : MonoBehaviour
     {
+
+        public Node Node => Level.Instance.PathindingGrid.GetNode(PathfindPosition.ToVector2Int());
+
         [SerializeField]
         public PlayfulSystems.ProgressBar.ProgressBarPro progressBar;
 
@@ -25,6 +31,8 @@ namespace MTLGJ
             new Vector3Int() : 
             Level.Instance.Tilemap.WorldToCell(Transform.position);
 
+        //public Timer OnTimeFlashValid { get; private set; }
+
         [SerializeField]
         private Cirrus.Numeric.Range _maxHealth;        
 
@@ -35,24 +43,36 @@ namespace MTLGJ
         [SerializeField]
         private float _flashTime = 0.2f;
 
+
+
+        private float _flashTimeValid = 2f;
+
+
         [SerializeField]
         private Material _flashMaterial;
 
 
         private Cirrus.Timer _flashTimer;
+
+        private Cirrus.Timer _flashTimerValid;
+
+
         private Material _prevMaterial;
 
         public virtual void Awake()
         {
+            _prevMaterial = SpriteRenderer.material;
             //_flashTimer = new Cirrus.Timer();
             _healthBarTimer = new Cirrus.Timer(start:false);
             _flashTimer = new Cirrus.Timer(start: false);
+            _flashTimerValid = new Cirrus.Timer(start: true, repeat: true);
+            _flashTimerValid.OnTimeLimitHandler += OnTimeFlashValid;
             _healthBarTimer.OnTimeLimitHandler += OnHealthTimeout;
             _flashTimer.OnTimeLimitHandler += OnFlashTimeout;
 
             MaxHealth.OnValueChangedHandler += OnHealthChanged;
             Health.OnValueChangedHandler += OnHealthChanged;
-            //Health = MaxHealth;
+ 
 
             MaxHealth.Value = _maxHealth.Value;
             Health.Value = MaxHealth.Value;
@@ -62,9 +82,10 @@ namespace MTLGJ
         private Cirrus.Timer _healthBarTimer;
         public float _healthbartime = 0.5f;
 
+
+
         public void Flash()
         {
-            _prevMaterial = SpriteRenderer.material;
             SpriteRenderer.material = _flashMaterial;
             _flashTimer.Start(_flashTime);
 
@@ -80,6 +101,21 @@ namespace MTLGJ
             _healthBarTimer.Start(_healthbartime);
             progressBar.SetValue(Health.Value / MaxHealth.Value);
         }
+        public void OnDestroy()
+        {
+            _flashTimer.OnTimeLimitHandler -= OnFlashTimeout;
+            _healthBarTimer.OnTimeLimitHandler -= OnHealthTimeout;
+            _flashTimerValid.OnTimeLimitHandler -= OnTimeFlashValid;
+        }
+
+        public void OnTimeFlashValid()
+        {
+
+            if (SpriteRenderer.material == _flashMaterial)
+            {
+                SpriteRenderer.material = _prevMaterial;
+            }
+        }
 
         public void OnHealthTimeout()
         {
@@ -93,9 +129,7 @@ namespace MTLGJ
                 return;
 
             if (SpriteRenderer.gameObject == null)
-                return;
-
-
+                return;      
 
             SpriteRenderer.material = _prevMaterial;
         }
@@ -123,9 +157,9 @@ namespace MTLGJ
         // Update is called once per frame
         public virtual void Update()
         {
-           // if(SpriteRenderer != null)
-               // SpriteRenderer.sortingOrder = (int)-Transform.position.y;
-           
+            if (SpriteRenderer != null)
+                SpriteRenderer.sortingOrder = (int)-Transform.position.y;
+
         }
     }
 }

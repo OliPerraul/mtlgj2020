@@ -100,8 +100,6 @@ MonoBehaviour:
   avatar: {fileID: 7382590327497878508}
   _buildRange: 1.5
   selectedTowerIndex: 0
-  turretMenu: {fileID: 0}
-  isMenuActive: 0
 --- !u!114 &7382590327497878508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2079923369, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3339481645408498929, guid: 5e2a82902b6ea4c0b9b652322ffadcff,
         type: 3}
       propertyPath: m_Name
