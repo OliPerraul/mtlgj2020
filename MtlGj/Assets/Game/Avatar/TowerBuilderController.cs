@@ -58,6 +58,9 @@ namespace MTLGJ
 
         private GGJTile oldTile;
 
+        public GameObject turretMenu;
+        public bool isMenuActive;
+
         void Update()
         {
             //if()
@@ -180,7 +183,7 @@ namespace MTLGJ
                     Level.Instance.transform);
 
                 //turretMenu.enabled = !isMenuActive;
-                //isMenuActive = !isMenuActive;
+               // isMenuActive = !isMenuActive;
             }
             else { Debug.Log("not enough resources");}
 

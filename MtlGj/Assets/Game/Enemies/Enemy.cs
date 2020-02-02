@@ -48,9 +48,16 @@ namespace MTLGJ
             //inputVector = Vector2.ClampMagnitude(inputVector, 1);
             //Vector2 movement = inputVector * MoveSpeed;
             //Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
-        
+
             //isoRenderer.SetDirection(movement);
             //rbody.MovePosition(newPos);
+            var front =
+             this.Transform.position +
+            isoRenderer.Direction  ;
+
+            var curr = Level.Instance.Tilemap.GetTile(
+                         front.FromWorldToCellPosition());
+            if (curr != null && ((GGJTile)curr).ID == TileID.End) { Destroy(this.gameObject); }
         }
 
         public Vector3 pos;
