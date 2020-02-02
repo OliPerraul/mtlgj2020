@@ -22,41 +22,26 @@ namespace MTLGJ
 
         public Vector2 Axis = new Vector2(0, 0);
 
-        private void Awake()
+        public override void Awake()
         {
+            base.Awake();
+
             rbody = GetComponent<Rigidbody2D>();
             isoRenderer = GetComponentInChildren<IsometricCharacterRenderer>();
         }
 
-        public void ApplyDamage(float dmg)
+        public override void ApplyDamage(float dmg)
         {
-            Health -= dmg;
-            if (Health < 0)
+            base.ApplyDamage(dmg);
+            if (Health.Value == 0)
             {
                 Level.Instance.RemoveEnemy(this, false);
-                Health = 0;
-                return;
             }
-            Flash();
         }
 
-        // Update is called once per frame
         void FixedUpdate()
         {
 
-            //var front =
-            // this.Transform.position +
-            //isoRenderer.Direction  ;
-            //int x = (int)front.x;
-            //int y = (int)front.y;
-            //int z = (int)front.z;
-            //front = new Vector3(x, y, z);
-
-            //var curr = Level.Instance.Tilemap.GetTile(
-            //             front.FromWorldToCellPosition());
-
-            // MOVED TO STATEMACHINE
-            //if (curr != null && ((GGJTile)curr).ID == TileID.End) { Destroy(this.gameObject); }
         }
 
         public Vector3 pos;

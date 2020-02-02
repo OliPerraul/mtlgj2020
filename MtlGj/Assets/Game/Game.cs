@@ -48,7 +48,7 @@ namespace MTLGJ
         public void OnWaveIndexChanged(int wave)
         {
             RemainingInWave.Value =
-                Wave.Groups.Sum(x => x.Enemies.Count);
+                Wave.Enemies.Count;
         }
     };
 

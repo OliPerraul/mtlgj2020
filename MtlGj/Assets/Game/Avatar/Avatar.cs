@@ -14,7 +14,7 @@ namespace MTLGJ
         //[SerializeField] int maxRessources;
         //[SerializeField] int qtyCollected;
 
-        [SerializeField] Text resourceTxt;
+        //[SerializeField] Text resourceTxt;
 
         public override void Update() {
             base.Update();

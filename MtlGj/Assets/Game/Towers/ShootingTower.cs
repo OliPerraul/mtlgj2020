@@ -80,12 +80,12 @@ namespace MTLGJ
 
         [SerializeField]
         public float Frequency = 0.5f;
-    
+  
+        //private Cirrus.Timer _shoottimer = new Cirrus.Timer(repeat: true, start: false);
 
-        private Cirrus.Timer _timer = new Cirrus.Timer(repeat: true, start: false);
-
-        public void Awake()
+        public override void Awake()
         {
+            base.Awake();
 
             //player = GameObject.FindGameObjectWithTag("Player");
         }
@@ -96,14 +96,14 @@ namespace MTLGJ
         {
             base.Update();
 
-            hbar.SetSize(Health);
+            //hbar.SetSize(Health);
 
-            if (Health <= 0)
-            {
+            //if (Health <= 0)
+            //{
                
-                Instantiate(wreckagePrefab, this.transform.position, this.transform.rotation);
-                Destroy(this.gameObject);
-            }
+            //    Instantiate(wreckagePrefab, this.transform.position, this.transform.rotation);
+            //    Destroy(this.gameObject);
+            //}
         }
 
     }

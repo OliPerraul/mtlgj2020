@@ -67,43 +67,16 @@ namespace MTLGJ
 
         public void CloseMenu()
         {
-            //if (_activeMenu != null)
-            {
-                _upgradedTower = null;
-                Utils.InMenu = false;
-                _activeMenu.SetActive(false);
-                _activeMenu = null;
-                return;
-            }
+            _upgradedTower = null;
+            Utils.InMenu = false;
+            _activeMenu.SetActive(false);
+            _activeMenu = null;
+            return;
         }
-
-
-        //public void Upgrade(TowerUpgrade upgr)
-        //{
-        //    if (upgr == TowerUpgrade.Unknown)
-        //        return;
-        //}
-
-        //public void Upgrade(ShootingTowerUpgrade upgr)
-        //{        
-        //    if (upgr == ShootingTowerUpgrade.Unknown)
-        //        return;
-        //}
-
-        //public void Upgrade(TowerUpgrade upgr)
-        //{
-
-        //}
-
 
         private void Start()
         {
-            //rbody = avatar.GetComponent<Rigidbody2D>();
-            // scriptPosition = avatar.GetComponent<IsometricPlayerMovementController>();
-
-            //TODO
             isoRenderer = avatar.GetComponentInChildren<IsometricCharacterRenderer>();
-            //turretMenu.enabled = false;
         }
 
         private bool settile = false;
@@ -111,9 +84,6 @@ namespace MTLGJ
         private Vector3Int oldCellPos = new Vector3Int(-1, -1, -1);
 
         private GGJTile oldTile;
-
-        public GameObject turretMenu;
-        public bool isMenuActive;
 
         private Tower _upgradedTower;
 
