@@ -5,16 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class beginEnding : MonoBehaviour
 {
+
+    private bool change = false;
+    public AudioSource audioSource;
+    private string Scene = "";
+
+   
     // Start is called before the first frame update
-   public void SwitchScene(string Scene)
+    public void SwitchScene(string Scene)
     {
-        SceneManager.LoadScene(Scene);
+        SoundManagerScript.PlaySound("magical_1");
+        this.Scene = Scene;
+        change = true;
+
+
         
        // gameObject.GetComponent<AudioSource>().Play();
     }
+
     public void quit() {
 
+        SoundManagerScript.PlaySound("magical_1");
         Debug.Log("Quit the game");
 		Application.Quit();
 	}
+    void Update(){
+        if(change && !audioSource.isPlaying) { 
+            SceneManager.LoadScene(Scene);
+            change = false;
+        }
+    }
 }

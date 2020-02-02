@@ -8,10 +8,21 @@ namespace MTLGJ
 {
     public class ShootingTower : Tower
     {
+        public override void OpenUpgradMenu()
+        {
+            UpgradeMenu.Instance.OpenShootingTowerUpgrades();
+        }
+
         // TODO make better upgrades (more specific ..??)
 
-        public void Upgrade(ShootingTowerUpgrade upgrade)
+        public override void Upgrade(ShootingTowerUpgrade upgrade)
         {
+            if (upgrade == ShootingTowerUpgrade.Unknown)
+                return;
+
+            if (TakeSufficientFunds(upgrade))
+                return;
+
             switch (upgrade)
             {
                 case ShootingTowerUpgrade.Range:
@@ -31,7 +42,8 @@ namespace MTLGJ
                     break;
 
             }
-            //todo
+
+            Level.Value++;
         }
 
 
@@ -68,12 +80,12 @@ namespace MTLGJ
 
         [SerializeField]
         public float Frequency = 0.5f;
-    
+  
+        //private Cirrus.Timer _shoottimer = new Cirrus.Timer(repeat: true, start: false);
 
-        private Cirrus.Timer _timer = new Cirrus.Timer(repeat: true, start: false);
-
-        public void Awake()
+        public override void Awake()
         {
+            base.Awake();
 
             //player = GameObject.FindGameObjectWithTag("Player");
         }
@@ -84,14 +96,14 @@ namespace MTLGJ
         {
             base.Update();
 
-            hbar.SetSize(Health);
+            //hbar.SetSize(Health);
 
-            if (Health <= 0)
-            {
+            //if (Health <= 0)
+            //{
                
-                Instantiate(wreckagePrefab, this.transform.position, this.transform.rotation);
-                Destroy(this.gameObject);
-            }
+            //    Instantiate(wreckagePrefab, this.transform.position, this.transform.rotation);
+            //    Destroy(this.gameObject);
+            //}
         }
 
     }

@@ -6,32 +6,46 @@ using UnityEngine;
 namespace MTLGJ
 {
 
-    [System.Serializable]
-    public class Group
-    {
-        // If difficuty non neg override wave
-        [SerializeField]
-        public float Difficulty = -1f;
+    //[System.Serializable]
+    //public class Group
+    //{
+    //    // If difficuty non neg override wave
+    //    [SerializeField]
+    //    public float Difficulty = -1f;
 
-        [SerializeField]
-        public float Frequency = 1f;
+    //    [SerializeField]
+    //    public float Frequency = 1f;
 
-        [SerializeField]
-        public float Pause = 1f;
+    //    [SerializeField]
+    //    public float Pause = 1f;
 
-        // TODO random enemy
-        [SerializeField]
-        public List<Enemy> Enemies;
-    }
+    //    // TODO random enemy
+    //    [SerializeField]
+    //    public List<Enemy> Enemies;
+    //}
 
     [System.Serializable]
     public class Wave
     {
+        //[SerializeField]
+        //public float Difficulty = 1f;
+
+        //[SerializeField]
+        //public List<Group> Groups;
+
+        // TODO If difficuty non neg override wave
         [SerializeField]
         public float Difficulty = 1f;
 
         [SerializeField]
-        public List<Group> Groups;
+        public float Frequency = 1f;
+
+        //[SerializeField]
+        //public float Pause = 1f;
+
+        // TODO random enemy
+        [SerializeField]
+        public List<Enemy> Enemies;
     }
 
     [System.Serializable]
@@ -45,6 +59,9 @@ namespace MTLGJ
 
         [SerializeField]
         public int InitialResourcesAmount = 100;
+
+        [SerializeField]
+        public float TimeIntermission = 5f;
 
         [SerializeField]
         public List<Wave> Waves;

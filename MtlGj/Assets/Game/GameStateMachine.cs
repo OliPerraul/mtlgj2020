@@ -69,7 +69,7 @@ namespace MTLGJ
         {
             base.Enter(args);
 
-            Game.Instance.session = new Session();
+            Game.Instance.Session.Value = new Session();
 
             StateMachine.TrySetState(GameStateID.StartRound);
         }
@@ -79,18 +79,26 @@ namespace MTLGJ
     {
         public override int ID => (int)GameStateID.Intermission;
 
+        private Cirrus.Timer _timer = new Cirrus.Timer(start:false);
+
         public Intermission(
             bool isStart,
             params object[] context) : base(
             isStart,
             context)
         {
-
+            _timer.OnTimeLimitHandler += OnIntermissionTimeout;
         }
 
         public override void Enter(params object[] args)
         {
             base.Enter(args);
+            _timer.Start(GameResources.Instance.SessionSettings.TimeIntermission);
+        }
+
+        public void OnIntermissionTimeout()
+        {
+            StateMachine.TrySetState(GameStateID.StartRound);
         }
     }
 
@@ -124,6 +132,8 @@ namespace MTLGJ
             if (CountDown.Instance.Number < -1)
             {
                 _timer.Stop();
+                //Game.Instance.Session.OnValueChangedHandler?.Invoke(Game.Instance.Session.Value);
+                Game.Instance.Session.Value.WaveIndex.Value++;
                 StateMachine.TrySetState(GameStateID.InRound);
             }
         }
@@ -146,20 +156,32 @@ namespace MTLGJ
             _timer.OnTimeLimitHandler += OnTimeout;
         }
 
-        private int _spwnIdx = 0;
+        private int _idx = 0;
 
         public void SpawnNext()
         {
-            _spwnIdx = 0;
-            var en = Game.Instance.session.Wave.Groups[_spwnIdx].Enemies[_spwnIdx];
+            if (_idx >= Game.Instance.Session.Value.Wave.Enemies.Count)
+            {
+                _timer.Stop();
+                StateMachine.TrySetState(GameStateID.Intermission);
+                return;
+            }
+
+            var en = Game.Instance.Session.Value.Wave.Enemies[_idx];
 
             en.Create(
                 Level.Instance.Starts.Random().FromCellToWorldPosition(),
                 Level.Instance.transform);
 
-            _timer.Start(Game.Instance.session.Wave.Groups[_spwnIdx].Frequency);
+            _timer.Start(Game.Instance.Session.Value.Wave.Frequency);
 
-            _spwnIdx++;
+            _idx++;
+
+            if (_idx >= Game.Instance.Session.Value.Wave.Enemies.Count)
+            {
+                _timer.Stop();
+                StateMachine.TrySetState(GameStateID.Intermission);
+            }
         }
 
         public override void Enter(params object[] args)
@@ -172,12 +194,6 @@ namespace MTLGJ
         public void OnTimeout()
         {
             SpawnNext();
-
-            if (_spwnIdx >= Game.Instance.session.Wave.Groups.Count)
-            {
-                _timer.Stop();
-                StateMachine.TrySetState(GameStateID.Intermission);
-            }
         }
     }
 

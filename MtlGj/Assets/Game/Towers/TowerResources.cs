@@ -12,9 +12,6 @@ namespace MTLGJ
         BulletForce,
         BulletDamage,
         Frequency,
-
-        //Numbullet
-
     }
 
     public enum TowerID
@@ -38,7 +35,8 @@ namespace MTLGJ
         public static TowerUpgrade[] TowerUpgrades
             = new TowerUpgrade[]
         {
-            TowerUpgrade.Health
+            TowerUpgrade.Health,
+            TowerUpgrade.MaxHealth
         };
 
         public static ShootingTowerUpgrade[] ShootTowerUpgrades
@@ -55,7 +53,8 @@ namespace MTLGJ
     public enum TowerUpgrade
     {
         Unknown,
-        Health
+        Health,
+        MaxHealth,
     }
 
     public class TowerResources : Cirrus.Resources.BaseResourceManager<TowerResources>
@@ -63,6 +62,9 @@ namespace MTLGJ
         //public 
         public float HealthUpgradeChance = 0.4f;
         public float HealthUpgradeCost = 0.4f;
+
+        public float HealthRepairChance = 0.4f;
+        public float HealthRepairCost = 5f;
 
         public float RangeUpgradeChance = 0.5f;
         public float RangeUpgradeCost = 0.5f;
@@ -157,6 +159,9 @@ namespace MTLGJ
             {
                 default:
                 case TowerUpgrade.Health:
+                    return HealthRepairChance;
+
+                case TowerUpgrade.MaxHealth:
                     return HealthUpgradeChance;
 
                     //case ShootingTowerUpgrade.:
@@ -175,16 +180,38 @@ namespace MTLGJ
             {
                 default:
                 case TowerUpgrade.Health:
+                    return HealthRepairCost;// Chance;
+
+                case TowerUpgrade.MaxHealth:
                     return HealthUpgradeCost;
 
                     //case ShootingTowerUpgrade.:
-                    //    return Shield1BuildCost;
+                    //    return Shield1BuildChance;
 
                     //case ShootingTowerUpgrade.BulletForce:
-                    //    return Shield1BuildCost;
+                    //    return Shield1BuildChance;
 
             }
         }
+
+
+
+        //public float Cost(TowerUpgrade id)
+        //{
+        //    switch (id)
+        //    {
+        //        default:
+        //        case TowerUpgrade.Health:
+        //            return HealthUpgradeCost;
+
+        //            //case ShootingTowerUpgrade.:
+        //            //    return Shield1BuildCost;
+
+        //            //case ShootingTowerUpgrade.BulletForce:
+        //            //    return Shield1BuildCost;
+
+        //    }
+        //}
 
 
 

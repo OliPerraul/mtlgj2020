@@ -28,8 +28,7 @@ namespace MTLGJ
 
             if (avatar != null)
             {
-                //avatar.
-
+                Game.Instance.Session.Value.ResourcesAmount.Value += (int)Value;
                 gameObject.Destroy();
             }
         }
