@@ -165,8 +165,6 @@ namespace MTLGJ
             }
         }
 
-
-
         public float Chance(TowerUpgrade id)
         {
             switch (id)

@@ -20,7 +20,7 @@ namespace MTLGJ
             if (upgrade == ShootingTowerUpgrade.Unknown)
                 return;
 
-            if (TakeSufficientFunds(upgrade))
+            if (!TakeSufficientFunds(upgrade))
                 return;
 
             switch (upgrade)
