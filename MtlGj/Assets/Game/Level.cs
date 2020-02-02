@@ -68,6 +68,8 @@ namespace MTLGJ
             OnTilemapCellChangedHandler?.Invoke(pos, !building);
         }        
         
+
+
         public void SetCharacterCel(Vector3Int pos, bool character)
         {
             if (character)
@@ -167,9 +169,10 @@ namespace MTLGJ
             }
         }
 
-        public void Remove(Enemy enemy, bool invaded)
+        public void RemoveEnemy(Enemy enemy, bool invaded)
         {
             OnEnemyRemovedHandler?.Invoke(enemy);
+            enemy.OnRemovedHandler?.Invoke();
             if (invaded)
             {
                 Game.Instance.Session.Value.Lives.Value--;
