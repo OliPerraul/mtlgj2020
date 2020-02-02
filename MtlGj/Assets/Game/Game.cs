@@ -41,7 +41,7 @@ namespace MTLGJ
         {
             if (lives == 0)
             {
-                SceneManager.LoadScene("gameOver");
+                SceneManager.LoadScene("GOFinal");
 
                 // TODO end the game
             }

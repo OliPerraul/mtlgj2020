@@ -31,7 +31,7 @@ public class beginEnding : MonoBehaviour
 		Application.Quit();
 	}
     void Update(){
-        if(change && !audioSource.isPlaying) { 
+        if(change && !audioSource.isPlaying) {
             SceneManager.LoadScene(Scene);
             change = false;
         }
