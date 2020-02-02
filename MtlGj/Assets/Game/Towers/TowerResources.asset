@@ -32,5 +32,7 @@ MonoBehaviour:
   Shield1BuildCost: 10
   Explosion: {fileID: 1786837674288943345, guid: bf44f4bfe4aab1448afaf7ebb0165f6c,
     type: 3}
+  SmallExplosion: {fileID: 1786837674288943345, guid: 39b077f9baec62f40aeae50c2f819cbd,
+    type: 3}
   Towers:
   - {fileID: 6196386482059151870, guid: 78bd6d08b41cd214b99013d6cd7a72ce, type: 3}
