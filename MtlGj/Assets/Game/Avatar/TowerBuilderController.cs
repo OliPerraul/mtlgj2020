@@ -105,7 +105,8 @@ namespace MTLGJ
 
         private GGJTile oldTile;
 
-        private GameObject _activeMenu;
+        public GameObject turretMenu;
+        public bool isMenuActive;
 
         void Update()
         {
@@ -226,6 +227,10 @@ namespace MTLGJ
 
             Level.Instance.SetBuildingCell(front.FromWorldToCellPosition(), true);
 
+                //turretMenu.enabled = !isMenuActive;
+               // isMenuActive = !isMenuActive;
+            }
+            else { Debug.Log("not enough resources");}
 
             tower.gameObject.Create(
                 front.FromWorldToCellPosition().FromCellToWorldPosition(),
