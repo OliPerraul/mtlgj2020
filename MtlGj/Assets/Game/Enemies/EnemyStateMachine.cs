@@ -207,6 +207,19 @@ namespace MTLGJ
                         .FromCellToWorldPosition();
             }
 
+            var c2 = Enemy.Transform.position.FromWorldToCellPosition();
+            var tile = Level.Instance.Tilemap.GetTile(c2) == null ? null : (GGJTile)Level.Instance.Tilemap.GetTile(c2);
+
+            if (tile != null)
+            {
+                if (tile.ID == TileID.End)
+                {
+                    Level.Instance.RemoveEnemy(Enemy, true);
+                    StateMachine.TrySetState(EnemyStateID.Idle);
+                    //return true;
+                }
+            }
+
 
             //Enemy.isoRenderer.SetDirection((_nextDestination - Enemy.Transform.position).normalized);
             //Enemy.rbody.MovePosition(npos);
@@ -287,6 +300,13 @@ namespace MTLGJ
         {
             _timer = new Cirrus.Timer(start: false, repeat: true);
             _timer.OnTimeLimitHandler += OnTimeouAttackt;
+        }
+
+        public override void OnMachineDestroyed()
+        {
+            base.OnMachineDestroyed();
+            _timer.Stop();
+            _timer.OnTimeLimitHandler -= OnTimeouAttackt;
         }
 
         public void OnTimeouAttackt()

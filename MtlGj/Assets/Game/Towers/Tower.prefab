@@ -269,9 +269,9 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 864092220485138639}
   _maxHealth:
     _min:
-      _float: 0
+      _float: 20
     _max:
-      _float: 0
+      _float: 40
   _flashTime: 0.2
   _flashMaterial: {fileID: 2100000, guid: 4ca0a635b7d9a9f4184cfd872ae18838, type: 2}
   _healthbartime: 0
@@ -290,6 +290,7 @@ MonoBehaviour:
   _detectionRadius: {fileID: 7577480193099592439}
   BulletForce: 4
   BulletDamage: 1
+  Homing: 1
   Frequency: 0.5
 --- !u!1 &5385382906383043765
 GameObject:
@@ -359,7 +360,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1617270837
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_Sprite: {fileID: 5447662681122648720, guid: f2f61d1937451f641b7adf04eebaf782,
     type: 3}
