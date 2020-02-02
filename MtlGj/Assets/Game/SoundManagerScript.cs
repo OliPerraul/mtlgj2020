@@ -10,6 +10,10 @@ public class SoundManagerScript : MonoBehaviour {
 
     public static AudioClip magical;
 
+    public static AudioClip craft;
+
+    public static AudioClip update;
+
     static AudioSource audioSrc;
 
     // Use this for initialization
@@ -20,6 +24,10 @@ public class SoundManagerScript : MonoBehaviour {
         inventor = Resources.Load<AudioClip>("inventor");
 
         magical = Resources.Load<AudioClip>("magical_1");
+
+        craft = Resources.Load<AudioClip>("Hammer");
+
+        update = Resources.Load<AudioClip>("update");
 
         audioSrc = GetComponent<AudioSource>();
 
@@ -36,6 +44,12 @@ public class SoundManagerScript : MonoBehaviour {
                 break;
             case "magical_1":
                 audioSrc.PlayOneShot(magical);
+                break;
+            case "Hammer":
+                audioSrc.PlayOneShot(craft);
+                break;
+            case "update":
+                audioSrc.PlayOneShot(update);
                 break;
 
         }

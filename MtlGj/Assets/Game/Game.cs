@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 namespace MTLGJ
@@ -41,7 +42,8 @@ namespace MTLGJ
             if (lives == 0)
             {
                 Time.timeScale = 0f;
-                GameObject.Find("CanvasStop").SetActive(true);
+                SceneManager.LoadScene("gameOver");
+
                 // TODO end the game
             }
         }

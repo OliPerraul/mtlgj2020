@@ -153,6 +153,7 @@ namespace MTLGJ
                     { 
                         tow.OpenUpgradMenu();
                         _upgradedTower = tow;
+                       
                         _activeMenu = UpgradeMenu.Instance.gameObject;
                         Utils.InMenu = true;
                         return;
@@ -208,6 +209,7 @@ namespace MTLGJ
                 front.FromWorldToCellPosition().FromCellToWorldPosition(),
                 Level.Instance.transform).GetComponent<Tower>();
 
+            SoundManagerScript.PlaySound("Hammer");
             Level.Instance.AddTower(newtow, front.FromWorldToCellPosition());
         }
     }
