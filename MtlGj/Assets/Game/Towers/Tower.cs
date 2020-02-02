@@ -31,8 +31,7 @@ namespace MTLGJ
 
         [SerializeField]
         public ColliderListener Colliderlistener;
-
-
+    
         public override void Awake()
         {
             base.Awake();
@@ -91,8 +90,16 @@ namespace MTLGJ
             if (upgrade == TowerUpgrade.Unknown)
                 return;
 
-            if (TakeSufficientFunds(upgrade))
+            if (!TakeSufficientFunds(upgrade))
                 return;
+
+            if (Cirrus.Numeric.Chance.CheckIsTrue(
+                TowerResources.Instance.Chance(upgrade)
+                ))
+            {
+                Explode();
+                return;
+            }
 
             switch (upgrade)
             {
@@ -106,6 +113,13 @@ namespace MTLGJ
 
             Level.Value++;
         }
+
+        public void Explode()
+        {
+            
+
+        }    
+
 
         public virtual void Upgrade(ShootingTowerUpgrade upgrade)
         {

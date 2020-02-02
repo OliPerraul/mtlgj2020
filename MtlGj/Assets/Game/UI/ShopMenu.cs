@@ -33,7 +33,7 @@ namespace MTLGJ
             }
         }
 
-        private bool _moved = false;
+        //private bool _moved = false;
 
         private int _idx = 0;
 
@@ -53,6 +53,32 @@ namespace MTLGJ
             }
         }
 
+        bool _lastInputAxisState;
+
+        /// <summary>
+        /// Gets the axis input like an on key down event, returning <c>true</c> only 
+        /// on the first press, after this return <c>false</c> until the next press. 
+        /// Only works for axis between 0 (zero) to 1 (one).
+        /// </summary>
+        /// <param name="axisName">Axis name configured on input manager.</param>
+        protected bool GetAxisInputLikeOnKeyDown(string axisName, out float dist)
+        {
+            dist = Input.GetAxis(axisName);
+            var currentInputValue = Mathf.Abs(dist) > 0.1f;
+            //dist = currentInputValue;
+
+            // prevent keep returning true when axis still pressed.
+            if (currentInputValue && _lastInputAxisState)
+            {
+                
+                return false;
+            }
+
+            _lastInputAxisState = currentInputValue;
+
+            return currentInputValue;
+        }
+
 
         public void Update()
         {
@@ -66,20 +92,13 @@ namespace MTLGJ
             {               
                 OnItemSelectedHandler?.Invoke(Entries[_idx]);
                 return;
-            } 
-
-            float verticalInput = Input.GetAxis("Vertical");
-
-            if (verticalInput.IsCloseEnough(0, 0.1f))
-            {
-                _moved = false;
-                return;
             }
-            else if(!_moved)
+
+            if (GetAxisInputLikeOnKeyDown("Vertical", out float val))
             {
-                _moved = true;
-                Scroll((int)Mathf.Sign(verticalInput));
-            }
+                float verticalInput = val;// Input.GetAxis("Vertical")
+                Scroll((int)Mathf.Sign(val));
+            }                         
 
         }
     }
